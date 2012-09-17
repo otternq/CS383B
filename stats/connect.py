@@ -1,3 +1,11 @@
+"""
+Connects to a MongoDB instance and prints each item from a collection
+
+@author Nick Otter <otternq@gmail.com>
+
+- U{The pymongo documentation <http://api.mongodb.org/python/current/api/pymongo/replica_set_connection.html>}
+
+"""
 from pymongo import Connection #Connection makes a connection to a MongoDB instance
 
 DATABASE_HOME = "ds037407-a.mongolab.com" #the host IP address
