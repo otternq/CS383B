@@ -99,7 +99,8 @@ abstract class SocialService extends Service {
     	return array (
     		"Twitter",
     		"GooglePlus",
-            "Facebook"
+            "Facebook",
+            "Reddit"
     	);
     }//END function availableServices
     

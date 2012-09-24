@@ -23,16 +23,17 @@ require_once (BASE_DIR ."/social/socialService.php");
 require_once (BASE_DIR ."/social/googlePlusService.php");
 require_once (BASE_DIR ."/social/twitterService.php");
 require_once (BASE_DIR ."/social/facebookService.php");
+require_once (BASE_DIR ."/social/redditService.php");
 
 require_once (BASE_DIR ."/sentiment/sentiment.php");
 require_once (BASE_DIR ."/sentiment/alchemySentiment.php");
-require_once (BASE_DIR ."/social/redditService.php");
+
 
 
 $sentimentObj = SentimentService::getObject("Alchemy");
 
 $searches = array(
-	"#apple",
+    "#apple",
 	"NASDAQ",
     "google",
     "SuperValu",
@@ -40,7 +41,7 @@ $searches = array(
 );
 
 //search each keyword through each available service
-foreach (SocialService::availableServices() as $service) {
+foreach ( array("Reddit") as $service) {
     
 	//get the next service to be searched
 	$service = SocialService::getObject( $service );
@@ -62,11 +63,8 @@ foreach (SocialService::availableServices() as $service) {
                     $service->getMessage( $data ) 
                 );
                 
-        		//print the entry to the screen
-        		//print_r($data);
-        		
-        		//save the entry
-        		SocialService::save( $service->service, $searchString, $data, $sentiment );
+                print_r($data);
+                print_r($sentiment);
             
             } catch (Exception $e) {
                 echo "Unable to parse and save:\n";

@@ -8,7 +8,7 @@
 /**
  * @ignore
  */
-define("BASE_DIR", "/var/script/getSocialData");
+define("BASE_DIR", "/home/otternq/stock/getSocialData");
 
 /** API Keys */
 define("ALCHEMY_KEY_FILE", BASE_DIR . "/AlchemyAPIKey.txt");
