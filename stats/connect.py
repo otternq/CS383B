@@ -21,5 +21,22 @@ db.authenticate(DATABASE_USERNAME, DATABASE_PASSWORD) #authenticate to the datab
 
 messages = db.messages #specify the collection to use
 
-for message in messages.find(): #do the following for each item in the collection
-	print message #print the item
+score = 0
+poscount = 0
+negcount = 0
+neutcount = 0
+
+#   message = messages.find( { }, { "sentiment.response.docSentiment.type", "sentiment.response.docSentiment.score"} )
+
+for item in messages.find( { }, { "sentiment.response.docSentiment.type", "sentiment.response.docSentiment.score"} ): #do the following for each item in the collection
+    if item['sentiment']['response']['docSentiment']['type'] == 'positive':
+        poscount += 1
+        score += float(item['sentiment']['response']['docSentiment']['score'])
+    elif item['sentiment']['response']['docSentiment']['type'] == 'negative':
+        negcount += 1
+        score += float(item['sentiment']['response']['docSentiment']['score'])
+    elif item['sentiment']['response']['docSentiment']['type'] == 'neutral':
+        neutcount += 1
+
+print "positive responses: ", poscount, ".  Negative responses: ", negcount, "."
+print "Average score: ", score/(neutcount + poscount + negcount)
