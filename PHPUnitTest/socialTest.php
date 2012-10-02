@@ -180,16 +180,35 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
        
        Thanks -Nick */
     
-    
-    public function subTestRetrieveMessagesGooglePlus( $data ) {
+    /**
+     * A sub test for testGetData, checks to see that the response from google+ is correct
+     *
+     * @author Nick Otter <otternq@gmail.com>
+     *
+     * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     */
+    public function subTestRetrieveMessagesGooglePlus( $message ) {
+        
+        $debug = false;
+        
+        $data = json_decode( $message );
+        
+        // (expected, actual) checks to see the the items variable is an array
+        $this->assertInternalType( "array", $data->items );
+        
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        $this->assertGreaterThan( 0, count( $data->items ) );
+        
+        debug( $data, $debug );
         
     }
     
     
-    public function subTestRetrieveMessagesFacebook( $data ) {
+    public function subTestRetrieveMessagesFacebook( $message ) {
 	$test = "Hello";
 	}
-    public function subTestRetrieveMessagesReddit( $data ) {}
+    public function subTestRetrieveMessagesReddit( $message ) {}
     
 }
 
