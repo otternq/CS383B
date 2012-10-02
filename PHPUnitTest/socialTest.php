@@ -80,7 +80,9 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     
     public function subTestGetDataTwitter( $data ) {}
     public function subTestGetDataGooglePlus( $data ) {}
-    public function subTestGetDataFacebook( $data ) {}
+    public function subTestGetDataFacebook( $data ) {
+	$test = "Hello";
+	}
     public function subTestGetDataReddit( $data ) {}
     
 }
