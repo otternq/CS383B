@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * The file that tests our code using PHPUnit
+ *
+ * @author Nick Otter <otternq@gmail.com>
+ */
 require_once "../getSocialData/config.php";
 
 require_once 'PHPUnit/Autoload.php';
@@ -16,8 +20,21 @@ require_once (BASE_DIR ."/sentiment/sentiment.php");
 require_once (BASE_DIR ."/sentiment/alchemySentiment.php");
 require_once (BASE_DIR ."/social/redditService.php");
 
+/**
+ * The Social Service Test using PHPUnit
+ *
+ * @author Nick Otter <otternq@gmail.com>
+ *
+ * @package socialStocks
+ * @subpackage UnitTest
+ *
+ * @link http://www.phpunit.de/manual/current/en/ PHPUnit Documentation
+ */
 class SocialServiceTest extends PHPUnit_Framework_TestCase {
     
+    /**
+     * @author Nick Otter <otternq@gmail.com>
+     */
     public function testAvailableServices() {
         
         $this->assertEquals( 
@@ -34,6 +51,8 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     
     /**
      * @depends testAvailableServices
+     *
+     * @author Nick Otter <otternq@gmail.com>
      */
     public function testGetObject() {
         
@@ -49,6 +68,8 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     
     /**
      * @depends testGetObject
+     *
+     * @author Nick Otter <otternq@gmail.com>
      */
     public function testGetData() {
         
