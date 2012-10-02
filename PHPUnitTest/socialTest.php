@@ -106,28 +106,47 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      */
     function testRetrieveMessages() {
         
+        $debug = false;
+        
         //walks through an array provided by the service class
         foreach ( SocialService::availableServices() as $serviceName ) {
             
             //create and assign an object for the current service. I.E. FacebookService
             $serviceObj = SocialService::getObject( $serviceName );
             
-            $dataSet = null;
+            //call a local static method to access the protected function retriveMessages()
+            $method = self::makeMethodPublic( $serviceName ."Service", "retrieveMessages" );
             
-            $dataSet = $serviceObj->getData("apple");
+            //run the new publicly accessable method as if it were a method of the Service Object, passing the paramater apple
+            $message = $method->invoke( $serviceObj, "apple" );
             
-            $this->assertInternalType("array", $dataSet);
+            $this->assertInternalType("string", $message);
             
-            foreach ($dataSet as $data) {
-                
-                $subTest = "subTestGetData". $serviceName;
-                
-                $this->assertInstanceOf("stdClass", $data);
-                
-            }
+            $subTest = "subTestRetrieveMessages". $serviceName;
+            $this->$subTest( $message );
             
+            debug( $message, $debug );
             
         }
+    }
+    
+    /**
+     * Creates a reflection(clone) class/object for the specified class
+     *
+     * @param string $class The class to be reflected
+     * @param string $method The method to be set public
+     */
+    static function makeMethodPublic( $class, $method ) {
+        //create a reflection of the specified class
+        $class = new ReflectionClass( $class );
+        
+        //gets a ReflectionMethod for the specified method
+        $method = $class->getMethod($method);
+        
+        $method->setAccessible(true);
+        
+        //return the method
+        return $method;
     }
     
     /**
@@ -138,9 +157,16 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
      */
     public function subTestRetrieveMessagesTwitter( $message ) {
-        $debug = true;
+        $debug = false;
         
         $data = json_decode( $message );
+        
+        // (expected, actual)
+        $this->assertInternalType( "array", $data->results );
+        
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        $this->assertGreaterThan( 0, count( $data->results ) );
         
         debug( $data, $debug);
         
@@ -150,16 +176,20 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     
        I noticed something wrong with our functions below,
        please see ticket http://184.73.239.62/mantis/view.php?id=3
-       and rename your functions bellow to subTestRetrieveMessages<Service>( $message ),
+       and I renamed your functions bellow to subTestRetrieveMessages<Service>( $message ),
        
        Thanks -Nick */
     
     
-    public function subTestGetDataGooglePlus( $data ) {}
-    public function subTestGetDataFacebook( $data ) {
+    public function subTestRetrieveMessagesGooglePlus( $data ) {
+        
+    }
+    
+    
+    public function subTestRetrieveMessagesFacebook( $data ) {
 	$test = "Hello";
 	}
-    public function subTestGetDataReddit( $data ) {}
+    public function subTestRetrieveMessagesReddit( $data ) {}
     
 }
 
