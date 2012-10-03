@@ -36,7 +36,8 @@ $searches = array(
 	"NASDAQ",
     "google",
     "SuperValu",
-    "Albertsons"
+    "Albertsons",
+    "android"
 );
 
 //search each keyword through each available service
