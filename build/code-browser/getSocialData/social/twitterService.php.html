@@ -30,7 +30,42 @@
                 getSocialData/social/twitterService.php            </div>
 
             <ol class="code"><li id="line_1" class="odd"><span class="lineNumber">&nbsp;1&nbsp;</span><span>
-</span><span class="default">&lt;?php</span><a name="line_1"></a></li><li id="line_2" class="even"><span class="lineNumber">&nbsp;2&nbsp;</span><span class="comment">/**</span><a name="line_2"></a></li><li id="line_3" class="odd"><span class="lineNumber">&nbsp;3&nbsp;</span><span class="comment">&nbsp;*&nbsp;The&nbsp;file&nbsp;containing&nbsp;the&nbsp;Twitter&nbsp;Social&nbsp;Service&nbsp;Class</span><a name="line_3"></a></li><li id="line_4" class="even"><span class="lineNumber">&nbsp;4&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_4"></a></li><li id="line_5" class="odd"><span class="lineNumber">&nbsp;5&nbsp;</span><span class="comment">&nbsp;</span><a name="line_5"></a></li><li id="line_6" class="even"><span class="lineNumber">&nbsp;6&nbsp;</span><span class="comment">/**</span><a name="line_6"></a></li><li id="line_7" class="odd"><span class="lineNumber">&nbsp;7&nbsp;</span><span class="comment">&nbsp;*&nbsp;Sends&nbsp;and&nbsp;parses&nbsp;Twitter&nbsp;API&nbsp;requests</span><a name="line_7"></a></li><li id="line_8" class="even"><span class="lineNumber">&nbsp;8&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_8"></a></li><li id="line_9" class="odd"><span class="lineNumber">&nbsp;9&nbsp;</span><span class="comment">&nbsp;*&nbsp;&lt;p&gt;</span><a name="line_9"></a></li><li id="line_10" class="even"><span class="lineNumber">10&nbsp;</span><span class="comment">&nbsp;*&nbsp;The&nbsp;Twitter&nbsp;Search&nbsp;API&nbsp;currently&nbsp;does&nbsp;not&nbsp;require&nbsp;an&nbsp;API&nbsp;Key,&nbsp;however&nbsp;if&nbsp;user</span><a name="line_10"></a></li><li id="line_11" class="odd"><span class="lineNumber">11&nbsp;</span><span class="comment">&nbsp;*&nbsp;specific&nbsp;timelines&nbsp;need&nbsp;to&nbsp;be&nbsp;searched&nbsp;an&nbsp;API&nbsp;Key&nbsp;will&nbsp;need&nbsp;to&nbsp;be&nbsp;aquired.</span><a name="line_11"></a></li><li id="line_12" class="even"><span class="lineNumber">12&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_12"></a></li><li id="line_13" class="odd"><span class="lineNumber">13&nbsp;</span><span class="comment">&nbsp;*&nbsp;The&nbsp;documentation&nbsp;also&nbsp;mentions&nbsp;frequency&nbsp;limitations&nbsp;(requests&nbsp;per&nbsp;unit&nbsp;of&nbsp;time)</span><a name="line_13"></a></li><li id="line_14" class="even"><span class="lineNumber">14&nbsp;</span><span class="comment">&nbsp;*&nbsp;&lt;/p&gt;</span><a name="line_14"></a></li><li id="line_15" class="odd"><span class="lineNumber">15&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_15"></a></li><li id="line_16" class="even"><span class="lineNumber">16&nbsp;</span><span class="comment">&nbsp;*&nbsp;@author&nbsp;Nick&nbsp;Otter&nbsp;&lt;otternq@gmail.com&gt;</span><a name="line_16"></a></li><li id="line_17" class="odd"><span class="lineNumber">17&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_17"></a></li><li id="line_18" class="even"><span class="lineNumber">18&nbsp;</span><span class="comment">&nbsp;*&nbsp;@package&nbsp;socialStocks</span><a name="line_18"></a></li><li id="line_19" class="odd"><span class="lineNumber">19&nbsp;</span><span class="comment">&nbsp;*&nbsp;@subpackage&nbsp;social</span><a name="line_19"></a></li><li id="line_20" class="even"><span class="lineNumber">20&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_20"></a></li><li id="line_21" class="odd"><span class="lineNumber">21&nbsp;</span><span class="comment">&nbsp;*&nbsp;@link&nbsp;https://dev.twitter.com/docs/api/1/get/search&nbsp;The&nbsp;Twitter&nbsp;Search&nbsp;API&nbsp;Documentation</span><a name="line_21"></a></li><li id="line_22" class="even"><span class="lineNumber">22&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_22"></a></li><li id="line_23" class="odd"><span class="lineNumber">23&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_23"></a></li><li id="line_24" class="even"><span class="lineNumber">24&nbsp;</span><span class="keyword">class&nbsp;</span><span class="default">TwitterService&nbsp;</span><span class="keyword">Extends&nbsp;</span><span class="default">SocialService&nbsp;</span><span class="keyword">{</span><a name="line_24"></a></li><li id="line_25" class="odd"><span class="lineNumber">25&nbsp;</span><a name="line_25"></a></li><li id="line_26" class="even"><span class="lineNumber">26&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_26"></a></li><li id="line_27" class="odd"><span class="lineNumber">27&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;string&nbsp;The&nbsp;service&nbsp;being&nbsp;seached&nbsp;is&nbsp;Twitter</span><a name="line_27"></a></li><li id="line_28" class="even"><span class="lineNumber">28&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_28"></a></li><li id="line_29" class="odd"><span class="lineNumber">29&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;</span><span class="default">$service&nbsp;</span><span class="keyword">=&nbsp;</span><span class="string">"Twitter"</span><span class="keyword">;</span><a name="line_29"></a></li><li id="line_30" class="even"><span class="lineNumber">30&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_30"></a></li><li id="line_31" class="odd"><span class="lineNumber">31&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_31"></a></li><li id="line_32" class="even"><span class="lineNumber">32&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Formulates&nbsp;the&nbsp;REST&nbsp;URI&nbsp;request</span><a name="line_32"></a></li><li id="line_33" class="odd"><span class="lineNumber">33&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_33"></a></li><li id="line_34" class="even"><span class="lineNumber">34&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$format&nbsp;The&nbsp;response&nbsp;format&nbsp;[json/xml]</span><a name="line_34"></a></li><li id="line_35" class="odd"><span class="lineNumber">35&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;array&nbsp;$paramaters&nbsp;The&nbsp;paramaters&nbsp;to&nbsp;be&nbsp;made&nbsp;part&nbsp;of&nbsp;the&nbsp;URI</span><a name="line_35"></a></li><li id="line_36" class="even"><span class="lineNumber">36&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_36"></a></li><li id="line_37" class="odd"><span class="lineNumber">37&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;url</span><a name="line_37"></a></li><li id="line_38" class="even"><span class="lineNumber">38&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_38"></a></li><li id="line_39" title='|
+</span><span class="default">&lt;?php</span><a name="line_1"></a></li><li id="line_2" class="even"><span class="lineNumber">&nbsp;2&nbsp;</span><span class="comment">/**</span><a name="line_2"></a></li><li id="line_3" class="odd"><span class="lineNumber">&nbsp;3&nbsp;</span><span class="comment">&nbsp;*&nbsp;The&nbsp;file&nbsp;containing&nbsp;the&nbsp;Twitter&nbsp;Social&nbsp;Service&nbsp;Class</span><a name="line_3"></a></li><li id="line_4" class="even"><span class="lineNumber">&nbsp;4&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_4"></a></li><li id="line_5" class="odd"><span class="lineNumber">&nbsp;5&nbsp;</span><span class="comment">&nbsp;</span><a name="line_5"></a></li><li id="line_6" class="even"><span class="lineNumber">&nbsp;6&nbsp;</span><span class="comment">/**</span><a name="line_6"></a></li><li id="line_7" class="odd"><span class="lineNumber">&nbsp;7&nbsp;</span><span class="comment">&nbsp;*&nbsp;Sends&nbsp;and&nbsp;parses&nbsp;Twitter&nbsp;API&nbsp;requests</span><a name="line_7"></a></li><li id="line_8" class="even"><span class="lineNumber">&nbsp;8&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_8"></a></li><li id="line_9" class="odd"><span class="lineNumber">&nbsp;9&nbsp;</span><span class="comment">&nbsp;*&nbsp;&lt;p&gt;</span><a name="line_9"></a></li><li id="line_10" class="even"><span class="lineNumber">10&nbsp;</span><span class="comment">&nbsp;*&nbsp;The&nbsp;Twitter&nbsp;Search&nbsp;API&nbsp;currently&nbsp;does&nbsp;not&nbsp;require&nbsp;an&nbsp;API&nbsp;Key,&nbsp;however&nbsp;if&nbsp;user</span><a name="line_10"></a></li><li id="line_11" class="odd"><span class="lineNumber">11&nbsp;</span><span class="comment">&nbsp;*&nbsp;specific&nbsp;timelines&nbsp;need&nbsp;to&nbsp;be&nbsp;searched&nbsp;an&nbsp;API&nbsp;Key&nbsp;will&nbsp;need&nbsp;to&nbsp;be&nbsp;aquired.</span><a name="line_11"></a></li><li id="line_12" class="even"><span class="lineNumber">12&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_12"></a></li><li id="line_13" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Line exceeds 80 characters; contains 84 characters&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">13&nbsp;</span><span class="comment">&nbsp;*&nbsp;The&nbsp;documentation&nbsp;also&nbsp;mentions&nbsp;frequency&nbsp;limitations&nbsp;(requests&nbsp;per&nbsp;unit&nbsp;of&nbsp;time)</span><a name="line_13"></a></li><li id="line_14" class="even"><span class="lineNumber">14&nbsp;</span><span class="comment">&nbsp;*&nbsp;&lt;/p&gt;</span><a name="line_14"></a></li><li id="line_15" class="odd"><span class="lineNumber">15&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_15"></a></li><li id="line_16" class="even"><span class="lineNumber">16&nbsp;</span><span class="comment">&nbsp;*&nbsp;@author&nbsp;Nick&nbsp;Otter&nbsp;&lt;otternq@gmail.com&gt;</span><a name="line_16"></a></li><li id="line_17" class="odd"><span class="lineNumber">17&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_17"></a></li><li id="line_18" class="even"><span class="lineNumber">18&nbsp;</span><span class="comment">&nbsp;*&nbsp;@package&nbsp;socialStocks</span><a name="line_18"></a></li><li id="line_19" class="odd"><span class="lineNumber">19&nbsp;</span><span class="comment">&nbsp;*&nbsp;@subpackage&nbsp;social</span><a name="line_19"></a></li><li id="line_20" class="even"><span class="lineNumber">20&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_20"></a></li><li id="line_21" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Line exceeds 80 characters; contains 91 characters&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">21&nbsp;</span><span class="comment">&nbsp;*&nbsp;@link&nbsp;https://dev.twitter.com/docs/api/1/get/search&nbsp;The&nbsp;Twitter&nbsp;Search&nbsp;API&nbsp;Documentation</span><a name="line_21"></a></li><li id="line_22" class="even"><span class="lineNumber">22&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_22"></a></li><li id="line_23" class="odd"><span class="lineNumber">23&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_23"></a></li><li id="line_24" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace of a class must be on the line after the definition&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">24&nbsp;</span><span class="keyword">class&nbsp;</span><span class="default">TwitterService&nbsp;</span><span class="keyword">Extends&nbsp;</span><span class="default">SocialService&nbsp;</span><span class="keyword">{</span><a name="line_24"></a></li><li id="line_25" class="odd"><span class="lineNumber">25&nbsp;</span><a name="line_25"></a></li><li id="line_26" class="even"><span class="lineNumber">26&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_26"></a></li><li id="line_27" class="odd"><span class="lineNumber">27&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@var&nbsp;string&nbsp;The&nbsp;service&nbsp;being&nbsp;seached&nbsp;is&nbsp;Twitter</span><a name="line_27"></a></li><li id="line_28" class="even"><span class="lineNumber">28&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_28"></a></li><li id="line_29" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">29&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;</span><span class="default">$service&nbsp;</span><span class="keyword">=&nbsp;</span><span class="string">"Twitter"</span><span class="keyword">;</span><a name="line_29"></a></li><li id="line_30" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">30&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_30"></a></li><li id="line_31" class="odd"><span class="lineNumber">31&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_31"></a></li><li id="line_32" class="even"><span class="lineNumber">32&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Formulates&nbsp;the&nbsp;REST&nbsp;URI&nbsp;request</span><a name="line_32"></a></li><li id="line_33" class="odd"><span class="lineNumber">33&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_33"></a></li><li id="line_34" class="even"><span class="lineNumber">34&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$format&nbsp;The&nbsp;response&nbsp;format&nbsp;[json/xml]</span><a name="line_34"></a></li><li id="line_35" class="odd"><span class="lineNumber">35&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;array&nbsp;$paramaters&nbsp;The&nbsp;paramaters&nbsp;to&nbsp;be&nbsp;made&nbsp;part&nbsp;of&nbsp;the&nbsp;URI</span><a name="line_35"></a></li><li id="line_36" class="even"><span class="lineNumber">36&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_36"></a></li><li id="line_37" class="odd"><span class="lineNumber">37&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;url</span><a name="line_37"></a></li><li id="line_38" class="even"><span class="lineNumber">38&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_38"></a></li><li id="line_39" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace should be on a new line&lt;/div&gt;
+                        &lt;/div&gt;
+                        
                         &lt;div class="tooltip"&gt;
                             &lt;div class="title CRAP"&gt;CRAP&lt;/div&gt;
                             &lt;div class="text"&gt;1&lt;/div&gt;
@@ -40,7 +75,32 @@
                             &lt;div class="title CRAP"&gt;CRAP&lt;/div&gt;
                             &lt;div class="text"&gt;1&lt;/div&gt;
                         &lt;/div&gt;
-                        ' class="odd hasIssues moreErrors"><span class="lineNumber">39&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected&nbsp;function&nbsp;</span><span class="default">getSearchUrl&nbsp;</span><span class="keyword">(</span><span class="default">$format</span><span class="keyword">,&nbsp;</span><span class="default">$paramaters&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_39"></a></li><li id="line_40" class="even"><span class="lineNumber">40&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="string">"http://search.twitter.com/search."</span><span class="keyword">.&nbsp;</span><span class="default">$format&nbsp;</span><span class="keyword">.</span><span class="string">"?"</span><span class="keyword">.&nbsp;</span><span class="default">http_build_query</span><span class="keyword">(</span><span class="default">$paramaters</span><span class="keyword">,&nbsp;</span><span class="string">"&amp;"</span><span class="keyword">);</span><a name="line_40"></a></li><li id="line_41" class="odd"><span class="lineNumber">41&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;getSearchUrl</span><a name="line_41"></a></li><li id="line_42" class="even"><span class="lineNumber">42&nbsp;</span><a name="line_42"></a></li><li id="line_43" class="odd"><span class="lineNumber">43&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;/**</span><a name="line_43"></a></li><li id="line_44" class="even"><span class="lineNumber">44&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Retrieves&nbsp;messages&nbsp;from&nbsp;the&nbsp;Twitter&nbsp;Search&nbsp;API</span><a name="line_44"></a></li><li id="line_45" class="odd"><span class="lineNumber">45&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_45"></a></li><li id="line_46" class="even"><span class="lineNumber">46&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;p&gt;</span><a name="line_46"></a></li><li id="line_47" class="odd"><span class="lineNumber">47&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Tells&nbsp;getSearchUrl()&nbsp;the&nbsp;desired&nbsp;response&nbsp;format</span><a name="line_47"></a></li><li id="line_48" class="even"><span class="lineNumber">48&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;language&nbsp;as&nbsp;well&nbsp;as&nbsp;specifying&nbsp;the&nbsp;search&nbsp;phrase</span><a name="line_48"></a></li><li id="line_49" class="odd"><span class="lineNumber">49&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/p&gt;</span><a name="line_49"></a></li><li id="line_50" class="even"><span class="lineNumber">50&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_50"></a></li><li id="line_51" class="odd"><span class="lineNumber">51&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$search&nbsp;The&nbsp;keywords/phrase&nbsp;to&nbsp;be&nbsp;searched&nbsp;for</span><a name="line_51"></a></li><li id="line_52" class="even"><span class="lineNumber">52&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_52"></a></li><li id="line_53" class="odd"><span class="lineNumber">53&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;JSONString</span><a name="line_53"></a></li><li id="line_54" class="even"><span class="lineNumber">54&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_54"></a></li><li id="line_55" title='|
+                        ' class="odd hasIssues moreErrors"><span class="lineNumber">39&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected&nbsp;function&nbsp;</span><span class="default">getSearchUrl&nbsp;</span><span class="keyword">(</span><span class="default">$format</span><span class="keyword">,&nbsp;</span><span class="default">$paramaters&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_39"></a></li><li id="line_40" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Line exceeds 80 characters; contains 98 characters&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues moreErrors"><span class="lineNumber">40&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="string">"http://search.twitter.com/search."</span><span class="keyword">.&nbsp;</span><span class="default">$format&nbsp;</span><span class="keyword">.</span><span class="string">"?"</span><span class="keyword">.&nbsp;</span><span class="default">http_build_query</span><span class="keyword">(</span><span class="default">$paramaters</span><span class="keyword">,&nbsp;</span><span class="string">"&amp;"</span><span class="keyword">);</span><a name="line_40"></a></li><li id="line_41" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">41&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;getSearchUrl</span><a name="line_41"></a></li><li id="line_42" class="even"><span class="lineNumber">42&nbsp;</span><a name="line_42"></a></li><li id="line_43" class="odd"><span class="lineNumber">43&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;/**</span><a name="line_43"></a></li><li id="line_44" class="even"><span class="lineNumber">44&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Retrieves&nbsp;messages&nbsp;from&nbsp;the&nbsp;Twitter&nbsp;Search&nbsp;API</span><a name="line_44"></a></li><li id="line_45" class="odd"><span class="lineNumber">45&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_45"></a></li><li id="line_46" class="even"><span class="lineNumber">46&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;p&gt;</span><a name="line_46"></a></li><li id="line_47" class="odd"><span class="lineNumber">47&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Tells&nbsp;getSearchUrl()&nbsp;the&nbsp;desired&nbsp;response&nbsp;format</span><a name="line_47"></a></li><li id="line_48" class="even"><span class="lineNumber">48&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;language&nbsp;as&nbsp;well&nbsp;as&nbsp;specifying&nbsp;the&nbsp;search&nbsp;phrase</span><a name="line_48"></a></li><li id="line_49" class="odd"><span class="lineNumber">49&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;&lt;/p&gt;</span><a name="line_49"></a></li><li id="line_50" class="even"><span class="lineNumber">50&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_50"></a></li><li id="line_51" class="odd"><span class="lineNumber">51&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$search&nbsp;The&nbsp;keywords/phrase&nbsp;to&nbsp;be&nbsp;searched&nbsp;for</span><a name="line_51"></a></li><li id="line_52" class="even"><span class="lineNumber">52&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_52"></a></li><li id="line_53" class="odd"><span class="lineNumber">53&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;JSONString</span><a name="line_53"></a></li><li id="line_54" class="even"><span class="lineNumber">54&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_54"></a></li><li id="line_55" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace should be on a new line&lt;/div&gt;
+                        &lt;/div&gt;
+                        
                         &lt;div class="tooltip"&gt;
                             &lt;div class="title CRAP"&gt;CRAP&lt;/div&gt;
                             &lt;div class="text"&gt;1&lt;/div&gt;
@@ -50,7 +110,87 @@
                             &lt;div class="title CRAP"&gt;CRAP&lt;/div&gt;
                             &lt;div class="text"&gt;1&lt;/div&gt;
                         &lt;/div&gt;
-                        ' class="odd hasIssues moreErrors"><span class="lineNumber">55&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected&nbsp;function&nbsp;</span><span class="default">retrieveMessages</span><span class="keyword">(&nbsp;</span><span class="default">$search&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_55"></a></li><li id="line_56" class="even"><span class="lineNumber">56&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_56"></a></li><li id="line_57" class="odd"><span class="lineNumber">57&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$url&nbsp;</span><span class="keyword">=&nbsp;&nbsp;</span><span class="default">$this</span><span class="keyword">-&gt;</span><span class="default">getSearchUrl</span><span class="keyword">(</span><a name="line_57"></a></li><li id="line_58" class="even"><span class="lineNumber">58&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string">"json"</span><span class="keyword">,&nbsp;</span><span class="comment">//specify&nbsp;json&nbsp;as&nbsp;the&nbsp;return&nbsp;type</span><a name="line_58"></a></li><li id="line_59" class="odd"><span class="lineNumber">59&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">array&nbsp;(</span><a name="line_59"></a></li><li id="line_60" class="even"><span class="lineNumber">60&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string">"q"&nbsp;</span><span class="keyword">=&gt;&nbsp;</span><span class="default">$search</span><span class="keyword">,</span><a name="line_60"></a></li><li id="line_61" class="odd"><span class="lineNumber">61&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string">"lang"&nbsp;</span><span class="keyword">=&gt;&nbsp;</span><span class="string">"en"&nbsp;</span><span class="comment">//specify&nbsp;the&nbsp;natural&nbsp;language&nbsp;that&nbsp;is&nbsp;expected</span><a name="line_61"></a></li><li id="line_62" class="even"><span class="lineNumber">62&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">)</span><a name="line_62"></a></li><li id="line_63" class="odd"><span class="lineNumber">63&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span><a name="line_63"></a></li><li id="line_64" class="even"><span class="lineNumber">64&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_64"></a></li><li id="line_65" class="odd"><span class="lineNumber">65&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="default">file_get_contents</span><span class="keyword">(&nbsp;</span><span class="default">$url&nbsp;</span><span class="keyword">);</span><a name="line_65"></a></li><li id="line_66" class="even"><span class="lineNumber">66&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;retrieveMessages()</span><a name="line_66"></a></li><li id="line_67" class="odd"><span class="lineNumber">67&nbsp;</span><a name="line_67"></a></li><li id="line_68" class="even"><span class="lineNumber">68&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;/**</span><a name="line_68"></a></li><li id="line_69" class="odd"><span class="lineNumber">69&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Converts&nbsp;the&nbsp;JSON&nbsp;provided&nbsp;by&nbsp;retrieveMessages()&nbsp;to&nbsp;a&nbsp;PHP&nbsp;Object</span><a name="line_69"></a></li><li id="line_70" class="even"><span class="lineNumber">70&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_70"></a></li><li id="line_71" class="odd"><span class="lineNumber">71&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;JSONString&nbsp;$serviceData</span><a name="line_71"></a></li><li id="line_72" class="even"><span class="lineNumber">72&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_72"></a></li><li id="line_73" class="odd"><span class="lineNumber">73&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object&nbsp;The&nbsp;object&nbsp;to&nbsp;be&nbsp;stored</span><a name="line_73"></a></li><li id="line_74" class="even"><span class="lineNumber">74&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_74"></a></li><li id="line_75" title='|
+                        ' class="odd hasIssues moreErrors"><span class="lineNumber">55&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">protected&nbsp;function&nbsp;</span><span class="default">retrieveMessages</span><span class="keyword">(&nbsp;</span><span class="default">$search&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_55"></a></li><li id="line_56" class="even"><span class="lineNumber">56&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_56"></a></li><li id="line_57" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">57&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$url&nbsp;</span><span class="keyword">=&nbsp;&nbsp;</span><span class="default">$this</span><span class="keyword">-&gt;</span><span class="default">getSearchUrl</span><span class="keyword">(</span><a name="line_57"></a></li><li id="line_58" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Multi-line function call not indented correctly; expected 6 spaces but found 3&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues moreErrors"><span class="lineNumber">58&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string">"json"</span><span class="keyword">,&nbsp;</span><span class="comment">//specify&nbsp;json&nbsp;as&nbsp;the&nbsp;return&nbsp;type</span><a name="line_58"></a></li><li id="line_59" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Multi-line function call not indented correctly; expected 6 spaces but found 3&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues moreErrors"><span class="lineNumber">59&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">array&nbsp;(</span><a name="line_59"></a></li><li id="line_60" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">60&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string">"q"&nbsp;</span><span class="keyword">=&gt;&nbsp;</span><span class="default">$search</span><span class="keyword">,</span><a name="line_60"></a></li><li id="line_61" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">61&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="string">"lang"&nbsp;</span><span class="keyword">=&gt;&nbsp;</span><span class="string">"en"&nbsp;</span><span class="comment">//specify&nbsp;the&nbsp;natural&nbsp;language&nbsp;that&nbsp;is&nbsp;expected</span><a name="line_61"></a></li><li id="line_62" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">62&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">)</span><a name="line_62"></a></li><li id="line_63" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">63&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</span><a name="line_63"></a></li><li id="line_64" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">64&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_64"></a></li><li id="line_65" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space after opening parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space before closing parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues moreErrors"><span class="lineNumber">65&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="default">file_get_contents</span><span class="keyword">(&nbsp;</span><span class="default">$url&nbsp;</span><span class="keyword">);</span><a name="line_65"></a></li><li id="line_66" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">66&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;retrieveMessages()</span><a name="line_66"></a></li><li id="line_67" class="odd"><span class="lineNumber">67&nbsp;</span><a name="line_67"></a></li><li id="line_68" class="even"><span class="lineNumber">68&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;/**</span><a name="line_68"></a></li><li id="line_69" class="odd"><span class="lineNumber">69&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Converts&nbsp;the&nbsp;JSON&nbsp;provided&nbsp;by&nbsp;retrieveMessages()&nbsp;to&nbsp;a&nbsp;PHP&nbsp;Object</span><a name="line_69"></a></li><li id="line_70" class="even"><span class="lineNumber">70&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_70"></a></li><li id="line_71" class="odd"><span class="lineNumber">71&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;JSONString&nbsp;$serviceData</span><a name="line_71"></a></li><li id="line_72" class="even"><span class="lineNumber">72&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_72"></a></li><li id="line_73" class="odd"><span class="lineNumber">73&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object&nbsp;The&nbsp;object&nbsp;to&nbsp;be&nbsp;stored</span><a name="line_73"></a></li><li id="line_74" class="even"><span class="lineNumber">74&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_74"></a></li><li id="line_75" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace should be on a new line&lt;/div&gt;
+                        &lt;/div&gt;
+                        
                         &lt;div class="tooltip"&gt;
                             &lt;div class="title CRAP"&gt;CRAP&lt;/div&gt;
                             &lt;div class="text"&gt;2&lt;/div&gt;
@@ -62,6 +202,21 @@
                         &lt;/div&gt;
                         ' class="odd hasIssues moreErrors"><span class="lineNumber">75&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;function&nbsp;</span><span class="default">parseData</span><span class="keyword">(&nbsp;</span><span class="default">$serviceData&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_75"></a></li><li id="line_76" class="even"><span class="lineNumber">76&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_76"></a></li><li id="line_77" title='|
                         &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space after opening parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space before closing parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
                             &lt;div class="title Coverage"&gt;Coverage&lt;/div&gt;
                             &lt;div class="text"&gt;Not covered&lt;/div&gt;
                         &lt;/div&gt;
@@ -72,6 +227,11 @@
                         &lt;/div&gt;
                         ' class="odd hasIssues moreErrors"><span class="lineNumber">77&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$serviceData&nbsp;</span><span class="keyword">=&nbsp;</span><span class="default">json_decode</span><span class="keyword">(&nbsp;</span><span class="default">$serviceData&nbsp;</span><span class="keyword">);</span><a name="line_77"></a></li><li id="line_78" title='|
                         &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
                             &lt;div class="title Coverage"&gt;Coverage&lt;/div&gt;
                             &lt;div class="text"&gt;Not covered&lt;/div&gt;
                         &lt;/div&gt;
@@ -80,7 +240,17 @@
                             &lt;div class="title Coverage"&gt;Coverage&lt;/div&gt;
                             &lt;div class="text"&gt;Not covered&lt;/div&gt;
                         &lt;/div&gt;
-                        ' class="even hasIssues moreErrors"><span class="lineNumber">78&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="default">$serviceData</span><span class="keyword">-&gt;</span><span class="default">results</span><span class="keyword">;</span><a name="line_78"></a></li><li id="line_79" class="odd"><span class="lineNumber">79&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_79"></a></li><li id="line_80" class="even"><span class="lineNumber">80&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//ENd&nbsp;function&nbsp;parseData()</span><a name="line_80"></a></li><li id="line_81" class="odd"><span class="lineNumber">81&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_81"></a></li><li id="line_82" class="even"><span class="lineNumber">82&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;/**</span><a name="line_82"></a></li><li id="line_83" class="odd"><span class="lineNumber">83&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;actual&nbsp;message&nbsp;from&nbsp;the&nbsp;raw&nbsp;data&nbsp;</span><a name="line_83"></a></li><li id="line_84" class="even"><span class="lineNumber">84&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_84"></a></li><li id="line_85" class="odd"><span class="lineNumber">85&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;object&nbsp;$data&nbsp;An&nbsp;element&nbsp;of&nbsp;the&nbsp;array&nbsp;retrieved&nbsp;by&nbsp;getData</span><a name="line_85"></a></li><li id="line_86" class="even"><span class="lineNumber">86&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_86"></a></li><li id="line_87" class="odd"><span class="lineNumber">87&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string&nbsp;The&nbsp;message</span><a name="line_87"></a></li><li id="line_88" class="even"><span class="lineNumber">88&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_88"></a></li><li id="line_89" title='|
+                        ' class="even hasIssues moreErrors"><span class="lineNumber">78&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="default">$serviceData</span><span class="keyword">-&gt;</span><span class="default">results</span><span class="keyword">;</span><a name="line_78"></a></li><li id="line_79" class="odd"><span class="lineNumber">79&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_79"></a></li><li id="line_80" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">80&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//ENd&nbsp;function&nbsp;parseData()</span><a name="line_80"></a></li><li id="line_81" class="odd"><span class="lineNumber">81&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_81"></a></li><li id="line_82" class="even"><span class="lineNumber">82&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;/**</span><a name="line_82"></a></li><li id="line_83" class="odd"><span class="lineNumber">83&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;actual&nbsp;message&nbsp;from&nbsp;the&nbsp;raw&nbsp;data&nbsp;</span><a name="line_83"></a></li><li id="line_84" class="even"><span class="lineNumber">84&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_84"></a></li><li id="line_85" class="odd"><span class="lineNumber">85&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;object&nbsp;$data&nbsp;An&nbsp;element&nbsp;of&nbsp;the&nbsp;array&nbsp;retrieved&nbsp;by&nbsp;getData</span><a name="line_85"></a></li><li id="line_86" class="even"><span class="lineNumber">86&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_86"></a></li><li id="line_87" class="odd"><span class="lineNumber">87&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;string&nbsp;The&nbsp;message</span><a name="line_87"></a></li><li id="line_88" class="even"><span class="lineNumber">88&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_88"></a></li><li id="line_89" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace should be on a new line&lt;/div&gt;
+                        &lt;/div&gt;
+                        
                         &lt;div class="tooltip"&gt;
                             &lt;div class="title CRAP"&gt;CRAP&lt;/div&gt;
                             &lt;div class="text"&gt;2&lt;/div&gt;
@@ -100,7 +270,12 @@
                             &lt;div class="title Coverage"&gt;Coverage&lt;/div&gt;
                             &lt;div class="text"&gt;Not covered&lt;/div&gt;
                         &lt;/div&gt;
-                        ' class="even hasIssues moreErrors"><span class="lineNumber">90&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="default">$data</span><span class="keyword">-&gt;</span><span class="default">text</span><span class="keyword">;</span><a name="line_90"></a></li><li id="line_91" class="odd"><span class="lineNumber">91&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;getMessage</span><a name="line_91"></a></li><li id="line_92" class="even"><span class="lineNumber">92&nbsp;</span><a name="line_92"></a></li><li id="line_93" class="odd"><span class="lineNumber">93&nbsp;</span><span class="keyword">}</span><span class="comment">//END&nbsp;class&nbsp;TwitterService</span><a name="line_93"></a></li><li id="line_94" class="even"><span class="lineNumber">94&nbsp;</span><a name="line_94"></a></li><li id="line_95" class="odd"><span class="lineNumber">95&nbsp;</span><span class="default">?&gt;</span><span>
+                        ' class="even hasIssues moreErrors"><span class="lineNumber">90&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;</span><span class="default">$data</span><span class="keyword">-&gt;</span><span class="default">text</span><span class="keyword">;</span><a name="line_90"></a></li><li id="line_91" class="odd"><span class="lineNumber">91&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;getMessage</span><a name="line_91"></a></li><li id="line_92" class="even"><span class="lineNumber">92&nbsp;</span><a name="line_92"></a></li><li id="line_93" class="odd"><span class="lineNumber">93&nbsp;</span><span class="keyword">}</span><span class="comment">//END&nbsp;class&nbsp;TwitterService</span><a name="line_93"></a></li><li id="line_94" class="even"><span class="lineNumber">94&nbsp;</span><a name="line_94"></a></li><li id="line_95" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;A closing tag is not permitted at the end of a PHP file&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">95&nbsp;</span><span class="default">?&gt;</span><span>
 </span><a name="line_95"></a></li></ol>
             
             <div id="sidebar">
@@ -125,6 +300,671 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_13" onclick="switchLine('line_13')">
+                                13</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_13" onclick="switchLine('line_13'); new Effect.Highlight('line_13-13', {duration: 1.5}); return false">
+                                13</a>
+                            </td>
+                            <td>
+                                <a href="#line_13" onclick="switchLine('line_13'); new Effect.Highlight('line_13-13', {duration: 1.5}); return false">
+                                Line exceeds 80 characters; contains 84 characters</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                warning                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_21" onclick="switchLine('line_21')">
+                                21</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_21" onclick="switchLine('line_21'); new Effect.Highlight('line_21-21', {duration: 1.5}); return false">
+                                21</a>
+                            </td>
+                            <td>
+                                <a href="#line_21" onclick="switchLine('line_21'); new Effect.Highlight('line_21-21', {duration: 1.5}); return false">
+                                Line exceeds 80 characters; contains 91 characters</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                warning                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_24" onclick="switchLine('line_24')">
+                                24</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_24" onclick="switchLine('line_24'); new Effect.Highlight('line_24-24', {duration: 1.5}); return false">
+                                24</a>
+                            </td>
+                            <td>
+                                <a href="#line_24" onclick="switchLine('line_24'); new Effect.Highlight('line_24-24', {duration: 1.5}); return false">
+                                Opening brace of a class must be on the line after the definition</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_29" onclick="switchLine('line_29')">
+                                29</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_29" onclick="switchLine('line_29'); new Effect.Highlight('line_29-29', {duration: 1.5}); return false">
+                                29</a>
+                            </td>
+                            <td>
+                                <a href="#line_29" onclick="switchLine('line_29'); new Effect.Highlight('line_29-29', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_30" onclick="switchLine('line_30')">
+                                30</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_30" onclick="switchLine('line_30'); new Effect.Highlight('line_30-30', {duration: 1.5}); return false">
+                                30</a>
+                            </td>
+                            <td>
+                                <a href="#line_30" onclick="switchLine('line_30'); new Effect.Highlight('line_30-30', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_39" onclick="switchLine('line_39')">
+                                39</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_39" onclick="switchLine('line_39'); new Effect.Highlight('line_39-39', {duration: 1.5}); return false">
+                                39</a>
+                            </td>
+                            <td>
+                                <a href="#line_39" onclick="switchLine('line_39'); new Effect.Highlight('line_39-39', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_39" onclick="switchLine('line_39')">
+                                39</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_39" onclick="switchLine('line_39'); new Effect.Highlight('line_39-39', {duration: 1.5}); return false">
+                                39</a>
+                            </td>
+                            <td>
+                                <a href="#line_39" onclick="switchLine('line_39'); new Effect.Highlight('line_39-39', {duration: 1.5}); return false">
+                                Opening brace should be on a new line</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_40" onclick="switchLine('line_40')">
+                                40</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_40" onclick="switchLine('line_40'); new Effect.Highlight('line_40-40', {duration: 1.5}); return false">
+                                40</a>
+                            </td>
+                            <td>
+                                <a href="#line_40" onclick="switchLine('line_40'); new Effect.Highlight('line_40-40', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_40" onclick="switchLine('line_40')">
+                                40</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_40" onclick="switchLine('line_40'); new Effect.Highlight('line_40-40', {duration: 1.5}); return false">
+                                40</a>
+                            </td>
+                            <td>
+                                <a href="#line_40" onclick="switchLine('line_40'); new Effect.Highlight('line_40-40', {duration: 1.5}); return false">
+                                Line exceeds 80 characters; contains 98 characters</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                warning                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_41" onclick="switchLine('line_41')">
+                                41</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_41" onclick="switchLine('line_41'); new Effect.Highlight('line_41-41', {duration: 1.5}); return false">
+                                41</a>
+                            </td>
+                            <td>
+                                <a href="#line_41" onclick="switchLine('line_41'); new Effect.Highlight('line_41-41', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_55" onclick="switchLine('line_55')">
+                                55</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_55" onclick="switchLine('line_55'); new Effect.Highlight('line_55-55', {duration: 1.5}); return false">
+                                55</a>
+                            </td>
+                            <td>
+                                <a href="#line_55" onclick="switchLine('line_55'); new Effect.Highlight('line_55-55', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_55" onclick="switchLine('line_55')">
+                                55</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_55" onclick="switchLine('line_55'); new Effect.Highlight('line_55-55', {duration: 1.5}); return false">
+                                55</a>
+                            </td>
+                            <td>
+                                <a href="#line_55" onclick="switchLine('line_55'); new Effect.Highlight('line_55-55', {duration: 1.5}); return false">
+                                Opening brace should be on a new line</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_57" onclick="switchLine('line_57')">
+                                57</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_57" onclick="switchLine('line_57'); new Effect.Highlight('line_57-57', {duration: 1.5}); return false">
+                                57</a>
+                            </td>
+                            <td>
+                                <a href="#line_57" onclick="switchLine('line_57'); new Effect.Highlight('line_57-57', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_58" onclick="switchLine('line_58')">
+                                58</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_58" onclick="switchLine('line_58'); new Effect.Highlight('line_58-58', {duration: 1.5}); return false">
+                                58</a>
+                            </td>
+                            <td>
+                                <a href="#line_58" onclick="switchLine('line_58'); new Effect.Highlight('line_58-58', {duration: 1.5}); return false">
+                                Multi-line function call not indented correctly; expected 6 spaces but found 3</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_58" onclick="switchLine('line_58')">
+                                58</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_58" onclick="switchLine('line_58'); new Effect.Highlight('line_58-58', {duration: 1.5}); return false">
+                                58</a>
+                            </td>
+                            <td>
+                                <a href="#line_58" onclick="switchLine('line_58'); new Effect.Highlight('line_58-58', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_59" onclick="switchLine('line_59')">
+                                59</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_59" onclick="switchLine('line_59'); new Effect.Highlight('line_59-59', {duration: 1.5}); return false">
+                                59</a>
+                            </td>
+                            <td>
+                                <a href="#line_59" onclick="switchLine('line_59'); new Effect.Highlight('line_59-59', {duration: 1.5}); return false">
+                                Multi-line function call not indented correctly; expected 6 spaces but found 3</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_59" onclick="switchLine('line_59')">
+                                59</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_59" onclick="switchLine('line_59'); new Effect.Highlight('line_59-59', {duration: 1.5}); return false">
+                                59</a>
+                            </td>
+                            <td>
+                                <a href="#line_59" onclick="switchLine('line_59'); new Effect.Highlight('line_59-59', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_60" onclick="switchLine('line_60')">
+                                60</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_60" onclick="switchLine('line_60'); new Effect.Highlight('line_60-60', {duration: 1.5}); return false">
+                                60</a>
+                            </td>
+                            <td>
+                                <a href="#line_60" onclick="switchLine('line_60'); new Effect.Highlight('line_60-60', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_61" onclick="switchLine('line_61')">
+                                61</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_61" onclick="switchLine('line_61'); new Effect.Highlight('line_61-61', {duration: 1.5}); return false">
+                                61</a>
+                            </td>
+                            <td>
+                                <a href="#line_61" onclick="switchLine('line_61'); new Effect.Highlight('line_61-61', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_62" onclick="switchLine('line_62')">
+                                62</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_62" onclick="switchLine('line_62'); new Effect.Highlight('line_62-62', {duration: 1.5}); return false">
+                                62</a>
+                            </td>
+                            <td>
+                                <a href="#line_62" onclick="switchLine('line_62'); new Effect.Highlight('line_62-62', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_63" onclick="switchLine('line_63')">
+                                63</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_63" onclick="switchLine('line_63'); new Effect.Highlight('line_63-63', {duration: 1.5}); return false">
+                                63</a>
+                            </td>
+                            <td>
+                                <a href="#line_63" onclick="switchLine('line_63'); new Effect.Highlight('line_63-63', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_64" onclick="switchLine('line_64')">
+                                64</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_64" onclick="switchLine('line_64'); new Effect.Highlight('line_64-64', {duration: 1.5}); return false">
+                                64</a>
+                            </td>
+                            <td>
+                                <a href="#line_64" onclick="switchLine('line_64'); new Effect.Highlight('line_64-64', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_65" onclick="switchLine('line_65')">
+                                65</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_65" onclick="switchLine('line_65'); new Effect.Highlight('line_65-65', {duration: 1.5}); return false">
+                                65</a>
+                            </td>
+                            <td>
+                                <a href="#line_65" onclick="switchLine('line_65'); new Effect.Highlight('line_65-65', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_65" onclick="switchLine('line_65')">
+                                65</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_65" onclick="switchLine('line_65'); new Effect.Highlight('line_65-65', {duration: 1.5}); return false">
+                                65</a>
+                            </td>
+                            <td>
+                                <a href="#line_65" onclick="switchLine('line_65'); new Effect.Highlight('line_65-65', {duration: 1.5}); return false">
+                                Space after opening parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_65" onclick="switchLine('line_65')">
+                                65</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_65" onclick="switchLine('line_65'); new Effect.Highlight('line_65-65', {duration: 1.5}); return false">
+                                65</a>
+                            </td>
+                            <td>
+                                <a href="#line_65" onclick="switchLine('line_65'); new Effect.Highlight('line_65-65', {duration: 1.5}); return false">
+                                Space before closing parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_66" onclick="switchLine('line_66')">
+                                66</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_66" onclick="switchLine('line_66'); new Effect.Highlight('line_66-66', {duration: 1.5}); return false">
+                                66</a>
+                            </td>
+                            <td>
+                                <a href="#line_66" onclick="switchLine('line_66'); new Effect.Highlight('line_66-66', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_75" onclick="switchLine('line_75')">
+                                75</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_75" onclick="switchLine('line_75'); new Effect.Highlight('line_75-75', {duration: 1.5}); return false">
+                                75</a>
+                            </td>
+                            <td>
+                                <a href="#line_75" onclick="switchLine('line_75'); new Effect.Highlight('line_75-75', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_75" onclick="switchLine('line_75')">
+                                75</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_75" onclick="switchLine('line_75'); new Effect.Highlight('line_75-75', {duration: 1.5}); return false">
+                                75</a>
+                            </td>
+                            <td>
+                                <a href="#line_75" onclick="switchLine('line_75'); new Effect.Highlight('line_75-75', {duration: 1.5}); return false">
+                                Opening brace should be on a new line</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_77" onclick="switchLine('line_77')">
+                                77</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_77" onclick="switchLine('line_77'); new Effect.Highlight('line_77-77', {duration: 1.5}); return false">
+                                77</a>
+                            </td>
+                            <td>
+                                <a href="#line_77" onclick="switchLine('line_77'); new Effect.Highlight('line_77-77', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_77" onclick="switchLine('line_77')">
+                                77</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_77" onclick="switchLine('line_77'); new Effect.Highlight('line_77-77', {duration: 1.5}); return false">
+                                77</a>
+                            </td>
+                            <td>
+                                <a href="#line_77" onclick="switchLine('line_77'); new Effect.Highlight('line_77-77', {duration: 1.5}); return false">
+                                Space after opening parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_77" onclick="switchLine('line_77')">
+                                77</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_77" onclick="switchLine('line_77'); new Effect.Highlight('line_77-77', {duration: 1.5}); return false">
+                                77</a>
+                            </td>
+                            <td>
+                                <a href="#line_77" onclick="switchLine('line_77'); new Effect.Highlight('line_77-77', {duration: 1.5}); return false">
+                                Space before closing parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_78" onclick="switchLine('line_78')">
+                                78</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_78" onclick="switchLine('line_78'); new Effect.Highlight('line_78-78', {duration: 1.5}); return false">
+                                78</a>
+                            </td>
+                            <td>
+                                <a href="#line_78" onclick="switchLine('line_78'); new Effect.Highlight('line_78-78', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_80" onclick="switchLine('line_80')">
+                                80</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_80" onclick="switchLine('line_80'); new Effect.Highlight('line_80-80', {duration: 1.5}); return false">
+                                80</a>
+                            </td>
+                            <td>
+                                <a href="#line_80" onclick="switchLine('line_80'); new Effect.Highlight('line_80-80', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_89" onclick="switchLine('line_89')">
+                                89</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_89" onclick="switchLine('line_89'); new Effect.Highlight('line_89-89', {duration: 1.5}); return false">
+                                89</a>
+                            </td>
+                            <td>
+                                <a href="#line_89" onclick="switchLine('line_89'); new Effect.Highlight('line_89-89', {duration: 1.5}); return false">
+                                Opening brace should be on a new line</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_95" onclick="switchLine('line_95')">
+                                95</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_95" onclick="switchLine('line_95'); new Effect.Highlight('line_95-95', {duration: 1.5}); return false">
+                                95</a>
+                            </td>
+                            <td>
+                                <a href="#line_95" onclick="switchLine('line_95'); new Effect.Highlight('line_95-95', {duration: 1.5}); return false">
+                                A closing tag is not permitted at the end of a PHP file</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
                         
                         <tr class="Coverage">
                             <td align="center">

@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="1.4.0">
+ <file name="/home/otternq/stock/getSocialData/config.php">
+  <error line="20" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/deamons/testFinancial.php">
+  <error line="3" column="1" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="22" column="30" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="22" column="55" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="24" column="1" severity="error" message="Space before opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeOpenBracket"/>
+  <error line="24" column="1" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="24" column="21" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="24" column="40" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="24" column="42" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/deamons/testReddit.php">
+  <error line="4" column="1" severity="warning" message="Line exceeds 80 characters; contains 85 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="37" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="46" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="47" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="47" column="28" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="47" column="48" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="48" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="50" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="52" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="53" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="53" column="27" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="53" column="50" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="54" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="55" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="56" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="63" column="31" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="63" column="49" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="75" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="77" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="81" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/deamons/testSentiment.php">
+  <error line="18" column="1" severity="error" message="Space before opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeOpenBracket"/>
+  <error line="18" column="1" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="18" column="70" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="22" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/deamons/testService.php">
+  <error line="4" column="1" severity="warning" message="Line exceeds 80 characters; contains 85 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="35" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="36" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="46" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="47" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="47" column="28" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="47" column="48" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="48" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="50" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="52" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="53" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="53" column="27" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="53" column="50" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="54" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="55" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="56" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="63" column="31" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="63" column="49" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="66" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="67" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="68" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="69" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="70" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="70" column="26" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="70" column="84" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="70" column="86" severity="warning" message="Line exceeds 80 characters; contains 85 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="78" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="80" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="84" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/financial/financialService.php">
+  <error line="17" column="49" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="31" column="1" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="46" column="50" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="47" column="25" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="47" column="43" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="50" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="55" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/financial/stocklyticsService.php">
+  <error line="22" column="51" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="33" column="15" severity="error" message="Protected member variable &quot;apiKey&quot; must contain a leading underscore" source="Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="44" column="80" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="67" column="1" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="73" column="48" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="78" column="16" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="79" column="13" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="88" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/sentiment/alchemySentiment.php">
+  <error line="10" column="1" severity="warning" message="Line exceeds 80 characters; contains 101 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="21" column="1" severity="warning" message="Line exceeds 80 characters; contains 89 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="23" column="47" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="36" column="43" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="42" column="22" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="42" column="51" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="45" column="16" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="46" column="26" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="56" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/sentiment/sentiment.php">
+  <error line="17" column="49" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="35" column="50" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="36" column="25" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="36" column="43" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="37" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="39" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="46" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/service/service.php">
+  <error line="14" column="15" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="23" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/social/facebookService.php">
+  <error line="19" column="1" severity="error" message="Line exceeds maximum limit of 120 characters; contains 137 characters" source="Generic.Files.LineLength.MaxExceeded"/>
+  <error line="22" column="45" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="40" column="52" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="42" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="42" column="82" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="43" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="44" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="44" column="10" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="44" column="34" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="46" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="46" column="2" severity="error" message="Closing brace indented incorrectly; expected 4 spaces, found 1" source="PEAR.WhiteSpace.ScopeClosingBrace.Indent"/>
+  <error line="55" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="55" column="44" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="57" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="57" column="18" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="57" column="44" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="58" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="60" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="69" column="41" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="75" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/social/googlePlusService.php">
+  <error line="20" column="1" severity="warning" message="Line exceeds 80 characters; contains 82 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="23" column="47" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="28" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="34" column="15" severity="error" message="Protected member variable &quot;apiKey&quot; must contain a leading underscore" source="Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore"/>
+  <error line="43" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="43" column="45" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="44" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="44" column="108" severity="warning" message="Line exceeds 80 characters; contains 107 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="45" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="58" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="58" column="49" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="59" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="59" column="10" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="59" column="36" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="59" column="58" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="59" column="60" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="60" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="69" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="69" column="44" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="70" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="71" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="71" column="18" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="71" column="44" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="72" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="73" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="74" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="75" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="76" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="77" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="78" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="87" column="41" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="95" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/social/redditService.php">
+  <error line="1" column="1" severity="error" message="End of line character is invalid; expected &quot;\n&quot; but found &quot;\r\n&quot;" source="Generic.Files.LineEndings.InvalidEOLChar"/>
+  <error line="13" column="1" severity="warning" message="Line exceeds 80 characters; contains 81 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="16" column="43" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="26" column="56" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="27" column="86" severity="warning" message="Line exceeds 80 characters; contains 85 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="39" column="23" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="39" column="74" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="41" column="16" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="41" column="40" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="53" column="24" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="53" column="50" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="65" column="41" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="76" column="47" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="82" column="25" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="92" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/social/socialService.php">
+  <error line="19" column="46" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="28" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="37" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="46" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="46" column="44" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="47" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="49" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="50" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="50" column="30" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="50" column="47" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="51" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="53" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="54" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="63" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="63" column="37" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="65" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="65" column="28" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="65" column="54" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="68" column="5" severity="error" message="Closing brace indented incorrectly; expected 1 spaces, found 4" source="PEAR.WhiteSpace.ScopeClosingBrace.Indent"/>
+  <error line="86" column="50" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="87" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="87" column="22" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="87" column="40" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="88" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="90" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="98" column="48" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="99" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="100" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="101" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="104" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="117" column="80" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="119" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="120" column="1" severity="error" message="Multi-line function call not indented correctly; expected 9 spaces but found 12" source="PEAR.Functions.FunctionCallSignature.Indent"/>
+  <error line="121" column="1" severity="error" message="Multi-line function call not indented correctly; expected 5 spaces but found 8" source="PEAR.Functions.FunctionCallSignature.Indent"/>
+  <error line="124" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="127" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="128" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="130" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="130" column="23" severity="error" message="Opening parenthesis of a multi-line function call must be the last content on the line" source="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket"/>
+  <error line="131" column="1" severity="error" message="Multi-line function call not indented correctly; expected 6 spaces but found 3" source="PEAR.Functions.FunctionCallSignature.Indent"/>
+  <error line="131" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="133" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="134" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="135" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="137" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="138" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="144" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+ <file name="/home/otternq/stock/getSocialData/social/twitterService.php">
+  <error line="13" column="1" severity="warning" message="Line exceeds 80 characters; contains 84 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="21" column="1" severity="warning" message="Line exceeds 80 characters; contains 91 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="24" column="44" severity="error" message="Opening brace of a class must be on the line after the definition" source="PEAR.Classes.ClassDeclaration.OpenBraceNewLine"/>
+  <error line="29" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="30" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="39" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="39" column="58" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="40" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="40" column="99" severity="warning" message="Line exceeds 80 characters; contains 98 characters" source="Generic.Files.LineLength.TooLong"/>
+  <error line="41" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="55" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="55" column="49" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="57" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="58" column="1" severity="error" message="Multi-line function call not indented correctly; expected 6 spaces but found 3" source="PEAR.Functions.FunctionCallSignature.Indent"/>
+  <error line="58" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="59" column="1" severity="error" message="Multi-line function call not indented correctly; expected 6 spaces but found 3" source="PEAR.Functions.FunctionCallSignature.Indent"/>
+  <error line="59" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="60" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="61" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="62" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="63" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="64" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="65" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="65" column="10" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="65" column="34" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="66" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="75" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="75" column="44" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="77" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="77" column="18" severity="error" message="Space after opening parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceAfterOpenBracket"/>
+  <error line="77" column="44" severity="error" message="Space before closing parenthesis of function call prohibited" source="PEAR.Functions.FunctionCallSignature.SpaceBeforeCloseBracket"/>
+  <error line="78" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="80" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
+  <error line="89" column="41" severity="error" message="Opening brace should be on a new line" source="Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine"/>
+  <error line="95" column="1" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="Zend.Files.ClosingTag.NotAllowed"/>
+ </file>
+</checkstyle>

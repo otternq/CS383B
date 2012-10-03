@@ -30,8 +30,205 @@
                 getSocialData/financial/financialService.php            </div>
 
             <ol class="code"><li id="line_1" class="odd"><span class="lineNumber">&nbsp;1&nbsp;</span><span>
-</span><span class="default">&lt;?php</span><a name="line_1"></a></li><li id="line_2" class="even"><span class="lineNumber">&nbsp;2&nbsp;</span><span class="comment">/**</span><a name="line_2"></a></li><li id="line_3" class="odd"><span class="lineNumber">&nbsp;3&nbsp;</span><span class="comment">&nbsp;*&nbsp;File&nbsp;that&nbsp;contains&nbsp;the&nbsp;abstract&nbsp;financial&nbsp;service</span><a name="line_3"></a></li><li id="line_4" class="even"><span class="lineNumber">&nbsp;4&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_4"></a></li><li id="line_5" class="odd"><span class="lineNumber">&nbsp;5&nbsp;</span><span class="comment">&nbsp;</span><a name="line_5"></a></li><li id="line_6" class="even"><span class="lineNumber">&nbsp;6&nbsp;</span><span class="comment">/**</span><a name="line_6"></a></li><li id="line_7" class="odd"><span class="lineNumber">&nbsp;7&nbsp;</span><span class="comment">&nbsp;*&nbsp;Describes&nbsp;the&nbsp;expected&nbsp;function&nbsp;of&nbsp;a&nbsp;financial&nbsp;class</span><a name="line_7"></a></li><li id="line_8" class="even"><span class="lineNumber">&nbsp;8&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_8"></a></li><li id="line_9" class="odd"><span class="lineNumber">&nbsp;9&nbsp;</span><span class="comment">&nbsp;*&nbsp;@author&nbsp;Nick&nbsp;Otter&nbsp;&lt;otternq@gmail.com&gt;</span><a name="line_9"></a></li><li id="line_10" class="even"><span class="lineNumber">10&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_10"></a></li><li id="line_11" class="odd"><span class="lineNumber">11&nbsp;</span><span class="comment">&nbsp;*&nbsp;@package&nbsp;socialStocks</span><a name="line_11"></a></li><li id="line_12" class="even"><span class="lineNumber">12&nbsp;</span><span class="comment">&nbsp;*&nbsp;@subpackage&nbsp;financial</span><a name="line_12"></a></li><li id="line_13" class="odd"><span class="lineNumber">13&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_13"></a></li><li id="line_14" class="even"><span class="lineNumber">14&nbsp;</span><span class="comment">&nbsp;*&nbsp;@link&nbsp;http://php.net/abstract&nbsp;documentation&nbsp;for&nbsp;an&nbsp;abstract&nbsp;class</span><a name="line_14"></a></li><li id="line_15" class="odd"><span class="lineNumber">15&nbsp;</span><span class="comment">&nbsp;*&nbsp;@link&nbsp;http://php.net/static&nbsp;documentation&nbsp;for&nbsp;an&nbsp;static&nbsp;method</span><a name="line_15"></a></li><li id="line_16" class="even"><span class="lineNumber">16&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_16"></a></li><li id="line_17" class="odd"><span class="lineNumber">17&nbsp;</span><span class="keyword">abstract&nbsp;class&nbsp;</span><span class="default">FinancialService&nbsp;</span><span class="keyword">extends&nbsp;</span><span class="default">Service&nbsp;</span><span class="keyword">{</span><a name="line_17"></a></li><li id="line_18" class="even"><span class="lineNumber">18&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_18"></a></li><li id="line_19" class="odd"><span class="lineNumber">19&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_19"></a></li><li id="line_20" class="even"><span class="lineNumber">20&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;stock&nbsp;data&nbsp;for&nbsp;the&nbsp;given&nbsp;company&nbsp;and&nbsp;date&nbsp;range</span><a name="line_20"></a></li><li id="line_21" class="odd"><span class="lineNumber">21&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_21"></a></li><li id="line_22" class="even"><span class="lineNumber">22&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$company&nbsp;Stock&nbsp;Code</span><a name="line_22"></a></li><li id="line_23" class="odd"><span class="lineNumber">23&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;int&nbsp;$startDate&nbsp;unix&nbsp;timestamp&nbsp;for&nbsp;the&nbsp;start&nbsp;of&nbsp;the&nbsp;date&nbsp;range</span><a name="line_23"></a></li><li id="line_24" class="even"><span class="lineNumber">24&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;int&nbsp;$endDate&nbsp;unix&nbsp;timestamp&nbsp;for&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;date&nbsp;range</span><a name="line_24"></a></li><li id="line_25" class="odd"><span class="lineNumber">25&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_25"></a></li><li id="line_26" class="even"><span class="lineNumber">26&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object</span><a name="line_26"></a></li><li id="line_27" class="odd"><span class="lineNumber">27&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_27"></a></li><li id="line_28" class="even"><span class="lineNumber">28&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;abstract&nbsp;function&nbsp;</span><span class="default">getHistory</span><span class="keyword">(&nbsp;</span><span class="default">$company</span><span class="keyword">,&nbsp;</span><span class="default">$startDate</span><span class="keyword">,&nbsp;</span><span class="default">$endDate&nbsp;</span><span class="keyword">);</span><a name="line_28"></a></li><li id="line_29" class="odd"><span class="lineNumber">29&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_29"></a></li><li id="line_30" class="even"><span class="lineNumber">30&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_30"></a></li><li id="line_31" class="odd"><span class="lineNumber">31&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Finds&nbsp;information&nbsp;about&nbsp;the&nbsp;company&nbsp;represented&nbsp;by&nbsp;the&nbsp;provided&nbsp;stock&nbsp;code</span><a name="line_31"></a></li><li id="line_32" class="even"><span class="lineNumber">32&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_32"></a></li><li id="line_33" class="odd"><span class="lineNumber">33&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$company&nbsp;Stock&nbsp;Code</span><a name="line_33"></a></li><li id="line_34" class="even"><span class="lineNumber">34&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_34"></a></li><li id="line_35" class="odd"><span class="lineNumber">35&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object</span><a name="line_35"></a></li><li id="line_36" class="even"><span class="lineNumber">36&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_36"></a></li><li id="line_37" class="odd"><span class="lineNumber">37&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;abstract&nbsp;function&nbsp;</span><span class="default">getCompanyData</span><span class="keyword">(&nbsp;</span><span class="default">$company&nbsp;</span><span class="keyword">);</span><a name="line_37"></a></li><li id="line_38" class="even"><span class="lineNumber">38&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_38"></a></li><li id="line_39" class="odd"><span class="lineNumber">39&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_39"></a></li><li id="line_40" class="even"><span class="lineNumber">40&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Create&nbsp;and&nbsp;return&nbsp;an&nbsp;object&nbsp;based&nbsp;on&nbsp;the&nbsp;service&nbsp;requested</span><a name="line_40"></a></li><li id="line_41" class="odd"><span class="lineNumber">41&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_41"></a></li><li id="line_42" class="even"><span class="lineNumber">42&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$service&nbsp;The&nbsp;service&nbsp;to&nbsp;process&nbsp;the&nbsp;text</span><a name="line_42"></a></li><li id="line_43" class="odd"><span class="lineNumber">43&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_43"></a></li><li id="line_44" class="even"><span class="lineNumber">44&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object&nbsp;The&nbsp;object&nbsp;created</span><a name="line_44"></a></li><li id="line_45" class="odd"><span class="lineNumber">45&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_45"></a></li><li id="line_46" class="even"><span class="lineNumber">46&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;static&nbsp;function&nbsp;</span><span class="default">getObject</span><span class="keyword">(&nbsp;</span><span class="default">$service&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_46"></a></li><li id="line_47" class="odd"><span class="lineNumber">47&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$serviceClass&nbsp;</span><span class="keyword">=&nbsp;</span><span class="default">ucwords</span><span class="keyword">(&nbsp;</span><span class="default">$service&nbsp;</span><span class="keyword">)&nbsp;.</span><span class="string">'Service'</span><span class="keyword">;</span><a name="line_47"></a></li><li id="line_48" class="even"><span class="lineNumber">48&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_48"></a></li><li id="line_49" class="odd"><span class="lineNumber">49&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">//returns&nbsp;an&nbsp;object&nbsp;of&nbsp;the&nbsp;class&nbsp;specified&nbsp;by&nbsp;the&nbsp;$serviceClass&nbsp;string</span><a name="line_49"></a></li><li id="line_50" class="even"><span class="lineNumber">50&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return&nbsp;new&nbsp;</span><span class="default">$serviceClass</span><span class="keyword">();</span><a name="line_50"></a></li><li id="line_51" class="odd"><span class="lineNumber">51&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;getObject</span><a name="line_51"></a></li><li id="line_52" class="even"><span class="lineNumber">52&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_52"></a></li><li id="line_53" class="odd"><span class="lineNumber">53&nbsp;</span><span class="keyword">}</span><a name="line_53"></a></li><li id="line_54" class="even"><span class="lineNumber">54&nbsp;</span><a name="line_54"></a></li><li id="line_55" class="odd"><span class="lineNumber">55&nbsp;</span><span class="default">?&gt;</span><span>
+</span><span class="default">&lt;?php</span><a name="line_1"></a></li><li id="line_2" class="even"><span class="lineNumber">&nbsp;2&nbsp;</span><span class="comment">/**</span><a name="line_2"></a></li><li id="line_3" class="odd"><span class="lineNumber">&nbsp;3&nbsp;</span><span class="comment">&nbsp;*&nbsp;File&nbsp;that&nbsp;contains&nbsp;the&nbsp;abstract&nbsp;financial&nbsp;service</span><a name="line_3"></a></li><li id="line_4" class="even"><span class="lineNumber">&nbsp;4&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_4"></a></li><li id="line_5" class="odd"><span class="lineNumber">&nbsp;5&nbsp;</span><span class="comment">&nbsp;</span><a name="line_5"></a></li><li id="line_6" class="even"><span class="lineNumber">&nbsp;6&nbsp;</span><span class="comment">/**</span><a name="line_6"></a></li><li id="line_7" class="odd"><span class="lineNumber">&nbsp;7&nbsp;</span><span class="comment">&nbsp;*&nbsp;Describes&nbsp;the&nbsp;expected&nbsp;function&nbsp;of&nbsp;a&nbsp;financial&nbsp;class</span><a name="line_7"></a></li><li id="line_8" class="even"><span class="lineNumber">&nbsp;8&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_8"></a></li><li id="line_9" class="odd"><span class="lineNumber">&nbsp;9&nbsp;</span><span class="comment">&nbsp;*&nbsp;@author&nbsp;Nick&nbsp;Otter&nbsp;&lt;otternq@gmail.com&gt;</span><a name="line_9"></a></li><li id="line_10" class="even"><span class="lineNumber">10&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_10"></a></li><li id="line_11" class="odd"><span class="lineNumber">11&nbsp;</span><span class="comment">&nbsp;*&nbsp;@package&nbsp;socialStocks</span><a name="line_11"></a></li><li id="line_12" class="even"><span class="lineNumber">12&nbsp;</span><span class="comment">&nbsp;*&nbsp;@subpackage&nbsp;financial</span><a name="line_12"></a></li><li id="line_13" class="odd"><span class="lineNumber">13&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_13"></a></li><li id="line_14" class="even"><span class="lineNumber">14&nbsp;</span><span class="comment">&nbsp;*&nbsp;@link&nbsp;http://php.net/abstract&nbsp;documentation&nbsp;for&nbsp;an&nbsp;abstract&nbsp;class</span><a name="line_14"></a></li><li id="line_15" class="odd"><span class="lineNumber">15&nbsp;</span><span class="comment">&nbsp;*&nbsp;@link&nbsp;http://php.net/static&nbsp;documentation&nbsp;for&nbsp;an&nbsp;static&nbsp;method</span><a name="line_15"></a></li><li id="line_16" class="even"><span class="lineNumber">16&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_16"></a></li><li id="line_17" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace of a class must be on the line after the definition&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">17&nbsp;</span><span class="keyword">abstract&nbsp;class&nbsp;</span><span class="default">FinancialService&nbsp;</span><span class="keyword">extends&nbsp;</span><span class="default">Service&nbsp;</span><span class="keyword">{</span><a name="line_17"></a></li><li id="line_18" class="even"><span class="lineNumber">18&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_18"></a></li><li id="line_19" class="odd"><span class="lineNumber">19&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_19"></a></li><li id="line_20" class="even"><span class="lineNumber">20&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Return&nbsp;stock&nbsp;data&nbsp;for&nbsp;the&nbsp;given&nbsp;company&nbsp;and&nbsp;date&nbsp;range</span><a name="line_20"></a></li><li id="line_21" class="odd"><span class="lineNumber">21&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_21"></a></li><li id="line_22" class="even"><span class="lineNumber">22&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$company&nbsp;Stock&nbsp;Code</span><a name="line_22"></a></li><li id="line_23" class="odd"><span class="lineNumber">23&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;int&nbsp;$startDate&nbsp;unix&nbsp;timestamp&nbsp;for&nbsp;the&nbsp;start&nbsp;of&nbsp;the&nbsp;date&nbsp;range</span><a name="line_23"></a></li><li id="line_24" class="even"><span class="lineNumber">24&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;int&nbsp;$endDate&nbsp;unix&nbsp;timestamp&nbsp;for&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;date&nbsp;range</span><a name="line_24"></a></li><li id="line_25" class="odd"><span class="lineNumber">25&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_25"></a></li><li id="line_26" class="even"><span class="lineNumber">26&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object</span><a name="line_26"></a></li><li id="line_27" class="odd"><span class="lineNumber">27&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_27"></a></li><li id="line_28" class="even"><span class="lineNumber">28&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;abstract&nbsp;function&nbsp;</span><span class="default">getHistory</span><span class="keyword">(&nbsp;</span><span class="default">$company</span><span class="keyword">,&nbsp;</span><span class="default">$startDate</span><span class="keyword">,&nbsp;</span><span class="default">$endDate&nbsp;</span><span class="keyword">);</span><a name="line_28"></a></li><li id="line_29" class="odd"><span class="lineNumber">29&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_29"></a></li><li id="line_30" class="even"><span class="lineNumber">30&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_30"></a></li><li id="line_31" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Line exceeds 80 characters; contains 81 characters&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">31&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Finds&nbsp;information&nbsp;about&nbsp;the&nbsp;company&nbsp;represented&nbsp;by&nbsp;the&nbsp;provided&nbsp;stock&nbsp;code</span><a name="line_31"></a></li><li id="line_32" class="even"><span class="lineNumber">32&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_32"></a></li><li id="line_33" class="odd"><span class="lineNumber">33&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$company&nbsp;Stock&nbsp;Code</span><a name="line_33"></a></li><li id="line_34" class="even"><span class="lineNumber">34&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_34"></a></li><li id="line_35" class="odd"><span class="lineNumber">35&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object</span><a name="line_35"></a></li><li id="line_36" class="even"><span class="lineNumber">36&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_36"></a></li><li id="line_37" class="odd"><span class="lineNumber">37&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;abstract&nbsp;function&nbsp;</span><span class="default">getCompanyData</span><span class="keyword">(&nbsp;</span><span class="default">$company&nbsp;</span><span class="keyword">);</span><a name="line_37"></a></li><li id="line_38" class="even"><span class="lineNumber">38&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_38"></a></li><li id="line_39" class="odd"><span class="lineNumber">39&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span><a name="line_39"></a></li><li id="line_40" class="even"><span class="lineNumber">40&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Create&nbsp;and&nbsp;return&nbsp;an&nbsp;object&nbsp;based&nbsp;on&nbsp;the&nbsp;service&nbsp;requested</span><a name="line_40"></a></li><li id="line_41" class="odd"><span class="lineNumber">41&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_41"></a></li><li id="line_42" class="even"><span class="lineNumber">42&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;$service&nbsp;The&nbsp;service&nbsp;to&nbsp;process&nbsp;the&nbsp;text</span><a name="line_42"></a></li><li id="line_43" class="odd"><span class="lineNumber">43&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span><a name="line_43"></a></li><li id="line_44" class="even"><span class="lineNumber">44&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;object&nbsp;The&nbsp;object&nbsp;created</span><a name="line_44"></a></li><li id="line_45" class="odd"><span class="lineNumber">45&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><a name="line_45"></a></li><li id="line_46" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Opening brace should be on a new line&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">46&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public&nbsp;static&nbsp;function&nbsp;</span><span class="default">getObject</span><span class="keyword">(&nbsp;</span><span class="default">$service&nbsp;</span><span class="keyword">)&nbsp;{</span><a name="line_46"></a></li><li id="line_47" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space after opening parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space before closing parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues moreErrors"><span class="lineNumber">47&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$serviceClass&nbsp;</span><span class="keyword">=&nbsp;</span><span class="default">ucwords</span><span class="keyword">(&nbsp;</span><span class="default">$service&nbsp;</span><span class="keyword">)&nbsp;.</span><span class="string">'Service'</span><span class="keyword">;</span><a name="line_47"></a></li><li id="line_48" class="even"><span class="lineNumber">48&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_48"></a></li><li id="line_49" class="odd"><span class="lineNumber">49&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">//returns&nbsp;an&nbsp;object&nbsp;of&nbsp;the&nbsp;class&nbsp;specified&nbsp;by&nbsp;the&nbsp;$serviceClass&nbsp;string</span><a name="line_49"></a></li><li id="line_50" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Spaces must be used to indent lines; tabs are not allowed&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">50&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">return&nbsp;new&nbsp;</span><span class="default">$serviceClass</span><span class="keyword">();</span><a name="line_50"></a></li><li id="line_51" class="odd"><span class="lineNumber">51&nbsp;</span><span class="keyword">&nbsp;&nbsp;&nbsp;&nbsp;}</span><span class="comment">//END&nbsp;function&nbsp;getObject</span><a name="line_51"></a></li><li id="line_52" class="even"><span class="lineNumber">52&nbsp;</span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;</span><a name="line_52"></a></li><li id="line_53" class="odd"><span class="lineNumber">53&nbsp;</span><span class="keyword">}</span><a name="line_53"></a></li><li id="line_54" class="even"><span class="lineNumber">54&nbsp;</span><a name="line_54"></a></li><li id="line_55" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;A closing tag is not permitted at the end of a PHP file&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="odd hasIssues Checkstyle"><span class="lineNumber">55&nbsp;</span><span class="default">?&gt;</span><span>
 </span><a name="line_55"></a></li></ol>
+            
+            <div id="sidebar">
+                <table cellpadding="3">
+                    <thead>
+                        <tr>
+                            <th width="40px" align="center">
+                                <strong>start</strong>
+                            </th>
+                            <th width="40px" align="center">
+                                <strong>end</strong>
+                            </th>
+                            <th>
+                                <strong>comment</strong>
+                            </th>
+                            <th width="120px">
+                                <strong>type of error</strong>
+                            </th>
+                            <th width="60px">
+                                <strong>severity</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_17" onclick="switchLine('line_17')">
+                                17</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_17" onclick="switchLine('line_17'); new Effect.Highlight('line_17-17', {duration: 1.5}); return false">
+                                17</a>
+                            </td>
+                            <td>
+                                <a href="#line_17" onclick="switchLine('line_17'); new Effect.Highlight('line_17-17', {duration: 1.5}); return false">
+                                Opening brace of a class must be on the line after the definition</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_31" onclick="switchLine('line_31')">
+                                31</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_31" onclick="switchLine('line_31'); new Effect.Highlight('line_31-31', {duration: 1.5}); return false">
+                                31</a>
+                            </td>
+                            <td>
+                                <a href="#line_31" onclick="switchLine('line_31'); new Effect.Highlight('line_31-31', {duration: 1.5}); return false">
+                                Line exceeds 80 characters; contains 81 characters</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                warning                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_46" onclick="switchLine('line_46')">
+                                46</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_46" onclick="switchLine('line_46'); new Effect.Highlight('line_46-46', {duration: 1.5}); return false">
+                                46</a>
+                            </td>
+                            <td>
+                                <a href="#line_46" onclick="switchLine('line_46'); new Effect.Highlight('line_46-46', {duration: 1.5}); return false">
+                                Opening brace should be on a new line</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_47" onclick="switchLine('line_47')">
+                                47</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_47" onclick="switchLine('line_47'); new Effect.Highlight('line_47-47', {duration: 1.5}); return false">
+                                47</a>
+                            </td>
+                            <td>
+                                <a href="#line_47" onclick="switchLine('line_47'); new Effect.Highlight('line_47-47', {duration: 1.5}); return false">
+                                Space after opening parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_47" onclick="switchLine('line_47')">
+                                47</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_47" onclick="switchLine('line_47'); new Effect.Highlight('line_47-47', {duration: 1.5}); return false">
+                                47</a>
+                            </td>
+                            <td>
+                                <a href="#line_47" onclick="switchLine('line_47'); new Effect.Highlight('line_47-47', {duration: 1.5}); return false">
+                                Space before closing parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_50" onclick="switchLine('line_50')">
+                                50</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_50" onclick="switchLine('line_50'); new Effect.Highlight('line_50-50', {duration: 1.5}); return false">
+                                50</a>
+                            </td>
+                            <td>
+                                <a href="#line_50" onclick="switchLine('line_50'); new Effect.Highlight('line_50-50', {duration: 1.5}); return false">
+                                Spaces must be used to indent lines; tabs are not allowed</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_55" onclick="switchLine('line_55')">
+                                55</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_55" onclick="switchLine('line_55'); new Effect.Highlight('line_55-55', {duration: 1.5}); return false">
+                                55</a>
+                            </td>
+                            <td>
+                                <a href="#line_55" onclick="switchLine('line_55'); new Effect.Highlight('line_55-55', {duration: 1.5}); return false">
+                                A closing tag is not permitted at the end of a PHP file</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                                            </tbody>
+                </table>
+            </div>
+            <script type="text/javascript" language="javascript">
+                $(initReview);
+            </script>
                     </div>
     </body>
 </html>

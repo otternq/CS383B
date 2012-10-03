@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1349224787">
-  <project timestamp="1349224787">
+<coverage generated="1349226663">
+  <project timestamp="1349226663">
     <file name="/home/otternq/stock/debug.php">
       <line num="13" type="stmt" count="1"/>
       <line num="14" type="stmt" count="0"/>
