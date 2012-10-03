@@ -119,6 +119,9 @@
             
             <arg value="--target" />
             <arg path="${basedir}/build/api" />
+            
+            <arg value="--template=new-black" />
+            <arg value="--title=SocialStock" />
         </exec>
     </target>
     
