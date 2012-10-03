@@ -25,7 +25,7 @@
             <arg path="${basedir}/getSocialData/autoload.php" />
             <arg value="--template" />
             <arg path="${basedir}/build/src_autoload.php.in" />
-            <arg path="${basedir}/src" />
+            <arg path="${basedir}/getSocialData" />
         </exec>
         
         <exec executable="phpab">

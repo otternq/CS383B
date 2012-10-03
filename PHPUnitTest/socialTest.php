@@ -69,7 +69,8 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
-     * @depends testGetObject
+     * @depends testRetrieveMessages
+     * @large
      *
      * @author Nick Otter <otternq@gmail.com>
      */
@@ -98,6 +99,9 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
+     * @depends testGetObject
+     * @large
+     *
      * Tests to see of the messages were recieved properly
      *
      * <p>This is going to be ticky because the method retrieveMessages() is 
