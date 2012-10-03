@@ -28,7 +28,7 @@ class GooglePlusService extends SocialService
      */
     public $service = "Google Plus";
     
-    public getServiceName() {
+    public function getServiceName() {
         return $this->service;
     }
     

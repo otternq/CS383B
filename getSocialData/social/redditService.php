@@ -20,7 +20,7 @@ class RedditService extends SocialService
     
     public $service = "Reddit";
     
-    public getServiceName() {
+    public function getServiceName() {
         return $this->service;
     }
     

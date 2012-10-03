@@ -26,7 +26,7 @@ class FacebookService extends SocialService
      */
     public $service = "Facebook";
     
-    public getServiceName() {
+    public function getServiceName() {
         return $this->service;
     }
     
