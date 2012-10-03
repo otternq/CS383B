@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="SocialStock" tests="2" assertions="2" failures="0" errors="1" time="0.087432">
-    <testsuite name="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" fullPackage="socialStocks.UnitTest" package="socialStocks" subpackage="UnitTest" tests="2" assertions="2" failures="0" errors="1" time="0.087432">
-      <testcase name="testAvailableServices" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="39" assertions="1" time="0.081306"/>
-      <testcase name="testGetObject" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="58" assertions="1" time="0.006126">
-        <error type="PHPUnit_Framework_Error_Notice">SocialServiceTest::testGetObject
-Use of undefined constant GOOGLEPLUS_API_KEY - assumed 'GOOGLEPLUS_API_KEY'
-
-/home/otternq/stock/getSocialData/social/socialService.php:90
-/home/otternq/stock/PHPUnitTest/socialTest.php:63
-/usr/bin/phpunit:46
-</error>
-      </testcase>
+  <testsuite name="SocialStock" tests="4" assertions="92" failures="0" errors="0" time="8.478032">
+    <testsuite name="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" fullPackage="socialStocks.UnitTest" package="socialStocks" subpackage="UnitTest" tests="4" assertions="92" failures="0" errors="0" time="8.478032">
+      <testcase name="testAvailableServices" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="39" assertions="1" time="0.022122"/>
+      <testcase name="testGetObject" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="58" assertions="4" time="0.006716"/>
+      <testcase name="testGetData" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="76" assertions="79" time="3.184274"/>
+      <testcase name="testRetrieveMessages" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="110" assertions="8" time="5.264920"/>
     </testsuite>
   </testsuite>
 </testsuites>

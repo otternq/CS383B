@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1349235013">
-  <project timestamp="1349235013">
+<coverage generated="1349246010">
+  <project timestamp="1349246010">
     <file name="/home/otternq/stock/PHPUnitTest/autoload.php">
       <line num="6" type="stmt" count="0"/>
       <line num="7" type="stmt" count="0"/>
@@ -15,7 +15,7 @@
     </file>
     <file name="/home/otternq/stock/getSocialData/autoload.php">
       <line num="0" type="stmt" count="2"/>
-      <metrics loc="29" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="30" ncloc="23" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/otternq/stock/getSocialData/service/service.php">
       <class name="Service" namespace="global" fullPackage="socialStocks.service" package="socialStocks" subpackage="service">
@@ -23,27 +23,66 @@
       </class>
       <metrics loc="22" ncloc="8" classes="1" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
+    <file name="/home/otternq/stock/getSocialData/social/facebookService.php">
+      <class name="FacebookService" namespace="global" fullPackage="socialStocks.social" package="socialStocks" subpackage="social">
+        <metrics methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="4" elements="8" coveredelements="6"/>
+      </class>
+      <line num="0" type="stmt" count="1"/>
+      <line num="40" type="method" name="retrieveMessages" crap="1" count="2"/>
+      <line num="42" type="stmt" count="2"/>
+      <line num="44" type="stmt" count="2"/>
+      <line num="55" type="method" name="parseData" crap="1" count="1"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="58" type="stmt" count="1"/>
+      <line num="69" type="method" name="getMessage" crap="2" count="0"/>
+      <line num="70" type="stmt" count="0"/>
+      <metrics loc="74" ncloc="20" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="4" elements="8" coveredelements="6"/>
+    </file>
     <file name="/home/otternq/stock/getSocialData/social/googlePlusService.php">
       <class name="GooglePlusService" namespace="global" fullPackage="socialStocks.social" package="socialStocks" subpackage="social">
-        <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="0" elements="12" coveredelements="0"/>
+        <metrics methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="7" elements="12" coveredelements="10"/>
       </class>
-      <line num="43" type="method" name="getSearchUrl" crap="2" count="0"/>
-      <line num="44" type="stmt" count="0"/>
-      <line num="58" type="method" name="retrieveMessages" crap="2" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="69" type="method" name="parseData" crap="2" count="0"/>
-      <line num="70" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="73" type="stmt" count="0"/>
-      <line num="76" type="stmt" count="0"/>
-      <line num="77" type="stmt" count="0"/>
+      <line num="0" type="stmt" count="1"/>
+      <line num="43" type="method" name="getSearchUrl" crap="1" count="2"/>
+      <line num="44" type="stmt" count="2"/>
+      <line num="58" type="method" name="retrieveMessages" crap="1" count="2"/>
+      <line num="59" type="stmt" count="2"/>
+      <line num="69" type="method" name="parseData" crap="1" count="1"/>
+      <line num="70" type="stmt" count="1"/>
+      <line num="71" type="stmt" count="1"/>
+      <line num="73" type="stmt" count="1"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="77" type="stmt" count="1"/>
       <line num="87" type="method" name="getMessage" crap="2" count="0"/>
       <line num="89" type="stmt" count="0"/>
-      <metrics loc="94" ncloc="25" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="0" elements="12" coveredelements="0"/>
+      <metrics loc="94" ncloc="25" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="7" elements="12" coveredelements="10"/>
+    </file>
+    <file name="/home/otternq/stock/getSocialData/social/redditService.php">
+      <class name="RedditService" namespace="global" fullPackage="socialStocks.social" package="socialStocks" subpackage="social">
+        <metrics methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="10" elements="16" coveredelements="14"/>
+      </class>
+      <line num="0" type="stmt" count="1"/>
+      <line num="26" type="method" name="getSearchUrl" crap="1" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <line num="37" type="method" name="retrieveMessages" crap="1" count="2"/>
+      <line num="39" type="stmt" count="2"/>
+      <line num="41" type="stmt" count="2"/>
+      <line num="51" type="method" name="parseData" crap="1" count="1"/>
+      <line num="53" type="stmt" count="1"/>
+      <line num="55" type="stmt" count="1"/>
+      <line num="65" type="method" name="getMessage" crap="2" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="76" type="method" name="specialStrip" crap="2" count="2"/>
+      <line num="79" type="stmt" count="2"/>
+      <line num="81" type="stmt" count="2"/>
+      <line num="82" type="stmt" count="2"/>
+      <line num="83" type="stmt" count="2"/>
+      <line num="85" type="stmt" count="2"/>
+      <metrics loc="91" ncloc="46" classes="1" methods="5" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="10" elements="16" coveredelements="14"/>
     </file>
     <file name="/home/otternq/stock/getSocialData/social/socialService.php">
       <class name="SocialService" namespace="global" fullPackage="socialStocks.social" package="socialStocks" subpackage="social">
-        <metrics methods="8" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="6" elements="32" coveredelements="8"/>
+        <metrics methods="8" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="8" elements="32" coveredelements="11"/>
       </class>
       <line num="28" type="method" name="retrieveMessages" crap="1" count="0"/>
       <line num="37" type="method" name="parseData" crap="1" count="0"/>
@@ -53,18 +92,18 @@
       <line num="50" type="stmt" count="0"/>
       <line num="51" type="stmt" count="0"/>
       <line num="53" type="stmt" count="0"/>
-      <line num="63" type="method" name="getData" crap="2" count="0"/>
-      <line num="65" type="stmt" count="0"/>
-      <line num="66" type="stmt" count="0"/>
+      <line num="63" type="method" name="getData" crap="1" count="1"/>
+      <line num="65" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="1"/>
       <line num="77" type="method" name="getMessage" crap="1" count="0"/>
-      <line num="86" type="method" name="getObject" crap="1" count="1"/>
-      <line num="87" type="stmt" count="1"/>
-      <line num="90" type="stmt" count="1"/>
-      <line num="98" type="method" name="availableServices" crap="1" count="2"/>
-      <line num="100" type="stmt" count="2"/>
-      <line num="101" type="stmt" count="2"/>
-      <line num="102" type="stmt" count="2"/>
-      <line num="104" type="stmt" count="2"/>
+      <line num="86" type="method" name="getObject" crap="1" count="3"/>
+      <line num="87" type="stmt" count="3"/>
+      <line num="90" type="stmt" count="3"/>
+      <line num="98" type="method" name="availableServices" crap="1" count="4"/>
+      <line num="100" type="stmt" count="4"/>
+      <line num="101" type="stmt" count="4"/>
+      <line num="102" type="stmt" count="4"/>
+      <line num="104" type="stmt" count="4"/>
       <line num="117" type="method" name="save" crap="2" count="0"/>
       <line num="119" type="stmt" count="0"/>
       <line num="121" type="stmt" count="0"/>
@@ -77,29 +116,30 @@
       <line num="135" type="stmt" count="0"/>
       <line num="137" type="stmt" count="0"/>
       <line num="138" type="stmt" count="0"/>
-      <metrics loc="143" ncloc="46" classes="1" methods="5" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="6" elements="29" coveredelements="8"/>
+      <metrics loc="143" ncloc="46" classes="1" methods="5" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="8" elements="29" coveredelements="11"/>
     </file>
     <file name="/home/otternq/stock/getSocialData/social/twitterService.php">
       <class name="TwitterService" namespace="global" fullPackage="socialStocks.social" package="socialStocks" subpackage="social">
-        <metrics methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="14" coveredelements="0"/>
+        <metrics methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="9" elements="14" coveredelements="12"/>
       </class>
-      <line num="40" type="method" name="getSearchUrl" crap="2" count="0"/>
-      <line num="41" type="stmt" count="0"/>
-      <line num="56" type="method" name="retrieveMessages" crap="2" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="63" type="stmt" count="0"/>
-      <line num="64" type="stmt" count="0"/>
-      <line num="66" type="stmt" count="0"/>
-      <line num="76" type="method" name="parseData" crap="2" count="0"/>
-      <line num="78" type="stmt" count="0"/>
-      <line num="79" type="stmt" count="0"/>
+      <line num="0" type="stmt" count="1"/>
+      <line num="40" type="method" name="getSearchUrl" crap="1" count="2"/>
+      <line num="41" type="stmt" count="2"/>
+      <line num="56" type="method" name="retrieveMessages" crap="1" count="2"/>
+      <line num="58" type="stmt" count="2"/>
+      <line num="59" type="stmt" count="2"/>
+      <line num="61" type="stmt" count="2"/>
+      <line num="63" type="stmt" count="2"/>
+      <line num="64" type="stmt" count="2"/>
+      <line num="66" type="stmt" count="2"/>
+      <line num="76" type="method" name="parseData" crap="1" count="1"/>
+      <line num="78" type="stmt" count="1"/>
+      <line num="79" type="stmt" count="1"/>
       <line num="90" type="method" name="getMessage" crap="2" count="0"/>
       <line num="91" type="stmt" count="0"/>
       <line num="97" type="stmt" count="1"/>
-      <metrics loc="96" ncloc="24" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="14" coveredelements="0"/>
+      <metrics loc="96" ncloc="24" classes="1" methods="4" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="9" elements="14" coveredelements="12"/>
     </file>
-    <metrics files="6" loc="401" ncloc="142" classes="4" methods="13" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="51" coveredstatements="6" elements="64" coveredelements="8"/>
+    <metrics files="8" loc="567" ncloc="209" classes="6" methods="21" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="67" coveredstatements="38" elements="88" coveredelements="53"/>
   </project>
 </coverage>
