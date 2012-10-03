@@ -20,12 +20,13 @@
  * @link https://developers.google.com/+/api/latest/ The Google+ API Documentation
  *
  */
-class GooglePlusService Extends SocialService {
+class GooglePlusService extends SocialService 
+{
 
     /**
      * @var string The service being seached is Google+
      */
-	public $service = "Google Plus";
+    public $service = "Google Plus";
     
     /**
      * @ignore
@@ -40,8 +41,9 @@ class GooglePlusService Extends SocialService {
      *
      * @return url
      */
-	protected function getSearchUrl( $search ) {
-		return "https://www.googleapis.com/plus/v1/activities?query=+".urlencode($search)."&key=". $this->apiKey;
+    protected function getSearchUrl( $search ) 
+    {
+	    return "https://www.googleapis.com/plus/v1/activities?query=+".urlencode($search)."&key=". $this->apiKey;
 	}//END function getSearchUrl()
 
     /**
@@ -55,9 +57,10 @@ class GooglePlusService Extends SocialService {
      *
      * @return JSONString
      */
-	protected function retrieveMessages( $search ) {
-		return file_get_contents( $this->getSearchUrl( $search ) );
-	}//END function retrieveMessages
+    protected function retrieveMessages( $search ) 
+    {
+        return file_get_contents( $this->getSearchUrl( $search ) );
+    }//END function retrieveMessages
 
     /**
      * Converts the JSON provided by retrieveMessages() to a PHP Object
@@ -66,15 +69,16 @@ class GooglePlusService Extends SocialService {
      *
      * @return object The object to be stored
      */
-    public function parseData( $serviceData ) {
-	    $parsedData = array();
-	    $serviceData = json_decode( $serviceData );
+    public function parseData( $serviceData ) 
+    {
+        $parsedData = array();
+        $serviceData = json_decode( $serviceData );
+        
+        $parsedData = $serviceData->items;
 		
-	    $parsedData = $serviceData->items;
 		
-		
-	    unset($serviceData);
-	    return $parsedData;
+        unset($serviceData);
+        return $parsedData;
 	}//END function parseData
     
     /**
@@ -84,7 +88,8 @@ class GooglePlusService Extends SocialService {
      *
      * @return string The message
      */
-    public function getMessage( $data ) {
+    public function getMessage( $data ) 
+    {
         
         return $data->object->content;
         

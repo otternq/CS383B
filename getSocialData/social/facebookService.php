@@ -19,7 +19,8 @@
  * @link http://stackoverflow.com/questions/2263287/does-facebook-have-a-public-search-api-yet Fourm post with example to search facebook
  *
  */
-class FacebookService extends SocialService {
+class FacebookService extends SocialService 
+{
     /**
      * @var string The service being seached is Facebook
      */
@@ -37,13 +38,14 @@ class FacebookService extends SocialService {
      *
      * @return JSONString
      */
-    protected function retrieveMessages( $search ) {
+    protected function retrieveMessages( $search ) 
+    {
         
-		$url =  "https://graph.facebook.com/search?q=".urlencode($search)."&type=post";
+        $url =  "https://graph.facebook.com/search?q=".urlencode($search)."&type=post";
 		
-		return file_get_contents( $url );
+        return file_get_contents( $url );
         
-	}//END function retrieveMessages()
+    }//END function retrieveMessages()
 
     /**
      * Converts the JSON provided by retrieveMessages() to a PHP Object
@@ -52,12 +54,13 @@ class FacebookService extends SocialService {
      *
      * @return object The object to be stored
      */
-	public function parseData( $serviceData ) {
+    public function parseData( $serviceData ) 
+    {
         
-		$serviceData = json_decode( $serviceData );
-		return $serviceData->data;
+        $serviceData = json_decode( $serviceData );
+        return $serviceData->data;
         
-	}//ENd function parseData()
+    }//ENd function parseData()
     
     /**
      * Gets the actual message from the raw data 
@@ -66,10 +69,9 @@ class FacebookService extends SocialService {
      *
      * @return string The message
      */
-    public function getMessage( $data ) {
+    public function getMessage( $data ) 
+    {
         return $data->message;
     }//END function getMessage
     
-}
-
-?>
+}//END class FacebookService

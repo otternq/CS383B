@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * The file that contains the redditService class
+ */
 
 /**
  * Connects to the Reddit API and searches for provided terms
@@ -13,7 +15,8 @@
  * @link http://www.reddit.com/dev/api#GET_search documentation for Reddit Search
  *
  */
-class RedditService extends SocialService {
+class RedditService extends SocialService 
+{
     
     public $service = "Reddit";
     
@@ -25,7 +28,7 @@ class RedditService extends SocialService {
      */
     protected function getSearchUrl ($search, $format) {
         return "http://www.reddit.com/search.".$format."?q=".$search."&syntax=plain";
-    }
+    }//END getSearchUrl
     
     /**
      * Retrieves the messages from Reddit's Search API
@@ -39,7 +42,7 @@ class RedditService extends SocialService {
         $url = $this->getSearchUrl( $this->specialStrip($search), "json" );
         
         return file_get_contents( $url );
-    }
+    }//END retrieveMessages
     
     /**
      * Converts the JSON provided by retrieveMessages() into a PHP object
@@ -53,7 +56,7 @@ class RedditService extends SocialService {
         $serviceData = json_decode( $serviceData );
         
         return $serviceData->data->children;
-    }
+    }//END parseData
     
     /**
      * Gets the actual message from the raw data
@@ -62,10 +65,12 @@ class RedditService extends SocialService {
      * 
      * @return string the message
      */
-    public function getMessage( $data ) {
+    public function getMessage( $data ) 
+    {
         
         return $data->data->selftext_html;
-    }
+        
+    }//END function getMessage
     
     /**
      * Removes harmful character
@@ -73,7 +78,8 @@ class RedditService extends SocialService {
      * @param string $haystack
      * @return string The haystack withouth harmful characters
      */
-    public function specialStrip( $haystack ) {
+    public function specialStrip( $haystack ) 
+    {
         $needles = array (
             "#"
         );
@@ -83,10 +89,6 @@ class RedditService extends SocialService {
         }
         
         return $haystack;
-    }
-}
-
-
-
-
-?>
+    }//END function specialStrip
+    
+}//END class RedditService

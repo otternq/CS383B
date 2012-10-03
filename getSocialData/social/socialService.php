@@ -16,7 +16,8 @@
  * @link http://php.net/mongo documentation for the PHP MongoDB Library
  *
  */
-abstract class SocialService extends Service {
+abstract class SocialService extends Service 
+{
 
     /**
      * Asks the service for messages to be parsed
@@ -25,7 +26,7 @@ abstract class SocialService extends Service {
      *
      * @return mixed
      */
-	protected abstract function retrieveMessages( $search );
+    protected abstract function retrieveMessages( $search );
     
     /**
      * Parses the data provided by the service so that it can be stored
@@ -34,7 +35,7 @@ abstract class SocialService extends Service {
      *
      * @return object
      */
-	protected abstract function parseData($serviceData);
+    protected abstract function parseData($serviceData);
 
     /**
      * Performas multiple searches
@@ -43,14 +44,16 @@ abstract class SocialService extends Service {
      *
      * @return array An array of objects to be saved
      */
-	public function batchGetData( $searches ) {
-		$result = array();
+    public function batchGetData( $searches ) 
+    {
+        $result = array();
 
-		foreach ($searches as $search) {
-			$result[$search] = $this->getData( $search );
-		}
+        foreach ($searches as $search) {
+            $result[$search] = $this->getData( $search );
+        }
 
-		return $result;
+        return $result;
+        
 	}//END function batchGetData
     
     /**
@@ -60,9 +63,10 @@ abstract class SocialService extends Service {
      *
      * @return array [ obj1, obj2]
      */
-	public function getData( $search ) {
+	public function getData( $search ) 
+	{
 
-    	$serviceData = $this->retrieveMessages( $search );
+        $serviceData = $this->retrieveMessages( $search );
         return $this->parseData($serviceData);
 
     }//END function getData
@@ -83,11 +87,13 @@ abstract class SocialService extends Service {
      *
      * @return object
      */
-    public static function getObject( $service ) {
-    	$serviceClass = ucwords( $service ) .'Service';
+    public static function getObject( $service ) 
+    {
+        $serviceClass = ucwords( $service ) .'Service';
     	
         //returns an object of the class specified by the $serviceClass string
-    	return new $serviceClass();
+        return new $serviceClass();
+    	
     }//END function getObject
     
     /**
@@ -95,13 +101,15 @@ abstract class SocialService extends Service {
      *
      * @return array
      */
-    public static function availableServices() {
-    	return array (
-    		"Twitter",
-    		"GooglePlus",
+    public static function availableServices() 
+    {
+        return array (
+            "Twitter",
+            "GooglePlus",
             "Facebook",
             "Reddit"
-    	);
+        );
+        
     }//END function availableServices
     
     /**
@@ -114,7 +122,8 @@ abstract class SocialService extends Service {
      *
      * @return bool Return success or failure
      */
-    public static function save ( $service, $searchString, $data, $sentiment ) {
+    public static function save ( $service, $searchString, $data, $sentiment ) 
+    {
         //authenticate to the MongoDB server
     	$m = new Mongo(
             "mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock"
