@@ -16,7 +16,7 @@ interface Service {
     /**
      * A function to tell what service the object is for
      */
-    public getServiceName();
+    public function getServiceName();
     
 }
 
