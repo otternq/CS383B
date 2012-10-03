@@ -4,13 +4,13 @@
  *
  * @author Nick Otter <otternq@gmail.com>
  */
-require_once "/home/otternq/stock/getSocialData/config.php";
-require_once "/home/otternq/stock/debug.php";
+/*require_once "/home/otternq/stock/getSocialData/config.php";
+require_once "/home/otternq/stock/debug.php";*/
 
 require_once 'PHPUnit/Autoload.php';
 
 /** include application classes */
-require_once (BASE_DIR ."/service/service.php");
+/*require_once (BASE_DIR ."/service/service.php");
 
 require_once (BASE_DIR ."/social/socialService.php");
 require_once (BASE_DIR ."/social/googlePlusService.php");
@@ -19,7 +19,7 @@ require_once (BASE_DIR ."/social/facebookService.php");
 
 require_once (BASE_DIR ."/sentiment/sentiment.php");
 require_once (BASE_DIR ."/sentiment/alchemySentiment.php");
-require_once (BASE_DIR ."/social/redditService.php");
+require_once (BASE_DIR ."/social/redditService.php");*/
 
 /**
  * The Social Service Test using PHPUnit
@@ -110,7 +110,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      */
     function testRetrieveMessages() {
         
-        $debug = false;
         
         //walks through an array provided by the service class
         foreach ( SocialService::availableServices() as $serviceName ) {
@@ -128,8 +127,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
             
             $subTest = "subTestRetrieveMessages". $serviceName;
             $this->$subTest( $message );
-            
-            debug( $message, $debug );
             
         }
     }
@@ -161,7 +158,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
      */
     public function subTestRetrieveMessagesTwitter( $message ) {
-        $debug = false;
         
         $data = json_decode( $message );
         
@@ -171,8 +167,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertGreaterThan( 0, count( $data->results ) );
-        
-        debug( $data, $debug);
         
     }
     
@@ -193,8 +187,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      */
     public function subTestRetrieveMessagesGooglePlus( $message ) {
         
-        $debug = false;
-        
         $data = json_decode( $message );
         
         // (expected, actual) checks to see the the items variable is an array
@@ -203,8 +195,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertGreaterThan( 0, count( $data->items ) );
-        
-        debug( $data, $debug );
         
     }
     
