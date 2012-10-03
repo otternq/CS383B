@@ -21,7 +21,8 @@
  * @link https://dev.twitter.com/docs/api/1/get/search The Twitter Search API Documentation
  *
  */
-class TwitterService Extends SocialService {
+class TwitterService Extends SocialService
+{
 
     /**
      * @var string The service being seached is Twitter
