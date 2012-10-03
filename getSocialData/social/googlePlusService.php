@@ -31,7 +31,7 @@ class GooglePlusService Extends SocialService {
      * @ignore
      * @var The API key used to access Google+ API
      */
-    protected $apiKey = GOOGLEPLUS_API_KEY;
+    protected $apiKey = "AIzaSyD4P43J4OUQZHcDwsrGpod7h1ITO9pyk4g";
 
     /**
      * Formulates the REST URI request
