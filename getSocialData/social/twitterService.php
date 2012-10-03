@@ -18,7 +18,7 @@
  * @package socialStocks
  * @subpackage social
  *
- * @link https://dev.twitter.com/docs/api/1/get/search The Twitter Search API Documentation
+ * @link https://dev.twitter.com/docs/api/1/get/search Twitter Search API Documentation
  *
  */
 class TwitterService Extends SocialService
@@ -28,6 +28,10 @@ class TwitterService Extends SocialService
      * @var string The service being seached is Twitter
      */
 	public $service = "Twitter";
+	
+	public getServiceName() {
+        return $this->service;
+    }
 	
     /**
      * Formulates the REST URI request
