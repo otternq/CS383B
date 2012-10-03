@@ -11,7 +11,7 @@
         <delete dir="${basedir}/build/pdepend"/>
     </target>
     
-    <target name="prepare" depends="clean,phpab" description="Prepare for build">
+    <target name="prepare" depends="clean" description="Prepare for build">
         <mkdir dir="${basedir}/build/api"/>
         <mkdir dir="${basedir}/build/code-browser"/>
         <mkdir dir="${basedir}/build/coverage"/>
@@ -24,7 +24,7 @@
             <arg value="--output" />
             <arg path="${basedir}/getSocialData/autoload.php" />
             <arg value="--template" />
-            <arg path="${basedir}/build/src_autoload.php.in" />
+            <arg path="${basedir}/build/getSocialData_autoload.php.in" />
             <arg path="${basedir}/getSocialData" />
         </exec>
         
@@ -32,7 +32,7 @@
             <arg value="--output" />
             <arg path="${basedir}/PHPUnitTest/autoload.php" />
             <arg value="--template" />
-            <arg path="${basedir}/build/tests_autoload.php.in" />
+            <arg path="${basedir}/build/PHPUnitTest_autoload.php.in" />
             <arg path="${basedir}/PHPUnitTest" />
         </exec>
     </target>
