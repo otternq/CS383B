@@ -26,7 +26,7 @@ class AlchemyService extends SentimentService {
      */
     public $service = "Alchemy";
     
-    public getServiceName() {
+    public function getServiceName() {
         return $this->service;
     }
     

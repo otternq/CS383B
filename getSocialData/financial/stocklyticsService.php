@@ -26,7 +26,7 @@ class StocklyticsService extends FinancialService {
      */
     public $service = "Stocklytics";
     
-    public getServiceName() {
+    public function getServiceName() {
         return $this->service;
     }
     
