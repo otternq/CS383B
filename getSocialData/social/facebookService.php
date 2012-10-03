@@ -26,6 +26,10 @@ class FacebookService extends SocialService
      */
     public $service = "Facebook";
     
+    public getServiceName() {
+        return $this->service;
+    }
+    
     /**
      * Retrieves messages from the Twitter Search API
      *

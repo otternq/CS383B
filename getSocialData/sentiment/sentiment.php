@@ -14,7 +14,7 @@
  * @link http://php.net/abstract documentation for an abstract class
  * @link http://php.net/static documentation for an static method
  */
-abstract class SentimentService extends Service {
+abstract class SentimentService implements Service {
     
     /**
      * Access a Sentiment Analysis for the provided text

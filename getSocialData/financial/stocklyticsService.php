@@ -26,6 +26,10 @@ class StocklyticsService extends FinancialService {
      */
     public $service = "Stocklytics";
     
+    public getServiceName() {
+        return $this->service;
+    }
+    
     /**
      * @ignore
      * @var The API key used to access Stocklytics API

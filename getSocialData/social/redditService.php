@@ -20,6 +20,10 @@ class RedditService extends SocialService
     
     public $service = "Reddit";
     
+    public getServiceName() {
+        return $this->service;
+    }
+    
     /**
      * Creates the URL that our request will be sent to
      *

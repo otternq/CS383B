@@ -16,7 +16,7 @@
  * @link http://php.net/mongo documentation for the PHP MongoDB Library
  *
  */
-abstract class SocialService extends Service 
+abstract class SocialService implements Service 
 {
 
     /**

@@ -28,6 +28,10 @@ class GooglePlusService extends SocialService
      */
     public $service = "Google Plus";
     
+    public getServiceName() {
+        return $this->service;
+    }
+    
     /**
      * @ignore
      * @var The API key used to access Google+ API

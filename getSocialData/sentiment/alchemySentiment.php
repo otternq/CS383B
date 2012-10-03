@@ -26,6 +26,10 @@ class AlchemyService extends SentimentService {
      */
     public $service = "Alchemy";
     
+    public getServiceName() {
+        return $this->service;
+    }
+    
     /**
      * Access Alchemy's Sentiment API to recieve an analysis of the text
      *
