@@ -29,7 +29,7 @@ class TwitterService Extends SocialService
      */
 	public $service = "Twitter";
 	
-	public getServiceName() {
+	public function getServiceName() {
         return $this->service;
     }
 	
