@@ -69,7 +69,6 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     }
     
     /**
-     * @depends testRetrieveMessages
      * @large
      *
      * @author Nick Otter <otternq@gmail.com>
