@@ -4,8 +4,8 @@
  *
  * @author Nick Otter <otternq@gmail.com>
  */
-require_once "../getSocialData/config.php";
-require_once "../debug.php";
+require_once "/home/otternq/stock/getSocialData/config.php";
+require_once "/home/otternq/stock/debug.php";
 
 require_once 'PHPUnit/Autoload.php';
 

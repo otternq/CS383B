@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="SocialStock" tests="4" assertions="27" failures="0" errors="2" time="5.608346">
+    <testsuite name="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" fullPackage="socialStocks.UnitTest" package="socialStocks" subpackage="UnitTest" tests="4" assertions="27" failures="0" errors="2" time="5.608346">
+      <testcase name="testAvailableServices" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="39" assertions="1" time="0.051774"/>
+      <testcase name="testGetObject" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="58" assertions="4" time="0.004826"/>
+      <testcase name="testGetData" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="76" assertions="16" time="1.278412">
+        <error type="PHP_Invoker_TimeoutException">SocialServiceTest::testGetData
+PHP_Invoker_TimeoutException: Execution aborted after 1 second
+
+/home/otternq/stock/PHPUnitTest/socialTest.php:86
+/usr/bin/phpunit:46
+</error>
+      </testcase>
+      <testcase name="testRetrieveMessages" class="SocialServiceTest" file="/home/otternq/stock/PHPUnitTest/socialTest.php" line="107" assertions="6" time="4.273334">
+        <error type="PHP_Invoker_TimeoutException">SocialServiceTest::testRetrieveMessages
+PHP_Invoker_TimeoutException: Execution aborted after 1 second
+
+/home/otternq/stock/PHPUnitTest/socialTest.php:123
+/usr/bin/phpunit:46
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>
