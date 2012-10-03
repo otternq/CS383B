@@ -66,15 +66,15 @@ class GooglePlusService Extends SocialService {
      *
      * @return object The object to be stored
      */
-	public function parseData( $serviceData ) {
-		$parsedData = array();
-		$serviceData = json_decode( $serviceData );
+    public function parseData( $serviceData ) {
+	    $parsedData = array();
+	    $serviceData = json_decode( $serviceData );
 		
-		$parsedData = $serviceData->items;
+	    $parsedData = $serviceData->items;
 		
 		
-		unset($serviceData);
-		return $parsedData;
+	    unset($serviceData);
+	    return $parsedData;
 	}//END function parseData
     
     /**

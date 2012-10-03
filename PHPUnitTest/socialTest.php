@@ -41,7 +41,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals( 
             SocialService::availableServices(), 
             array (
-            	"Twitter",
+                "Twitter",
         		"GooglePlus",
                 "Facebook",
                 "Reddit"
