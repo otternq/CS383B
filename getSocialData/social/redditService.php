@@ -38,8 +38,6 @@ class RedditService extends SocialService {
     {
         $url = $this->getSearchUrl( $this->specialStrip($search), "json" );
         
-        echo $url ."\n";
-        
         return file_get_contents( $url );
     }
     
