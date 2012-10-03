@@ -11,7 +11,7 @@
  * @package socialStocks
  * @subpackage service
  */
-class Service {
+abstract class Service {
     
     /**
      * @var string the name of the service
