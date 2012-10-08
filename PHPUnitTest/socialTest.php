@@ -241,7 +241,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
 
     private function findTerm( $data, $term ){
 
-      this->assertInstanceOf( "Traversable" , $data );
+      $this->assertInstanceOf( 'Traversable' , $data );
 
       foreach( $data as $elem){
         if( is_string( $elem ) ){
