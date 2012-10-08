@@ -119,7 +119,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
             $method = self::makeMethodPublic( $serviceName ."Service", "retrieveMessages" );
             
             //run the new publicly accessable method as if it were a method of the Service Object, passing the paramater apple
-            $message = $method->invoke( $serviceObj, "apple" );
+            $message = $method->invoke( $serviceObj, $term );
             
             $this->assertInternalType("string", $term);
             
@@ -221,22 +221,44 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertNotEmpty( $data->results );
-/*
-        foreach( $data as $post ){
-            $found = false;
 
-            // Maybe we can try to find if the message contains the searched word.
-            foreach( $post as $element ){
-                if( strpos($element, $term) !== false ){
-                    $found = true;
-                }
-            }
-            $this->asserTrue( $found );
+        foreach( $data as $post ){
+            $this->asserTrue( findTerm ( $post, $term ) );
         }
- */
+
     }
     public function subTestRetrieveMessagesReddit( $message ) {}
-    
+
+   /**
+     * Try to find a term at any level inside the Traversable data structure $data 
+     *
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
+     *
+     * @param Iterable $data Structure that contains Iterable or String object inside
+     * @param String $term The term searched in the Social Service
+     */
+
+
+    private function findTerm( $data, $term ){
+
+      this->assertInstanceOf( "Traversable" , $data );
+
+      foreach( $data as $elem){
+        if( is_string( $elem ) ){
+          if( strpos($element, $term) !== false ){
+            return true;
+          }
+        }
+        elseif( is_array( $elem ) || $elem instanceof Traversable ){
+          // Recirsive call
+          if (findTerm( $elem, $term ) === true) {
+            return true;
+          }
+        }
+      }
+   
+      return false;
+    }
 }
 
 ?>
