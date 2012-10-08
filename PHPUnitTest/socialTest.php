@@ -225,7 +225,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         foreach( $data as $post ){
             $found = false;
 
-            // Maybe we can try to find if the message contains the searched world.
+            // Maybe we can try to find if the message contains the searched word.
             foreach( $post as $element ){
                 if( strpos($element, $term) !== false ){
                     $found = true;
