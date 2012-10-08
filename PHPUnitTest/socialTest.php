@@ -108,8 +108,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * class that then sets the methods access to public for the test</p>
      */
     function testRetrieveMessages() {
-        
-        
+        $term = "apple";
         //walks through an array provided by the service class
         foreach ( SocialService::availableServices() as $serviceName ) {
             
@@ -122,10 +121,10 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
             //run the new publicly accessable method as if it were a method of the Service Object, passing the paramater apple
             $message = $method->invoke( $serviceObj, "apple" );
             
-            $this->assertInternalType("string", $message);
+            $this->assertInternalType("string", $term);
             
             $subTest = "subTestRetrieveMessages". $serviceName;
-            $this->$subTest( $message );
+            $this->$subTest( $message, $term );
             
         }
     }
@@ -153,10 +152,12 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * A sub test for testGetData, checks to see that the response from twitter is correct
      *
      * @author Nick Otter <otternq@gmail.com>
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
      *
      * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
      */
-    public function subTestRetrieveMessagesTwitter( $message ) {
+    public function subTestRetrieveMessagesTwitter( $message, $term ) {
         
         $data = json_decode( $message );
         
@@ -181,10 +182,12 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * A sub test for testGetData, checks to see that the response from google+ is correct
      *
      * @author Nick Otter <otternq@gmail.com>
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
      *
      * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
      */
-    public function subTestRetrieveMessagesGooglePlus( $message ) {
+    public function subTestRetrieveMessagesGooglePlus( $message, $term ) {
         
         $data = json_decode( $message );
         
@@ -196,9 +199,19 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         $this->assertGreaterThan( 0, count( $data->items ) );
         
     }
+
+   /**
+     * A sub test for testGetData, checks to see that the response from Facebook is correct
+     *
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
+     *
+     * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
+     */
+
+
     
-    
-    public function subTestRetrieveMessagesFacebook( $message ) {
+    public function subTestRetrieveMessagesFacebook( $message , $term) {
         
         $data = json_decode( $message );
         
@@ -208,10 +221,20 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertNotEmpty( $data->results );
+/*
+        foreach( $data as $post ){
+            $found = false;
 
-        // Maybe we can try to find if the message contains the searched world.
-        $this->assertContains(/*searched word */, /* Message */);
-	}
+            // Maybe we can try to find if the message contains the searched world.
+            foreach( $post as $element ){
+                if( strpos($element, $term) !== false ){
+                    $found = true;
+                }
+            }
+            $this->asserTrue( $found );
+        }
+ */
+    }
     public function subTestRetrieveMessagesReddit( $message ) {}
     
 }
