@@ -227,36 +227,36 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         }
 
     }
-	
-	
-	/**
-	 ** A sub test for testGetData, checks to see that the response from reddit is correct
-	 ** 
-	 ** @author Sean Heagerty <heag7943@vandals.uidaho.edu>
-	 **
-	 ** @param JSONString $message The contents fo a file_get_contents, not yet parsed to json
-	 ** @param String $term The term searched in the Social Service
-	 **/
-	public function subTestRetrieveMessagesReddit( $message, $term )
-	{
-		$data = json_decode( $message );
-		
-		// (expected, acual) checks to see that the data variable is an array
-		$this->assertInternalType( "array", $data->data );
-		
-		// (expected, actual) may not be a good test, what if the response is
-		// good but there were no result entries
-		$this->assertGreaterThan( 0, count( $data->data->children ) );
-		
-		// (expected, acual) checks to see that the children variable is an array
-		$this->assertInternalType( "array", $data->data->children );
-		
-		// (expected, actual) may not be a good test, what if the response is
-		// good but there were no result entries
-		$this->assertGreaterThan( 0, count( $data->data->children ) );
-	}
-	
-	
+    
+    
+    /**
+     * A sub test for testGetData, checks that the response from reddit is correct 
+     * 
+     * @author Sean Heagerty <heag7943@vandals.uidaho.edu>
+     * 
+     * @param JSONString $message The contents of file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
+     */
+     public function subTestRetrieveMessagesReddit($message, $term)
+     {
+        $data = json_decode($message);
+        
+        // (expected, acual) checks to see that the data variable is an array
+        $this->assertInternalType("array", $data->data);
+        
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        $this->assertGreaterThan(0, count($data->data));
+        
+        // (expected, acual) checks to see that the children variable is an array
+        $this->assertInternalType("array", $data->data->children);
+        
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        $this->assertGreaterThan(0, count($data->data->children));
+     }
+    
+    
    /**
      * Try to find a term at any level inside the Traversable data structure $data 
      *
