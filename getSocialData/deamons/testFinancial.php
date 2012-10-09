@@ -36,4 +36,5 @@ $serviceUtil = new FinancialServiceUtility($collection);
 
 $service = FinancialService::getObject( "stocklytics" );
 
-$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+print_r($service->getServiceName());
+//$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
