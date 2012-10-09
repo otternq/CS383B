@@ -14,12 +14,12 @@
 
 require_once "../config.php";
  
-require_once (BASE_DIR ."/service/service.php");
+require_once ("../service/service.php");
 
-require_once (BASE_DIR ."/financial/financialService.php");
-require_once (BASE_DIR ."/financial/stocklyticsService.php");
+require_once ("../financial/financialService.php");
+require_once ("../financial/stocklyticsService.php");
 
-require_once (BASE_DIR ."/financial/financialServiceUtility.php");
+require_once ("../financial/financialServiceUtility.php");
 
 //authenticate to the MongoDB server
 $m = new Mongo(
@@ -36,5 +36,4 @@ $serviceUtil = new FinancialServiceUtility($collection);
 
 $service = FinancialService::getObject( "stocklytics" );
 
-print_r($service->getServiceName());
-//$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );

@@ -60,11 +60,22 @@ class StocklyticsService extends FinancialService {
             $apiEndPoint .= "&end=". date("Y-m-d", $endDate);
         }
         
-        return json_decode(
+        $rawData = json_decode(
             file_get_contents(
                 $apiEndPoint
             )
         );
+        
+        $dataSet = array();
+        
+        foreach($rawData as $key => $value) {
+        
+            $value->date = $key;
+            $dataSet[] = $value;
+            
+        }
+        
+        return $dataSet;
         
     }//END function getHistory
     
@@ -90,6 +101,8 @@ class StocklyticsService extends FinancialService {
         
         foreach($rawData as $key => $value) {
             
+            echo "key: ". $key . " value: ". print_r($value, true) ."\n\n";
+            die();
             $dataSet[] = (object) array_merge(
                 array("date" => $key),
                 $value
