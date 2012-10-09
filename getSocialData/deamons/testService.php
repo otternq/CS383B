@@ -14,10 +14,11 @@
  
 
 require_once "../config.php";
+require_once "../autoload.php";
 
 require_once "/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php";
  
-require_once (BASE_DIR ."/service/service.php");
+/*require_once (BASE_DIR ."/service/service.php");
 
 require_once (BASE_DIR ."/social/socialService.php");
 require_once (BASE_DIR ."/social/googlePlusService.php");
@@ -26,7 +27,7 @@ require_once (BASE_DIR ."/social/facebookService.php");
 
 require_once (BASE_DIR ."/sentiment/sentiment.php");
 require_once (BASE_DIR ."/sentiment/alchemySentiment.php");
-require_once (BASE_DIR ."/social/redditService.php");
+require_once (BASE_DIR ."/social/redditService.php");*/
 
 
 $sentimentObj = SentimentService::getObject("Alchemy");
