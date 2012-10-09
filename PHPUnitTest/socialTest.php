@@ -7,6 +7,7 @@
 /*require_once "/home/otternq/stock/getSocialData/config.php";
 require_once "/home/otternq/stock/debug.php";*/
 
+require_once "autoload.php";
 require_once 'PHPUnit/Autoload.php';
 
 /** include application classes */
@@ -108,7 +109,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * class that then sets the methods access to public for the test</p>
      */
     function testRetrieveMessages() {
-        $term = "apple";
+        $term = "Apple";
         //walks through an array provided by the service class
         foreach ( SocialService::availableServices() as $serviceName ) {
             
@@ -258,7 +259,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     
     
    /**
-     * Try to find a term at any level inside the Traversable data structure $data 
+     * Try to find a term at any level inside a multible level stdClass $data 
      *
      * @author Santiago Pina <pina3608@vandals.uidaho.edu>
      *
@@ -269,23 +270,22 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
 
     private function findTerm( $data, $term ){
 
-      $this->assertInternalType( "array", $data );
+      $this->assertInstanceOf( "stdClass", $data );
       
 
-      foreach( $data as $elem){
+      foreach( $data as $key => $elem){
         if( is_string( $elem ) ){
-          if( strpos( $elem, $term ) !== false ){
+          if( stripos( $elem, $term ) !== false ){
             return true;
           }
         }
-        elseif( is_array( $elem ) || $elem instanceof Traversable ){
+        elseif( $elem instanceof stdClass ){
           // Recirsive call
-          if (findTerm( $elem, $term ) !== false) {
+          if( $this->findTerm( $elem, $term ) !== false) {
             return true;
           }
         }
       }
-   
       return false;
     }
 }

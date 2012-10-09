@@ -1,2 +1,0 @@
-Santiago Pina
-sean heagerty
