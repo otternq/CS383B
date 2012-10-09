@@ -202,6 +202,10 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertGreaterThan( 0, count( $data->items ) );
+
+        foreach( $data->items as $post ){
+            $this->assertTrue( $this->findTerm ( $post, $term ) );
+        }
         
     }
 
@@ -290,6 +294,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
           }
         }
       }
+   
       return false;
     }
 }
