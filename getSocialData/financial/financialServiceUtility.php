@@ -17,7 +17,7 @@ class FinancialServiceUtility {
      * The database interface
      * @var Mongo
      */
-    $collection = null;
+    public $collection = null;
     
     /**
      * Creates a object
