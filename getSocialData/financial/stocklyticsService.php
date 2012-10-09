@@ -73,18 +73,31 @@ class StocklyticsService extends FinancialService {
      *
      * @param string $company Stock Code
      *
-     * @return object
+     * @return array An array of objects
      */
     public function getCompanyData( $company ) {
         
         $apiEndPoint = "http://api.stocklytics.com/companyData/1.0/" .
         "?api_key=".$this->apiKey."&stock=". $company;
         
-        return json_decode( 
+        $rawData = json_decode( 
             file_get_contents( 
                 $apiEndPoint 
             ) 
         );
+        
+        $dataSet = array();
+        
+        foreach($rawData as $key => $value) {
+            
+            $dataSet[] = (stdClass)array_merge(
+                array($key),
+                $value
+            );
+            
+        }
+        
+        return $dataSet;
         
     }//END function getCompanyData
     

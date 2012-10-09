@@ -43,17 +43,18 @@ class FinancialServiceUtility {
      * Saves a data set to mongoDB
      *
      * @param string $service The service used to retrieve this data
+     * @param string $code The stock code
      * @param array $dataSet
      *
      * @return bool
      */
-    public function saveHistory($service, $dataSet) {
+    public function saveHistory($service, $code, $dataSet) {
         
         //walk through the array
         foreach($dataSet as $dataItem) {
-        
+            
             //save the array item
-            $this->saveHistoryItem($dataItem);
+            $this->saveHistoryItem($service, $code, $dataItem);
             
         }
     
@@ -63,17 +64,19 @@ class FinancialServiceUtility {
      * Saves a data item to MongoDB
      *
      * @param string $service The service used to retrieve this data
+     * @param string $code The stock code
      * @param object $data The data retrieved from the service request
      *
      * @return bool
      */
-    public function saveHistoryItem($service, $data) {
+    public function saveHistoryItem($service, $code, $data) {
     
         //Save the item to the MongoDB
         $this->collection->insert( 
             array (
                 "date" => mktime(), //save the current UNIX TIMESTAMP
                 "service" => $service,
+                "code" => $code,
                 "data" => $data
             )
         );

@@ -30,10 +30,10 @@ $m = new Mongo(
 $db = $m->selectDB('socialstock');
 
 //select the MongoDB collection to work with
-$collection = new MongoCollection($db, 'messages');
+$collection = new MongoCollection($db, 'stockHistory');
 
 $serviceUtil = new FinancialServiceUtility($collection);
 
 $service = FinancialService::getObject( "stocklytics" );
 
-print_r ( $service->getHistory( "AAPL" ) );
+$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
