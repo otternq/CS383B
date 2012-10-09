@@ -279,18 +279,40 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     private function findTerm( $data, $term ){
 
       $this->assertInstanceOf( "stdClass", $data );
-      
 
-      foreach( $data as $key => $elem){
-        if( is_string( $elem ) ){
-          if( stripos( $elem, $term ) !== false ){
-            return true;
+      if ( is_array( $data ) ){
+
+        foreach( $data as $elem){
+       
+          if( is_string( $elem ) ){
+            if( stripos( $elem, $term ) !== false ){
+              return true;
+           }
+         }
+          elseif( $elem instanceof stdClass ){
+            // Recirsive call
+            if( $this->findTerm( $elem, $term ) !== false) {
+              return true;
+            }
           }
         }
-        elseif( $elem instanceof stdClass ){
-          // Recirsive call
-          if( $this->findTerm( $elem, $term ) !== false) {
-            return true;
+
+
+      }
+
+      else{
+        foreach( $data as $key => $elem){
+       
+          if( is_string( $elem ) ){
+            if( stripos( $elem, $term ) !== false ){
+              return true;
+           }
+         }
+          elseif( $elem instanceof stdClass ){
+            // Recirsive call
+            if( $this->findTerm( $elem, $term ) !== false) {
+              return true;
+            }
           }
         }
       }
