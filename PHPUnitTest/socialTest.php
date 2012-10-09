@@ -108,8 +108,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * class that then sets the methods access to public for the test</p>
      */
     function testRetrieveMessages() {
-        
-        
+        $term = "apple";
         //walks through an array provided by the service class
         foreach ( SocialService::availableServices() as $serviceName ) {
             
@@ -120,12 +119,12 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
             $method = self::makeMethodPublic( $serviceName ."Service", "retrieveMessages" );
             
             //run the new publicly accessable method as if it were a method of the Service Object, passing the paramater apple
-            $message = $method->invoke( $serviceObj, "apple" );
+            $message = $method->invoke( $serviceObj, $term );
             
-            $this->assertInternalType("string", $message);
+            $this->assertInternalType("string", $term);
             
             $subTest = "subTestRetrieveMessages". $serviceName;
-            $this->$subTest( $message );
+            $this->$subTest( $message, $term );
             
         }
     }
@@ -153,10 +152,12 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * A sub test for testGetData, checks to see that the response from twitter is correct
      *
      * @author Nick Otter <otternq@gmail.com>
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
      *
      * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
      */
-    public function subTestRetrieveMessagesTwitter( $message ) {
+    public function subTestRetrieveMessagesTwitter( $message, $term ) {
         
         $data = json_decode( $message );
         
@@ -181,10 +182,12 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * A sub test for testGetData, checks to see that the response from google+ is correct
      *
      * @author Nick Otter <otternq@gmail.com>
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
      *
      * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
      */
-    public function subTestRetrieveMessagesGooglePlus( $message ) {
+    public function subTestRetrieveMessagesGooglePlus( $message, $term ) {
         
         $data = json_decode( $message );
         
@@ -196,13 +199,94 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         $this->assertGreaterThan( 0, count( $data->items ) );
         
     }
+
+   /**
+     * A sub test for testGetData, checks to see that the response from Facebook is correct
+     *
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
+     *
+     * @param JSONString $message The contents of a file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
+     */
+
+
     
-    
-    public function subTestRetrieveMessagesFacebook( $message ) {
-	$test = "Hello";
+    public function subTestRetrieveMessagesFacebook( $message , $term) {
+        
+        $data = json_decode( $message );
+        
+        // (expected, actual)
+        //$this->assertInternalType( "array", $data->results );
+
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        //$this->assertNotEmpty( $data->results );
+
+        foreach( $data as $post ){
+            $this->assertTrue( $this->findTerm ( $post, $term ) );
+        }
+
+    }
+	
+	
+	/**
+	 ** A sub test for testGetData, checks to see that the response from reddit is correct
+	 ** 
+	 ** @author Sean Heagerty <heag7943@vandals.uidaho.edu>
+	 **
+	 ** @param JSONString $message The contents fo a file_get_contents, not yet parsed to json
+	 ** @param String $term The term searched in the Social Service
+	 **/
+	public function subTestRetrieveMessagesReddit( $message, $term )
+	{
+		$data = json_decode( $message );
+		
+		// (expected, acual) checks to see that the data variable is an array
+		$this->assertInternalType( "array", $data->data );
+		
+		// (expected, actual) may not be a good test, what if the response is
+		// good but there were no result entries
+		$this->assertGreaterThan( 0, count( $data->data->children ) );
+		
+		// (expected, acual) checks to see that the children variable is an array
+		$this->assertInternalType( "array", $data->data->children );
+		
+		// (expected, actual) may not be a good test, what if the response is
+		// good but there were no result entries
+		$this->assertGreaterThan( 0, count( $data->data->children ) );
 	}
-    public function subTestRetrieveMessagesReddit( $message ) {}
-    
+	
+	
+   /**
+     * Try to find a term at any level inside the Traversable data structure $data 
+     *
+     * @author Santiago Pina <pina3608@vandals.uidaho.edu>
+     *
+     * @param Iterable $data Structure that contains Iterable or String object inside
+     * @param String $term The term searched in the Social Service
+     */
+
+
+    private function findTerm( $data, $term ){
+
+      $this->assertInternalType( "array", $data );
+
+      foreach( $data as $elem){
+        if( is_string( $elem ) ){
+          if( strpos($element, $term) !== false ){
+            return true;
+          }
+        }
+        elseif( is_array( $elem ) || $elem instanceof Traversable ){
+          // Recirsive call
+          if (findTerm( $elem, $term ) === true) {
+            return true;
+          }
+        }
+      }
+   
+      return false;
+    }
 }
 
 ?>
