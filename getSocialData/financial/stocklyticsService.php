@@ -90,7 +90,7 @@ class StocklyticsService extends FinancialService {
         
         foreach($rawData as $key => $value) {
             
-            $dataSet[] = (stdClass)array_merge(
+            $dataSet[] = (object) array_merge(
                 array($key),
                 $value
             );
