@@ -7,6 +7,7 @@
 /*require_once "/home/otternq/stock/getSocialData/config.php";
 require_once "/home/otternq/stock/debug.php";*/
 
+require_once "autoload.php";
 require_once 'PHPUnit/Autoload.php';
 
 /** include application classes */
@@ -108,7 +109,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
      * class that then sets the methods access to public for the test</p>
      */
     function testRetrieveMessages() {
-        $term = "apple";
+        $term = "Apple";
         //walks through an array provided by the service class
         foreach ( SocialService::availableServices() as $serviceName ) {
             
@@ -167,6 +168,10 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertGreaterThan( 0, count( $data->results ) );
+
+        foreach( $data->results as $res ){
+            $this->assertTrue( $this->findTerm ( $res, $term ) );
+        }
         
     }
     
@@ -197,6 +202,10 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertGreaterThan( 0, count( $data->items ) );
+
+        foreach( $data->items as $post ){
+            $this->assertTrue( $this->findTerm ( $post, $term ) );
+        }
         
     }
 
@@ -216,49 +225,49 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         $data = json_decode( $message );
         
         // (expected, actual)
-        //$this->assertInternalType( "array", $data->results );
+        $this->assertInternalType( "array", $data->data );
 
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
-        //$this->assertNotEmpty( $data->results );
+        $this->assertNotEmpty( $data->data );
 
-        foreach( $data as $post ){
+        foreach( $data->data as $post ){
             $this->assertTrue( $this->findTerm ( $post, $term ) );
         }
 
     }
-	
-	
-	/**
-	 ** A sub test for testGetData, checks to see that the response from reddit is correct
-	 ** 
-	 ** @author Sean Heagerty <heag7943@vandals.uidaho.edu>
-	 **
-	 ** @param JSONString $message The contents fo a file_get_contents, not yet parsed to json
-	 ** @param String $term The term searched in the Social Service
-	 **/
-	public function subTestRetrieveMessagesReddit( $message, $term )
-	{
-		$data = json_decode( $message );
-		
-		// (expected, acual) checks to see that the data variable is an array
-		$this->assertInternalType( "array", $data->data );
-		
-		// (expected, actual) may not be a good test, what if the response is
-		// good but there were no result entries
-		$this->assertGreaterThan( 0, count( $data->data->children ) );
-		
-		// (expected, acual) checks to see that the children variable is an array
-		$this->assertInternalType( "array", $data->data->children );
-		
-		// (expected, actual) may not be a good test, what if the response is
-		// good but there were no result entries
-		$this->assertGreaterThan( 0, count( $data->data->children ) );
-	}
-	
-	
+    
+    
+    /**
+     * A sub test for testGetData, checks that the response from reddit is correct 
+     * 
+     * @author Sean Heagerty <heag7943@vandals.uidaho.edu>
+     * 
+     * @param JSONString $message The contents of file_get_contents, not yet parsed to json
+     * @param String $term The term searched in the Social Service
+     */
+     public function subTestRetrieveMessagesReddit($message, $term)
+     {
+        $data = json_decode($message);
+        
+        // (expected, acual) checks to see that the data variable is an array
+        $this->assertInternalType("array", $data->data);
+        
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        $this->assertGreaterThan(0, count($data->data));
+        
+        // (expected, acual) checks to see that the children variable is an array
+        $this->assertInternalType("array", $data->data->children);
+        
+        // (expected, actual) may not be a good test, what if the response is
+        // good but there were no result entries
+        $this->assertGreaterThan(0, count($data->data->children));
+     }
+    
+    
    /**
-     * Try to find a term at any level inside the Traversable data structure $data 
+     * Try to find a term at any level inside a multible level stdClass $data 
      *
      * @author Santiago Pina <pina3608@vandals.uidaho.edu>
      *
@@ -269,18 +278,41 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
 
     private function findTerm( $data, $term ){
 
-      $this->assertInternalType( "array", $data );
+      $this->assertInstanceOf( "stdClass", $data );
 
-      foreach( $data as $elem){
-        if( is_string( $elem ) ){
-          if( strpos($element, $term) !== false ){
-            return true;
+      if ( is_array( $data ) ){
+
+        foreach( $data as $elem){
+       
+          if( is_string( $elem ) ){
+            if( stripos( $elem, $term ) !== false ){
+              return true;
+           }
+         }
+          elseif( $elem instanceof stdClass ){
+            // Recirsive call
+            if( $this->findTerm( $elem, $term ) !== false) {
+              return true;
+            }
           }
         }
-        elseif( is_array( $elem ) || $elem instanceof Traversable ){
-          // Recirsive call
-          if (findTerm( $elem, $term ) === true) {
-            return true;
+
+
+      }
+
+      else{
+        foreach( $data as $key => $elem){
+       
+          if( is_string( $elem ) ){
+            if( stripos( $elem, $term ) !== false ){
+              return true;
+           }
+         }
+          elseif( $elem instanceof stdClass ){
+            // Recirsive call
+            if( $this->findTerm( $elem, $term ) !== false) {
+              return true;
+            }
           }
         }
       }

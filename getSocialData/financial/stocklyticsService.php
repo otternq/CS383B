@@ -35,7 +35,7 @@ class StocklyticsService extends FinancialService {
      * @ignore
      * @var The API key used to access Stocklytics API
      */
-    protected $apiKey = STOCKLYTICS_API_KEY;
+    protected $apiKey = "87175fbebf1747bb68eba06aa795a48388f461e8";
     
     /**
      * Finds stock data for the given company and date range
