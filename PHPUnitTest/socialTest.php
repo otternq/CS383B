@@ -216,13 +216,13 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         $data = json_decode( $message );
         
         // (expected, actual)
-        //$this->assertInternalType( "array", $data->results );
+        $this->assertInternalType( "array", $data->data );
 
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
-        //$this->assertNotEmpty( $data->results );
+        $this->assertNotEmpty( $data->data );
 
-        foreach( $data as $post ){
+        foreach( $data->data as $post ){
             $this->assertTrue( $this->findTerm ( $post, $term ) );
         }
 
@@ -242,16 +242,17 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
     private function findTerm( $data, $term ){
 
       $this->assertInternalType( "array", $data );
+      
 
       foreach( $data as $elem){
         if( is_string( $elem ) ){
-          if( strpos($element, $term) !== false ){
+          if( strpos( $elem, $term ) !== false ){
             return true;
           }
         }
         elseif( is_array( $elem ) || $elem instanceof Traversable ){
           // Recirsive call
-          if (findTerm( $elem, $term ) === true) {
+          if (findTerm( $elem, $term ) !== false) {
             return true;
           }
         }
