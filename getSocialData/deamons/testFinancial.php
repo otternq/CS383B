@@ -34,6 +34,8 @@ $collection = new MongoCollection($db, 'stockHistory');
 
 $serviceUtil = new FinancialServiceUtility($collection);
 
-$service = FinancialService::getObject( "stocklytics" );
+$service = FinancialService::getObject( "yahoo" );
 
-$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+//$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+
+print_r($service->getHistory( "AAPL"));

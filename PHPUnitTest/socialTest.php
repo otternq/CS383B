@@ -251,11 +251,7 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         $data = json_decode($message);
         
         // (expected, acual) checks to see that the data variable is an array
-        $this->assertInternalType("array", $data->data);
-        
-        // (expected, actual) may not be a good test, what if the response is
-        // good but there were no result entries
-        $this->assertGreaterThan(0, count($data->data));
+        $this->assertInstanceOf("stdClass", $data->data);
         
         // (expected, acual) checks to see that the children variable is an array
         $this->assertInternalType("array", $data->data->children);
@@ -263,6 +259,12 @@ class SocialServiceTest extends PHPUnit_Framework_TestCase {
         // (expected, actual) may not be a good test, what if the response is
         // good but there were no result entries
         $this->assertGreaterThan(0, count($data->data->children));
+		
+		// Check if $term is actually in the posts
+//		foreach($data->data->children as $post)
+//		{
+//			$this->assertTrue($this->findterm($post,$term));
+//		}
      }
     
     
