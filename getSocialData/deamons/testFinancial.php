@@ -13,13 +13,14 @@
  
 
 require_once "../config.php";
- 
-require_once ("../service/service.php");
+require_once "../autoload.php";
+
+/*require_once ("../service/service.php");
 
 require_once ("../financial/financialService.php");
 require_once ("../financial/stocklyticsService.php");
 
-require_once ("../financial/financialServiceUtility.php");
+require_once ("../financial/financialServiceUtility.php");*/
 
 //authenticate to the MongoDB server
 $m = new Mongo(
