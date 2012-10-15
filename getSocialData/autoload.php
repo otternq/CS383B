@@ -15,7 +15,8 @@ function my_autoloader($class) {
             'Service' => '/service/service.php',
             'SocialService' => '/social/socialService.php',
             'StocklyticsService' => '/financial/stocklyticsService.php',
-            'TwitterService' => '/social/twitterService.php'
+            'TwitterService' => '/social/twitterService.php',
+            'YahooService' => '/financial/yahooService.php'
         );
     }
     
