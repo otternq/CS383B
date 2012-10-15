@@ -31,12 +31,12 @@ class YahooService {
         
             $tempStock = new StockEntry();
             
-            $tempStock->date = $dataList[i][0];
-            $tempStock->open = $dataList[i][1];
-            $tempStock->high = $dataList[i][2];
-            $tempStock->low = $dataList[i][3];
-            $tempStock->close = $dataList[i][4];
-            $tempStock->volume = $dataList[i][5];
+            $tempStock->date = $dataList[$i][0];
+            $tempStock->open = $dataList[$i][1];
+            $tempStock->high = $dataList[$i][2];
+            $tempStock->low = $dataList[$i][3];
+            $tempStock->close = $dataList[$i][4];
+            $tempStock->volume = $dataList[$i][5];
             
             $dataList[i] = &$tempStock;
         }
