@@ -38,7 +38,7 @@ class YahooService {
             $tempStock->close = $dataList[$i][4];
             $tempStock->volume = $dataList[$i][5];
             
-            $dataList[i] = &$tempStock;
+            $dataList[$i] = &$tempStock;
         }
         
         return $dataList;
