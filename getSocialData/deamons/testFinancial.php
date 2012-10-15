@@ -37,6 +37,9 @@ $serviceUtil = new FinancialServiceUtility($collection);
 
 $service = FinancialService::getObject( "yahoo" );
 
-//$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
-
-print_r($service->getHistory( "AAPL"));
+foreach ($stockCodes as $stockCode) {
+    
+    //$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+    
+    print_r($service->getHistory($stockCode));
+}
