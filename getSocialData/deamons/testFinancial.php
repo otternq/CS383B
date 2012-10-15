@@ -39,7 +39,7 @@ $service = FinancialService::getObject( "yahoo" );
 
 foreach ($stockCodes as $stockCode) {
     
-    //$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+    $serviceUtil->saveHistory($service->getServiceName(), $stockCode, $service->getHistory($stockCode) );
     
-    print_r($service->getHistory($stockCode));
+    //print_r($service->getHistory($stockCode));
 }
