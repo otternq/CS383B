@@ -9,14 +9,16 @@ function my_autoloader($class) {
             'AlchemyService' => '/sentiment/alchemySentiment.php',
             'FacebookService' => '/social/facebookService.php',
             'FinancialService' => '/financial/financialService.php',
+            'YahooService' => '/financial/yahooService.php',
+            'FinancialServiceUtility' => '/financial/financialServiceUtility.php',
+            'StockEntry.php' => '/financial/stockEntry.php',
             'GooglePlusService' => '/social/googlePlusService.php',
             'RedditService' => '/social/redditService.php',
             'SentimentService' => '/sentiment/sentiment.php',
             'Service' => '/service/service.php',
             'SocialService' => '/social/socialService.php',
             'StocklyticsService' => '/financial/stocklyticsService.php',
-            'TwitterService' => '/social/twitterService.php',
-            'YahooService' => '/financial/yahooService.php'
+            'TwitterService' => '/social/twitterService.php'
         );
     }
     
