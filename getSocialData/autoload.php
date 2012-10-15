@@ -11,7 +11,7 @@ function my_autoloader($class) {
             'FinancialService' => '/financial/financialService.php',
             'YahooService' => '/financial/yahooService.php',
             'FinancialServiceUtility' => '/financial/financialServiceUtility.php',
-            'StockEntry.php' => '/financial/stockEntry.php',
+            'StockEntry' => '/financial/stockEntry.php',
             'GooglePlusService' => '/social/googlePlusService.php',
             'RedditService' => '/social/redditService.php',
             'SentimentService' => '/sentiment/sentiment.php',
