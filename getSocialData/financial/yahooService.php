@@ -15,7 +15,10 @@ class YahooService {
         
         foreach($rawDataList as $rawData) {
             $data = explode(",", $rawData);
-            $dataList[] = $data;
+            
+            if (count($data) > 1) {//if there was an empty line, ignore
+                $dataList[] = $data;
+            }
         }
         
         return $dataList;
@@ -38,7 +41,7 @@ class YahooService {
             $tempStock->close = $dataList[$i][4];
             $tempStock->volume = $dataList[$i][5];
             
-            $dataList[$i] = &$tempStock;
+            $dataList[$i] = $tempStock;
         }
         
         return $dataList;
