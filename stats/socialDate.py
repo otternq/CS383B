@@ -7,6 +7,7 @@ Calculates the published date of the message for Facebook, Google Plus, Twitter 
 """
 import dateutil.parser as dateparser
 import datetime
+import pytz
 
 class SocialDate:
 
@@ -16,7 +17,9 @@ class SocialDate:
 
     @staticmethod
     def redditDate(message):
-        return date.fromtimestamp(long(message["data"]["data"]["created_utc"]))
+        aux = datetime.datetime.fromtimestamp(long(message["data"]["data"]["created_utc"]))
+        return aux.replace(tzinfo=pytz.utc)
+
 
     @staticmethod
     def facebookDate(message):
@@ -29,14 +32,14 @@ class SocialDate:
     @staticmethod
     def getPublishedDate(message):
         if message['service'] == "GooglePlus":
-            return googlePlusDate(message)
+            return SocialDate.googlePlusDate(message)
 
         elif message['service'] == "Facebook":
-            return facebookDate(message)
+            return SocialDate.facebookDate(message)
 
         elif message['service'] == "Reddit":
-            return redditDate(message)
+            return SocialDate.redditDate(message)
 
         elif message['service'] == "Twitter":
-            return twitterDate(message)
+            return SocialDate.twitterDate(message)
 

@@ -9,12 +9,12 @@ class MongoInterface:
     DATABASE_PASSWORD = "Swimm3r." #the password the file is working with
     
     connection = None
-    db = nil
+    db = None
     
     def __init__(self):
         self.connection = Connection(self.DATABASE_HOME, self.DATABASE_PORT); #connect to the MongoDB instance
 
-        self.db = connection[self.DATABASE_NAME] #specify the database to use
+        self.db = self.connection[self.DATABASE_NAME] #specify the database to use
         self.db.authenticate(self.DATABASE_USERNAME, self.DATABASE_PASSWORD) #authenticate to the database
 
     def messageByService(self, serviceName):

@@ -33,37 +33,37 @@ class Relevance:
     def __getFacebookLikes(message):
         try:
             return float(message["data"]["likes"]["count"]) + 1
-        except NameError:
+        except KeyError:
             return 1.0
 
 
     @staticmethod
     def googlePlusRelevance(message):
-        return __getGooglePlusPlusoners(message) + __getGooglePlusReplies(message)
+        return Relevance.__getGooglePlusPlusoners(message) + Relevance.__getGooglePlusReplies(message)
 
     @staticmethod
     def twitterRelevance(message):
-        return __getTwitterRetwits(message)
+        return Relevance.__getTwitterRetwits(message)
 
     @staticmethod
     def redditRelevance(message):
-        return __getRedditComments(message) + __getRedditUps(message)
+        return Relevance.__getRedditComments(message) + Relevance.__getRedditUps(message)
 
     @staticmethod
     def facebookRelevance(message):
-        return __getFacebookLikes(message)
+        return Relevance.__getFacebookLikes(message)
 
     @staticmethod
     def getRelevance(message):
         if message['service'] == "GooglePlus":
-            return googlePlusRelevance(message)
+            return Relevance.googlePlusRelevance(message)
 
         elif message['service'] == "Facebook":
-            return facebookRelevance(message)
+            return Relevance.facebookRelevance(message)
 
         elif message['service'] == "Reddit":
-            return redditRelevance(message)
+            return Relevance.redditRelevance(message)
 
         elif message['service'] == "Twitter":
-            return twitterRelevance(message)
+            return Relevance.twitterRelevance(message)
 

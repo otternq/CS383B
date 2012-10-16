@@ -11,8 +11,12 @@ The overall score of each message is calculatedas follow:
 
 
 import datetime
+from relevance import Relevance
+from sentiment import Sentiment
+from socialDate import SocialDate
+import pytz
 
-class Algorithm1 (Algorithm):
+class Algorithm1:
 
     @staticmethod
     def getAlgorithmNumber():
@@ -21,11 +25,12 @@ class Algorithm1 (Algorithm):
     @staticmethod
     def getResult(messages):
         sum = 0
-        for message in messages.find():
+        for message in messages:
             relevance = Relevance.getRelevance(message)
             sentiment = Sentiment.getSentiment(message)
-            publishedDate = SocialData.getPublishedDate(message)
-            actualDate = datetime.datetime.now()
+            publishedDate = SocialDate.getPublishedDate(message)
+            actualDate = datetime.datetime.utcnow()
+            actualDate = actualDate.replace(tzinfo=pytz.utc)
             elapsedTime = actualDate - publishedDate
             sum += relevance * sentiment / elapsedTime.total_seconds()
         return sum
