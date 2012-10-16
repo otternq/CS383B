@@ -2,6 +2,10 @@
 
 class YahooService {
 
+    function getServiceName() {
+        return "Yahoo";
+    }
+
     function getURL($company) {
         $url = 'http://ichart.finance.yahoo.com/table.csv?s='.$company.'&d=5&e=16&f=2012&g=d&a=3&b=12&c=1996&ignore=.csv';
 
@@ -49,8 +53,5 @@ class YahooService {
     }  
 
 }
-
-$service = new YahooService();
-$service->getHistory("AAPL");
 
 ?>
