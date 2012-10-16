@@ -61,5 +61,14 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 	
 	<body style="font-family: Arial;border: 0 none;">
 		<div id="visualization" style="width: 800px; height: 400px;"></div>
+		<?php
+		
+		$fields = array(
+		    "searchString":1,
+		    "service":1,
+		    "sentiment.response.docSentiment":1
+		);
+		
+		?>
 	</body>
 </html>
