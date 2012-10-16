@@ -31,7 +31,7 @@ class SocialDate:
 
     @staticmethod
     def getPublishedDate(message):
-        if message['service'] == "GooglePlus":
+        if message['service'] == "Google Plus":
             return SocialDate.googlePlusDate(message)
 
         elif message['service'] == "Facebook":

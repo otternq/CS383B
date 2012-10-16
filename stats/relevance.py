@@ -11,28 +11,28 @@ class Relevance:
 
     @staticmethod
     def __getGooglePlusPlusoners(message):
-        return float(message["data"]["object"]["plusoners"]["totalItems"]) + 1
+        return int(message["data"]["object"]["plusoners"]["totalItems"]) + 1
 
     @staticmethod
     def __getGooglePlusReplies(message):
-        return float(message["data"]["object"]["replies"]["totalItems"])
+        return int(message["data"]["object"]["replies"]["totalItems"])
 
     @staticmethod
     def __getRedditComments(message):
-        return float(message["data"]["data"]["num_comments"])
+        return int(message["data"]["data"]["num_comments"])
 
     @staticmethod
     def __getRedditUps(message):
-        return float(message["data"]["data"]["ups"])
+        return int(message["data"]["data"]["ups"])
 
     @staticmethod
     def __getTwitterRetwits(message):
-        return float(message["data"]["metadata"]["recent_retweets"]) + 1
+        return int(message["data"]["metadata"]["recent_retweets"]) + 1
 
     @staticmethod
     def __getFacebookLikes(message):
         try:
-            return float(message["data"]["likes"]["count"]) + 1
+            return int(message["data"]["likes"]["count"]) + 1
         except KeyError:
             return 1.0
 
@@ -55,7 +55,7 @@ class Relevance:
 
     @staticmethod
     def getRelevance(message):
-        if message['service'] == "GooglePlus":
+        if message['service'] == "Google Plus":
             return Relevance.googlePlusRelevance(message)
 
         elif message['service'] == "Facebook":
