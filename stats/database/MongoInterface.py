@@ -8,7 +8,7 @@ class MongoInterface:
     DATABASE_USERNAME = "otternq" #the username the file is working with
     DATABASE_PASSWORD = "Swimm3r." #the password the file is working with
     
-    connection = nil
+    connection = None
     db = nil
     
     def __init__(self):

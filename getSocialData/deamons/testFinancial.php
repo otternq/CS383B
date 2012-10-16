@@ -13,13 +13,14 @@
  
 
 require_once "../config.php";
- 
-require_once ("../service/service.php");
+require_once "../autoload.php";
+
+/*require_once ("../service/service.php");
 
 require_once ("../financial/financialService.php");
 require_once ("../financial/stocklyticsService.php");
 
-require_once ("../financial/financialServiceUtility.php");
+require_once ("../financial/financialServiceUtility.php");*/
 
 //authenticate to the MongoDB server
 $m = new Mongo(
@@ -34,6 +35,11 @@ $collection = new MongoCollection($db, 'stockHistory');
 
 $serviceUtil = new FinancialServiceUtility($collection);
 
-$service = FinancialService::getObject( "stocklytics" );
+$service = FinancialService::getObject( "yahoo" );
 
-$serviceUtil->saveHistory($service->getServiceName(), "APPL", $service->getHistory( "AAPL") );
+foreach ($stockCodes as $stockCode) {
+    
+    $serviceUtil->saveHistory($service->getServiceName(), $stockCode, $service->getHistory($stockCode) );
+    
+    //print_r($service->getHistory($stockCode));
+}

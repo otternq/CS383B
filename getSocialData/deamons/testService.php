@@ -32,16 +32,7 @@ require_once (BASE_DIR ."/social/redditService.php");*/
 
 $sentimentObj = SentimentService::getObject("Alchemy");
 
-$searches = array(
-	"#apple",
-	"NASDAQ",
-    "google",
-    "SuperValu",
-    "Albertsons",
-    "android",
-    "GOOG",
-    "AAPL"
-);
+$searches = array_merge($stockCodes, $searchTerms);
 
 //search each keyword through each available service
 foreach (SocialService::availableServices() as $service) {
