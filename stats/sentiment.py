@@ -12,5 +12,5 @@ class Sentiment:
     def getSentiment(message):
         try:
             return float(message["sentiment"]["response"]["docSentiment"]["score"])
-        except NameError:
+        except KeyError:
             return 0;
