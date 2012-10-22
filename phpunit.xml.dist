@@ -12,9 +12,9 @@
   </logging>
   <filter>
     <whitelist addUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">src</directory>
+      <directory suffix=".php">getSocialData</directory>
       <exclude>
-        <file>src/autoload.php</file>
+        <file>getSocialData/autoload.php</file>
       </exclude>
     </whitelist>
   </filter>
