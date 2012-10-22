@@ -19,10 +19,10 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 			
 			/* Construction the table for the timeline */
 			data.addColumn('date', 'Date');
-			data.addColumn('number', 'g++');
-			data.addColumn('number', 'Twitter');
-			data.addColumn('number', 'Reddit');
 			data.addColumn('number', 'FaceBook');
+			data.addColumn('number', 'g++');
+			data.addColumn('number', 'Reddit');
+			data.addColumn('number', 'Twitter');
 			data.addRows(dataItems);
 			
 			/* The Actual construction of the timeline */
@@ -34,7 +34,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 		/* When there is no data */
 		function init()
 		{
-			data = [
+			/*data = [
 //				['x',	'g++',	'Twitter',	'Reddit', 'FaceBook']
 				[new Date(2008, 0 ,1),		1,		1,		0.5,	1],
 				[new Date(2008, 1 ,2),		2,		0.5,	1,		1],
@@ -50,6 +50,16 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 				[new Date(2008, 11 ,12),	3.5,	0.5,	1,		1],
 				[new Date(2009, 0 ,13),		1,		1,		0.5,	1],
 				[new Date(2009, 1 ,14),		1,		0.5,	1,		1]
+			];*/
+			
+			data = [
+			
+				<?php
+				
+				echo implode(",\n", SentServiceToString());				
+				?>
+				
+				
 			];
 			
 			drawVisualization(data);
@@ -63,11 +73,100 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 		<div id="visualization" style="width: 800px; height: 400px;"></div>
 		<?php
 		
-		$fields = array(
-		    "searchString":1,
-		    "service":1,
-		    "sentiment.response.docSentiment":1
-		);
+		/* Get the sentiment */
+		function sent( $message )
+		{
+			/* Return 0 instead of neutral */
+			if ($message['sentiment']['response']['docSentiment']['type'] == 'neutral')
+			{
+				return 0;
+			}
+			
+			return $message['sentiment']['response']['docSentiment']['score'];
+		}
+		
+		/* Get the array for the timeline */
+		function SentServiceToString()
+		{
+			$sent = getSentByService();
+			$jsData = array();
+			
+			foreach ($sent as $date => $services)
+			{
+				/* Reformat the time for the java portion */
+				$date = explode("-", $date);
+				$string = '[new Date('. $date[0]  .','. $date[1]  .','. $date[2] .')';
+				
+				/* Create the second part of the array */
+				$servicesValues = array();
+				
+				/* Calculate and fill the second part of the array */
+				foreach ($services as $service)
+				{
+					$servicesValues[] = $service['totalSent'] / $service['count'];
+				}
+				
+				/* Combine the strings */
+				$string .= ', '. implode(",", $servicesValues) .']';
+				$jsData[] = $string;
+				
+				/* Clear the values and release them */
+				unset($string);
+				unset($servicesValues);
+			}
+			
+			return $jsData;
+			
+		}
+		
+		function getSentByService()
+		{
+			/* An array of the fields of information desired */
+			$fields = array(
+			    "searchString" => 1,
+			    "service" => 1,
+			    "sentiment.response.docSentiment" => 1,
+			    "date" => 1
+			);
+			
+			/* Where to go, which database, and which collection */
+			$m = new Mongo("mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock");
+			$db = $m->selectDB('socialstock');
+			$collection = new MongoCollection($db, 'messages');
+			
+			/* Create an array for the sentiment */
+			$sentArr = array();
+			
+			/* Process the information into an array */
+			foreach($collection->find(array(), $fields) as $message)
+			{
+				/* Make the indexes variables */
+				$firstIndex = date("Y-m-d", $message['date']);
+				$secondIndex = $message['service'];
+				
+				/* Find the sum of total sentiment and the number of entries */
+				if( !isset($sentArr[$firstIndex][$secondIndex]['totalSent'])  )
+				{
+					// Initialize the values
+					$sentArr[$firstIndex][$secondIndex]['totalSent'] = sent($message);
+					$sentArr[$firstIndex][$secondIndex]['count'] = 1;
+				}
+				else
+				{
+					// Increment the values
+					$sentArr[$firstIndex][$secondIndex]['totalSent'] += sent($message);
+					$sentArr[$firstIndex][$secondIndex]['count']++;
+				}
+			}
+			
+			/* Alphabetize the entries */
+			foreach( array_keys($sentArr) as $arrKey)
+			{
+				ksort($sentArr[$arrKey]);
+			}
+			
+			return $sentArr;
+		}
 		
 		?>
 	</body>
