@@ -1,4 +1,4 @@
-function drawGuageVisualization(senVal) {
+function drawGuageVisualization(id, senVal) {
   // Create and populate the data table.
   var data = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
@@ -10,6 +10,6 @@ function drawGuageVisualization(senVal) {
     min: -1
   };
   
-  var chart = new google.visualization.Gauge(document.getElementById('visualization'));
+  var chart = new google.visualization.Gauge(document.getElementById(id));
   chart.draw(data, options);
 }

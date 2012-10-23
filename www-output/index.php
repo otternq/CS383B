@@ -63,7 +63,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 			];
 			
 			drawVisualization(data);
-			drawGuageVisualization(1);
+			drawGuageVisualization("guage1", 1);
 		}
 		
 		google.setOnLoadCallback(init);
