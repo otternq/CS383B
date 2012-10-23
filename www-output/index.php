@@ -20,7 +20,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 			/* Construction the table for the timeline */
 			data.addColumn('date', 'Date');
 			data.addColumn('number', 'FaceBook');
-			data.addColumn('number', 'g++');
+			data.addColumn('number', 'Google Plus');
 			data.addColumn('number', 'Reddit');
 			data.addColumn('number', 'Twitter');
 			data.addRows(dataItems);
@@ -63,6 +63,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 			];
 			
 			drawVisualization(data);
+			drawGuageVisualization(1);
 		}
 		
 		google.setOnLoadCallback(init);
@@ -70,6 +71,8 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 	</head>
 	
 	<body style="font-family: Arial;border: 0 none;">
+	
+	    <div id="guage1" style=""></div>
 		<div id="visualization" style="width: 800px; height: 400px;"></div>
 		<?php
 		

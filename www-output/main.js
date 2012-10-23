@@ -1,4 +1,4 @@
-function drawVisualization(senVal) {
+function drawGuageVisualization(senVal) {
   // Create and populate the data table.
   var data = google.visualization.arrayToDataTable([
     ['Label', 'Value'],
