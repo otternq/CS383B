@@ -9,7 +9,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title>Google Visualization API Sample</title>
 	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-	<script type="text/javascript">
+	<script type="text/javascript" src="./main.js">
 		google.load('visualization', '1', {packages: ['annotatedtimeline']});
 		
 		/* Constructing the Annotated Timeline from the information table */
@@ -72,7 +72,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 	
 	<body style="font-family: Arial;border: 0 none;">
 	
-	    <div id="guage1" style=""></div>
+	    <div id="guage1" style="width: 800px; height: 400px;"></div>
 		<div id="visualization" style="width: 800px; height: 400px;"></div>
 		<?php
 		
