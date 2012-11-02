@@ -1,0 +1,60 @@
+<!--
+You are free to copy and use this sample in accordance with the terms of the
+Apache license (http://www.apache.org/licenses/LICENSE-2.0.html)
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['gauge']});
+    </script>
+    <script type="text/javascript">
+      function init() {
+      
+        //retrieve data for the guage
+        $.ajax({
+            url: 'http://184.73.239.62/output3/guage.php',
+            dataType: 'json',
+            success: function(data) {
+                var a1 = 1;
+                var a2 = 2;
+                var a3 = 3;
+                
+                alert(data);
+              
+                drawVisualization('visualization', a1, a2, a3);
+            }
+        });
+      
+        
+      }
+    
+      function drawVisualization(div, a1, a2, a3) {
+        // Create and populate the data table.
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['Algorithm 1', a1],
+          ['Algorithm 2', a2],
+          ['Algorithm 3', a3]
+        ]);
+      
+        // Create and draw the visualization.
+        var chart = new google.visualization.Gauge(document.getElementById(div));
+        chart.draw(data);
+      }
+      
+
+      google.setOnLoadCallback(init);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="visualization" style="width: 600px; height: 300px;"></div>
+  </body>
+</html>
+​
