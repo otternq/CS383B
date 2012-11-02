@@ -11,9 +11,9 @@ The overall score of each message is calculatedas follow:
 
 
 import datetime
-from relevance import Relevance
-from sentiment import Sentiment
-from socialDate import SocialDate
+from Functions.relevance import Relevance
+from Functions.sentiment import Sentiment
+from Functions.socialDate import SocialDate
 import pytz
 
 class Algorithm1:

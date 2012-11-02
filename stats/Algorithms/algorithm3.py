@@ -9,18 +9,18 @@ The overall score of each message is calculatedas follow:
 
 """
 
-
 import datetime
-from relevance import Relevance
-from sentiment import Sentiment
-from socialDate import SocialDate
+from Functions.relevance import Relevance
+from Functions.sentiment import Sentiment
+from Functions.socialDate import SocialDate
 import pytz
+import math
 
-class Algorithm2:
+class Algorithm3:
 
     @staticmethod
     def getAlgorithmNumber():
-        return 2
+        return 3
 
     @staticmethod
     def getResult(messages):
@@ -28,28 +28,33 @@ class Algorithm2:
         sum = 0
         maxRelevance = 0
         minElapsedTime = datetime.timedelta.max
+        maxElapsedTime = datetime.timedelta.min
         actualDate = datetime.datetime.utcnow()
         actualDate = actualDate.replace(tzinfo=pytz.utc)
 
         for message in messages:
             publishedDate = SocialDate.getPublishedDate(message)
             elapsedTime = actualDate - publishedDate
+            relevance = Relevance.getRelevance(message)
+            if relevance > maxRelevance:
+                maxRelevance = relevance
             if elapsedTime < minElapsedTime:
                 minElapsedTime = elapsedTime
+            if elapsedTime > maxElapsedTime:
+                maxElapsedTime = elapsedTime
 
         messages.rewind()
 
         for message in messages:
             n += 1
             relevance = Relevance.getRelevance(message)
-
-            if relevance > maxRelevance:
-                maxRelevance = relevance
-
             sentiment = Sentiment.getSentiment(message)
             publishedDate = SocialDate.getPublishedDate(message)
             elapsedTime = actualDate - publishedDate
-            sum += relevance * sentiment / (1 + elapsedTime.total_seconds() - minElapsedTime.total_seconds())
 
-        result = sum / (maxRelevance * n)
+            normalizedTime = (elapsedTime.total_seconds() - minElapsedTime.total_seconds()) / (maxElapsedTime.total_seconds() - minElapsedTime.total_seconds())
+            normalizedRelevance = float(relevance)/maxRelevance
+            sum += sentiment * normalizedRelevance / (1+normalizedTime)
+
+        result = sum / n
         return result
