@@ -9,27 +9,24 @@ The overall score of each message is calculatedas follow:
 
 """
 
-
 import datetime
-from relevance import Relevance
-from sentiment import Sentiment
-from socialDate import SocialDate
+from Functions.relevance import Relevance
+from Functions.sentiment import Sentiment
+from Functions.socialDate import SocialDate
 import pytz
-import math
 
-class Algorithm3:
+class Algorithm2:
 
     @staticmethod
     def getAlgorithmNumber():
-        return 3
+        return 2
 
     @staticmethod
     def getResult(messages):
         n = 0
-        sum = 0
+        sum = 0.0
         maxRelevance = 0
         minElapsedTime = datetime.timedelta.max
-        maxElapsedTime = datetime.timedelta.min
         actualDate = datetime.datetime.utcnow()
         actualDate = actualDate.replace(tzinfo=pytz.utc)
 
@@ -38,8 +35,6 @@ class Algorithm3:
             elapsedTime = actualDate - publishedDate
             if elapsedTime < minElapsedTime:
                 minElapsedTime = elapsedTime
-            if elapsedTime > maxElapsedTime:
-                maxElapsedTime = elapsedTime
 
         messages.rewind()
 
@@ -53,11 +48,7 @@ class Algorithm3:
             sentiment = Sentiment.getSentiment(message)
             publishedDate = SocialDate.getPublishedDate(message)
             elapsedTime = actualDate - publishedDate
+            sum += relevance * sentiment / (1 + elapsedTime.total_seconds() - minElapsedTime.total_seconds())
 
-            normalizedTime = (elapsedTime.total_seconds() - minElapsedTime.total_seconds()) / (maxElapsedTime.total_seconds() - minElapsedTime.total_seconds())
-            normalizedRelevance = float(relevance)/maxRelevance
-            sum += sentiment * normalizedRelevance / (1+normalizedTime)
-
-        result = sum / n
-        print result
+        result = sum / (maxRelevance * n)
         return result
