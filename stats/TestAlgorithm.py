@@ -14,6 +14,12 @@ class TestAlgorithm(unittest.TestCase):
 
         for service in self.services:
             messages = self.db.messageByService(service)
+
+            for message in messages:
+                self.assertEqual(message["service"], service)
+
+            messages.rewind()
+
             num = Algorithm1.getAlgorithmNumber()
             res = Algorithm1.getResult(messages)
             self.assertIsInstance(num, int)
@@ -24,6 +30,12 @@ class TestAlgorithm(unittest.TestCase):
 
         for service in self.services:
             messages = self.db.messageByService(service)
+
+            for message in messages:
+                self.assertEqual(message["service"], service)
+
+            messages.rewind()
+
             num = Algorithm2.getAlgorithmNumber()
             res = Algorithm2.getResult(messages)
             self.assertIsInstance(num, int)
@@ -35,6 +47,12 @@ class TestAlgorithm(unittest.TestCase):
 
         for service in self.services:
             messages = self.db.messageByService(service)
+
+            for message in messages:
+                self.assertEqual(message["service"], service)
+
+            messages.rewind()
+
             num = Algorithm3.getAlgorithmNumber()
             res = Algorithm3.getResult(messages)
             self.assertIsInstance(num, int)

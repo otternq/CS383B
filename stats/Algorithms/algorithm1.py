@@ -24,7 +24,7 @@ class Algorithm1:
 
     @staticmethod
     def getResult(messages):
-        sum = 0
+        sum = 0.0
         for message in messages:
             relevance = Relevance.getRelevance(message)
             sentiment = Sentiment.getSentiment(message)

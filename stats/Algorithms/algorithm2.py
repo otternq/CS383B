@@ -24,7 +24,7 @@ class Algorithm2:
     @staticmethod
     def getResult(messages):
         n = 0
-        sum = 0
+        sum = 0.0
         maxRelevance = 0
         minElapsedTime = datetime.timedelta.max
         actualDate = datetime.datetime.utcnow()
