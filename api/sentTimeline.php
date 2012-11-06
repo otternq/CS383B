@@ -1,6 +1,8 @@
-<?php
+<?php 
+header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *");
 
-echo json_encode(SentServiceToString());	
+echo $_GET['callback'] . '('. json_encode(SentServiceToString()) .')';	
 
 /* Get the sentiment */
 function sent( $message )
