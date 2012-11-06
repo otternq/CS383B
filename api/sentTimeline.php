@@ -29,7 +29,7 @@ function SentServiceToString()
         /* Calculate and fill the second part of the array */
         foreach ($services as $service)
         {
-            $servicesValues[$service] = $service['totalSent'] / $service['count'];
+            $servicesValues[] = $service['totalSent'] / $service['count'];
         }
         
         $jsData[] = $servicesValues;
