@@ -66,7 +66,7 @@ http://code.google.com/apis/ajax/playground/?type=visualization#annotated_time_l
 			{
 				/* Reformat the time for the java portion */
 				$date = explode("-", $date);
-				$string = '[new Date('. $date[0]  .','. $date[1]  .','. $date[2] .')';
+				$string = '[new Date('. $date[0]  .','. ($date[1]-1)  .','. $date[2] .')';
 				
 				/* Create and fill the second part of the array */
 				$servicesValues = array();
