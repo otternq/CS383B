@@ -32,7 +32,7 @@ function SentServiceToString()
             $servicesValues[$service] = $service['totalSent'] / $service['count'];
         }
         
-        $jsData[] = $servicesValues[];
+        $jsData[] = $servicesValues;
         
         /* Clear the values and release them */
         unset($servicesValues);
