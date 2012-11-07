@@ -1,10 +1,10 @@
 import unittest
 from database.MongoInterface import MongoInterface
-from Algorithms.algorithm1 import Algorithm1
-from Algorithms.algorithm2 import Algorithm2
-from Algorithms.algorithm3 import Algorithm3
+from algorithms.Algorithm1 import Algorithm1
+from algorithms.Algorithm2 import Algorithm2
+from algorithms.Algorithm3 import Algorithm3
 
-class TestAlgorithm(unittest.TestCase):
+class UnitTest(unittest.TestCase):
 
     def setUp(self):
         self.db = MongoInterface()
