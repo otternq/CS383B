@@ -19,8 +19,10 @@ for($algorithm = 1; $algorithm <=3; $algorithm++){
     $firstIndex = date("Y-m-d", $message['date']);
 
     /* load the result into the array */
-    if ( !isset($sentArr[$algorithm][$firstIndex]) ) $sentArr[$algorithm][$firstIndex] = $message['result'];
-    else $sentArr[$algorithm][$firstIndex] += $message['result'];
+    if ( !isset($sentArr[$algorithm][$firstIndex]) )
+      $sentArr[$algorithm][$firstIndex] = $message['result'];
+    else
+      $sentArr[$algorithm][$firstIndex] += $message['result'];
 
   }
 }
@@ -35,9 +37,12 @@ for($algorithm = 1; $algorithm <=3; $algorithm++){
   }
 }
 
+$a1 = number_format(array_pop($sentArr[1]),5);
+$a2 = number_format(array_pop($sentArr[2]),5);
+$a3 = number_format(array_pop($sentArr[3]),5);
 
-$json = json_encode(array("a1"=> array_pop($sentArr[1]),
-                "a2" => array_pop($sentArr[2]), "a3" => array_pop($sentArr[3])));
+
+$json = json_encode(array("a1"=> $a1, "a2" => $a2, "a3" => $a3));
 
 echo isset($_GET['callback'])
     ? "{$_GET['callback']}($json)"
