@@ -17,17 +17,6 @@ require_once "../config.php";
 require_once "../autoload.php";
 
 require_once "/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php";
- 
-/*require_once (BASE_DIR ."/service/service.php");
-
-require_once (BASE_DIR ."/social/socialService.php");
-require_once (BASE_DIR ."/social/googlePlusService.php");
-require_once (BASE_DIR ."/social/twitterService.php");
-require_once (BASE_DIR ."/social/facebookService.php");
-
-require_once (BASE_DIR ."/sentiment/sentiment.php");
-require_once (BASE_DIR ."/sentiment/alchemySentiment.php");
-require_once (BASE_DIR ."/social/redditService.php");*/
 
 
 $sentimentObj = SentimentService::getObject("Alchemy");
@@ -64,9 +53,10 @@ foreach (SocialService::availableServices() as $service) {
         		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment );
             */ echo "Worked\n";
             } catch (Exception $e) {
-                echo "Unable to parse and save:\n";
-                print_r($data);
-                echo "\n\n";
+                echo "START:";
+                echo "\tUnable to parse and save:\n";
+                echo "\t" . print_r($data, true);
+                echo "END;\n\n";
             }
             
     	}//END foreach data set
