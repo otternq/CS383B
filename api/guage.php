@@ -19,7 +19,7 @@ for($algorithm = 1; $algorithm <=3; $algorithm++){
     $firstIndex = date("Y-m-d", $message['date']);
 
     /* load the result into the array */
-    if ( !isset($sentArr[$algorithm][$firstIndex]) ) $sentArr[$firstIndex] = $message['result'];
+    if ( !isset($sentArr[$algorithm][$firstIndex]) ) $sentArr[$algorithm][$firstIndex] = $message['result'];
     else $sentArr[$algorithm][$firstIndex] += $message['result'];
 
   }
