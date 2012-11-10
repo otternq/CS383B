@@ -51,7 +51,7 @@ foreach (SocialService::availableServices() as $service) {
             
             try {
                 //put through sentiment analysis
-                $sentiment = new StdClass();
+                /*$sentiment = new StdClass();
                 $sentiment->service = $sentimentObj->getServiceName();
                 $sentiment->response = $sentimentObj->getSentiment(
                     $service->getMessage( $data ) 
@@ -62,7 +62,7 @@ foreach (SocialService::availableServices() as $service) {
         		
         		//save the entry
         		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment );
-            
+            */ echo "Worked\n";
             } catch (Exception $e) {
                 echo "Unable to parse and save:\n";
                 print_r($data);
