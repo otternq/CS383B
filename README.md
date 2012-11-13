@@ -7,8 +7,10 @@ Scheduling (cron)
 -------
 Here is the crontab settings currently being used
 
-  0 0 * * * cd /home/otternq/stock/getSocialData/deamons/; php testService.php >> cronService.log
-  5 0 * * * python /home/otternq/stock/stats/daemon.py
+```
+0 0 * * * cd /home/otternq/stock/getSocialData/deamons/; php testService.php >> cronService.log
+5 0 * * * python /home/otternq/stock/stats/daemon.py
+```
 
 Warning
 -------
