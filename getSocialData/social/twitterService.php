@@ -63,7 +63,7 @@ class TwitterService Extends SocialService
 			"json", //specify json as the return type
 			array (
 				"q" => $search,
-				"result_type" => "popular", //this is so that we receive a retweet count
+				"result_type" => "mixed", //this is so that we receive a retweet count
 				"lang" => "en" //specify the natural language that is expected
 			)
 		);
