@@ -27,7 +27,10 @@ class Relevance:
 
     @staticmethod
     def __getTwitterRetwits(message):
-        return int(message["data"]["metadata"]["recent_retweets"]) + 1
+        try:
+            return int(message["data"]["metadata"]["recent_retweets"]) + 1
+        except KeyError:
+            return 1.0
 
     @staticmethod
     def __getFacebookLikes(message):
