@@ -5,11 +5,11 @@ Social Stock attempts to analyze social messages from Google+, Facebook, Reddit,
 
 Scheduling (cron)
 -------
-Here is the crontab settings currently being used
+Here is the crontab settings currently being used. Replace `/path/to/repo/` with the directory path to your installation path
 
 ```
-0 0 * * * cd /home/otternq/stock/getSocialData/deamons/; php testService.php >> cronService.log
-5 0 * * * python /home/otternq/stock/stats/daemon.py
+0 0 * * * cd /path/to/repo/getSocialData/deamons/; php testService.php >> cronService.log
+5 0 * * * python /path/to/repo/stats/daemon.py
 ```
 
 Warning
