@@ -14,30 +14,14 @@
  
 
 require_once "../config.php";
+require_once "../autoload.php";
 
 require_once "/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php";
- 
-require_once (BASE_DIR ."/service/service.php");
-
-require_once (BASE_DIR ."/social/socialService.php");
-require_once (BASE_DIR ."/social/googlePlusService.php");
-require_once (BASE_DIR ."/social/twitterService.php");
-require_once (BASE_DIR ."/social/facebookService.php");
-
-require_once (BASE_DIR ."/sentiment/sentiment.php");
-require_once (BASE_DIR ."/sentiment/alchemySentiment.php");
-
 
 
 $sentimentObj = SentimentService::getObject("Alchemy");
 
-$searches = array(
-	"#apple",
-	"NASDAQ",
-    "google",
-    "SuperValu",
-    "Albertsons"
-);
+$searches = array_merge($stockCodes, $searchTerms);
 
 //search each keyword through each available service
 foreach (SocialService::availableServices() as $service) {
@@ -57,7 +41,7 @@ foreach (SocialService::availableServices() as $service) {
             try {
                 //put through sentiment analysis
                 $sentiment = new StdClass();
-                $sentiment->service = $sentimentObj->service;
+                $sentiment->service = $sentimentObj->getServiceName();
                 $sentiment->response = $sentimentObj->getSentiment(
                     $service->getMessage( $data ) 
                 );
@@ -66,12 +50,13 @@ foreach (SocialService::availableServices() as $service) {
         		//print_r($data);
         		
         		//save the entry
-        		SocialService::save( $service->service, $searchString, $data, $sentiment );
+        		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment );
             
             } catch (Exception $e) {
-                echo "Unable to parse and save:\n";
-                print_r($data);
-                echo "\n\n";
+                echo "START:";
+                echo "\tUnable to parse and save:\n";
+                echo "\t" . print_r($data, true);
+                echo "END;\n\n";
             }
             
     	}//END foreach data set

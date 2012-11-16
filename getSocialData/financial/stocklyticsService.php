@@ -26,11 +26,16 @@ class StocklyticsService extends FinancialService {
      */
     public $service = "Stocklytics";
     
+    public function getServiceName() 
+    {
+        return $this->service;
+    }
+    
     /**
      * @ignore
      * @var The API key used to access Stocklytics API
      */
-    protected $apiKey = STOCKLYTICS_API_KEY;
+    protected $apiKey = "87175fbebf1747bb68eba06aa795a48388f461e8";
     
     /**
      * Finds stock data for the given company and date range
@@ -55,11 +60,22 @@ class StocklyticsService extends FinancialService {
             $apiEndPoint .= "&end=". date("Y-m-d", $endDate);
         }
         
-        return json_decode(
+        $rawData = json_decode(
             file_get_contents(
                 $apiEndPoint
             )
         );
+        
+        $dataSet = array();
+        
+        foreach($rawData as $key => $value) {
+        
+            $value->date = $key;
+            $dataSet[] = $value;
+            
+        }
+        
+        return $dataSet;
         
     }//END function getHistory
     
@@ -68,18 +84,33 @@ class StocklyticsService extends FinancialService {
      *
      * @param string $company Stock Code
      *
-     * @return object
+     * @return array An array of objects
      */
     public function getCompanyData( $company ) {
         
         $apiEndPoint = "http://api.stocklytics.com/companyData/1.0/" .
         "?api_key=".$this->apiKey."&stock=". $company;
         
-        return json_decode( 
+        $rawData = json_decode( 
             file_get_contents( 
                 $apiEndPoint 
             ) 
         );
+        
+        $dataSet = array();
+        
+        foreach($rawData as $key => $value) {
+            
+            echo "key: ". $key . " value: ". print_r($value, true) ."\n\n";
+            die();
+            $dataSet[] = (object) array_merge(
+                array("date" => $key),
+                $value
+            );
+            
+        }
+        
+        return $dataSet;
         
     }//END function getCompanyData
     
