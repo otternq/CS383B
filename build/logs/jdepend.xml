@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="socialStocks\financial">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>1</Ce>
+        <A>0.5</A>
+        <I>1</I>
+        <D>0.5</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/financial/stocklyticsService.php">StocklyticsService</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/financial/financialService.php">FinancialService</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package>socialStocks\service</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="socialStocks\sentiment">
+      <Stats>
+        <TotalClasses>2</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>2</Ce>
+        <A>0.5</A>
+        <I>1</I>
+        <D>0.5</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/sentiment/alchemySentiment.php">AlchemyService</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/sentiment/sentiment.php">SentimentService</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package>+global</Package>
+        <Package>socialStocks\service</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="socialStocks\service">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>3</Ca>
+        <Ce>0</Ce>
+        <A>0</A>
+        <I>0</I>
+        <D>1</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/service/service.php">Service</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon/>
+      <UsedBy>
+        <Package>socialStocks\financial</Package>
+        <Package>socialStocks\sentiment</Package>
+        <Package>socialStocks\social</Package>
+      </UsedBy>
+    </Package>
+    <Package name="socialStocks\social">
+      <Stats>
+        <TotalClasses>5</TotalClasses>
+        <ConcreteClasses>4</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>2</Ce>
+        <A>0.2</A>
+        <I>1</I>
+        <D>0.2</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/social/facebookService.php">FacebookService</Class>
+        <Class sourceFile="/home/otternq/stock/getSocialData/social/googlePlusService.php">GooglePlusService</Class>
+        <Class sourceFile="/home/otternq/stock/getSocialData/social/redditService.php">RedditService</Class>
+        <Class sourceFile="/home/otternq/stock/getSocialData/social/twitterService.php">TwitterService</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/home/otternq/stock/getSocialData/social/socialService.php">SocialService</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package>+mongo</Package>
+        <Package>socialStocks\service</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+  </Packages>
+  <Cycles/>
+</PDepend>

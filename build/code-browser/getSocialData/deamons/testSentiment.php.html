@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>
+            Mayflower Code Browser - Source Code
+        </title>
+        <link rel="stylesheet" type="text/css" href="../js/jquery.sidebar/css/codebrowser/sidebar.css" />
+        <link rel="stylesheet" type="text/css" href="../css/global.css" />
+        <link rel="stylesheet" type="text/css" href="../css/cruisecontrol.css" />
+        <link rel="stylesheet" type="text/css" href="../css/review.css" />
+
+        <script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.sidebar/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.sidebar/jquery.sidebar.js"></script>
+        <script type="text/javascript" src="../js/jquery.cluetip/lib/jquery.hoverIntent.js"></script>
+        <script type="text/javascript" src="../js/jquery.cluetip/lib/jquery.bgiframe.min.js"></script>
+        <script type="text/javascript" src="../js/jquery.cluetip/jquery.cluetip.min.js"></script>
+
+        <script type="text/javascript" src="../js/review.js"></script>
+    </head>
+    <body class="codebrowser">
+        <div class="header">
+            <a href="./../index.html">Go back to index</a> |
+            <a href="http://github.com/mayflowergmbh/PHP_CodeBrowser">PHP CodeBrowser</a>
+        </div>
+        <hr/>
+        <div id="review">
+            <div class="filepath">
+                getSocialData/deamons/testSentiment.php            </div>
+
+            <ol class="code"><li id="line_1" class="odd"><span class="lineNumber">&nbsp;1&nbsp;</span><span>
+</span><span class="default">&lt;?php</span><a name="line_1"></a></li><li id="line_2" class="even"><span class="lineNumber">&nbsp;2&nbsp;</span><span class="comment">/**</span><a name="line_2"></a></li><li id="line_3" class="odd"><span class="lineNumber">&nbsp;3&nbsp;</span><span class="comment">&nbsp;*&nbsp;Sends&nbsp;text&nbsp;through&nbsp;Sentiment&nbsp;Analysis</span><a name="line_3"></a></li><li id="line_4" class="even"><span class="lineNumber">&nbsp;4&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_4"></a></li><li id="line_5" class="odd"><span class="lineNumber">&nbsp;5&nbsp;</span><span class="comment">&nbsp;*&nbsp;@author&nbsp;Nick&nbsp;Otter&nbsp;&lt;otternq@gmail.com&gt;</span><a name="line_5"></a></li><li id="line_6" class="even"><span class="lineNumber">&nbsp;6&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_6"></a></li><li id="line_7" class="odd"><span class="lineNumber">&nbsp;7&nbsp;</span><span class="comment">&nbsp;*&nbsp;@package&nbsp;socialStocks</span><a name="line_7"></a></li><li id="line_8" class="even"><span class="lineNumber">&nbsp;8&nbsp;</span><span class="comment">&nbsp;*&nbsp;@subpackage&nbsp;deamon</span><a name="line_8"></a></li><li id="line_9" class="odd"><span class="lineNumber">&nbsp;9&nbsp;</span><span class="comment">&nbsp;*</span><a name="line_9"></a></li><li id="line_10" class="even"><span class="lineNumber">10&nbsp;</span><span class="comment">&nbsp;*/</span><a name="line_10"></a></li><li id="line_11" class="odd"><span class="lineNumber">11&nbsp;</span><a name="line_11"></a></li><li id="line_12" class="even"><span class="lineNumber">12&nbsp;</span><span class="comment">//&nbsp;Load&nbsp;the&nbsp;AlchemyAPI&nbsp;module&nbsp;code.</span><a name="line_12"></a></li><li id="line_13" class="odd"><span class="lineNumber">13&nbsp;</span><span class="keyword">include&nbsp;</span><span class="string">"/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php"</span><span class="keyword">;</span><a name="line_13"></a></li><li id="line_14" class="even"><span class="lineNumber">14&nbsp;</span><span class="keyword">include&nbsp;</span><span class="string">"/var/script/getSocialData/sentiment/sentiment.php"</span><span class="keyword">;</span><a name="line_14"></a></li><li id="line_15" class="odd"><span class="lineNumber">15&nbsp;</span><a name="line_15"></a></li><li id="line_16" class="even"><span class="lineNumber">16&nbsp;</span><span class="default">$sentimentObj&nbsp;</span><span class="keyword">=&nbsp;</span><span class="default">SentimentService</span><span class="keyword">::</span><span class="default">getObject</span><span class="keyword">(</span><span class="string">"Alchemy"</span><span class="keyword">);</span><a name="line_16"></a></li><li id="line_17" class="odd"><span class="lineNumber">17&nbsp;</span><a name="line_17"></a></li><li id="line_18" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space before opening parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space after opening parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;Space before closing parenthesis of function call prohibited&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues moreErrors"><span class="lineNumber">18&nbsp;</span><span class="default">print_r&nbsp;</span><span class="keyword">(&nbsp;</span><span class="default">$sentimentObj</span><span class="keyword">-&gt;</span><span class="default">getSentiment</span><span class="keyword">(</span><span class="string">"Hi,&nbsp;I&nbsp;am&nbsp;having&nbsp;a&nbsp;great&nbsp;day"</span><span class="keyword">)&nbsp;);</span><a name="line_18"></a></li><li id="line_19" class="odd"><span class="lineNumber">19&nbsp;</span><a name="line_19"></a></li><li id="line_20" class="even"><span class="lineNumber">20&nbsp;</span><span class="keyword">echo&nbsp;</span><span class="string">"\n\n"</span><span class="keyword">;</span><a name="line_20"></a></li><li id="line_21" class="odd"><span class="lineNumber">21&nbsp;</span><a name="line_21"></a></li><li id="line_22" title='|
+                        &lt;div class="tooltip"&gt;
+                            &lt;div class="title Checkstyle"&gt;Checkstyle&lt;/div&gt;
+                            &lt;div class="text"&gt;A closing tag is not permitted at the end of a PHP file&lt;/div&gt;
+                        &lt;/div&gt;
+                        ' class="even hasIssues Checkstyle"><span class="lineNumber">22&nbsp;</span><span class="default">?&gt;</span><span>
+</span><a name="line_22"></a></li></ol>
+            
+            <div id="sidebar">
+                <table cellpadding="3">
+                    <thead>
+                        <tr>
+                            <th width="40px" align="center">
+                                <strong>start</strong>
+                            </th>
+                            <th width="40px" align="center">
+                                <strong>end</strong>
+                            </th>
+                            <th>
+                                <strong>comment</strong>
+                            </th>
+                            <th width="120px">
+                                <strong>type of error</strong>
+                            </th>
+                            <th width="60px">
+                                <strong>severity</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_18" onclick="switchLine('line_18')">
+                                18</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_18" onclick="switchLine('line_18'); new Effect.Highlight('line_18-18', {duration: 1.5}); return false">
+                                18</a>
+                            </td>
+                            <td>
+                                <a href="#line_18" onclick="switchLine('line_18'); new Effect.Highlight('line_18-18', {duration: 1.5}); return false">
+                                Space before opening parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_18" onclick="switchLine('line_18')">
+                                18</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_18" onclick="switchLine('line_18'); new Effect.Highlight('line_18-18', {duration: 1.5}); return false">
+                                18</a>
+                            </td>
+                            <td>
+                                <a href="#line_18" onclick="switchLine('line_18'); new Effect.Highlight('line_18-18', {duration: 1.5}); return false">
+                                Space after opening parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_18" onclick="switchLine('line_18')">
+                                18</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_18" onclick="switchLine('line_18'); new Effect.Highlight('line_18-18', {duration: 1.5}); return false">
+                                18</a>
+                            </td>
+                            <td>
+                                <a href="#line_18" onclick="switchLine('line_18'); new Effect.Highlight('line_18-18', {duration: 1.5}); return false">
+                                Space before closing parenthesis of function call prohibited</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                        
+                        <tr class="Checkstyle">
+                            <td align="center">
+                                <a href="#line_22" onclick="switchLine('line_22')">
+                                22</a>
+                            </td>
+                            <td align="center">
+                                <a href="#line_22" onclick="switchLine('line_22'); new Effect.Highlight('line_22-22', {duration: 1.5}); return false">
+                                22</a>
+                            </td>
+                            <td>
+                                <a href="#line_22" onclick="switchLine('line_22'); new Effect.Highlight('line_22-22', {duration: 1.5}); return false">
+                                A closing tag is not permitted at the end of a PHP file</a>
+                            </td>
+                            <td>
+                                Checkstyle                            </td>
+                            <td>
+                                error                            </td>
+                        </tr>
+                                            </tbody>
+                </table>
+            </div>
+            <script type="text/javascript" language="javascript">
+                $(initReview);
+            </script>
+                    </div>
+    </body>
+</html>

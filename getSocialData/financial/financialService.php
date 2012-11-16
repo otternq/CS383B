@@ -14,7 +14,7 @@
  * @link http://php.net/abstract documentation for an abstract class
  * @link http://php.net/static documentation for an static method
  */
-abstract class FinancialService extends Service {
+abstract class FinancialService implements Service {
     
     /**
      * Return stock data for the given company and date range

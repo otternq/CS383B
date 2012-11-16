@@ -11,12 +11,12 @@
  * @package socialStocks
  * @subpackage service
  */
-class Service {
+interface Service {
     
     /**
-     * @var string the name of the service
+     * A function to tell what service the object is for
      */
-    public $service;
+    public function getServiceName();
     
 }
 
