@@ -9,31 +9,38 @@ total = 0
 now = time.time()
 services = ["Twitter", "Google Plus", "Facebook", "Reddit"]
 
-for service in services:
-    messages = db.messageByService(service)
-    res = Algorithm1.getResult(messages)
-    db.saveResult(now, service, Algorithm1.getAlgorithmNumber(), res)
-    total += res
+days = 1
+while ( days < 15):
+    time = 1353980092 - (days * 24 * 60 * 60)
 
-print total
 
-total = 0
+    for service in services:
+        messages = db.messageByService(service, time)
+        res = Algorithm1.getResult(messages)
+        db.saveResult(now, service, Algorithm1.getAlgorithmNumber(), res)
+        total += res
 
-for service in services:
-    messages = db.messageByService(service)
-    res = Algorithm2.getResult(messages)
-    db.saveResult(now, service, Algorithm2.getAlgorithmNumber(), res)
-    total += res
+    print total
 
-print total
+    total = 0
 
-total = 0
+    for service in services:
+        messages = db.messageByService(service, time)
+        res = Algorithm2.getResult(messages)
+        db.saveResult(now, service, Algorithm2.getAlgorithmNumber(), res)
+        total += res
 
-for service in services:
-    messages = db.messageByService(service)
-    res = Algorithm3.getResult(messages)
-    db.saveResult(now, service, Algorithm3.getAlgorithmNumber(), res)
-    total += res
+    print total
 
-print total
+    total = 0
+
+    for service in services:
+        messages = db.messageByService(service, time)
+        res = Algorithm3.getResult(messages)
+        db.saveResult(now, service, Algorithm3.getAlgorithmNumber(), res)
+        total += res
+
+    print total
+
+    days += 1
 
