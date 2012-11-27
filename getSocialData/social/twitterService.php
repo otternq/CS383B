@@ -62,11 +62,9 @@ class TwitterService Extends SocialService
 		$url =  $this->getSearchUrl(
 			"json", //specify json as the return type
 			array (
-				"q" => $search,
+				"q" => $search ."+since:+".date('Y-m-d', $since)."until:".date('Y-m-d', $until),
 				"result_type" => "mixed", //this is so that we receive a retweet count
-				"lang" => "en", //specify the natural language that is expected
-                                "since" => date("Y-m-d", $since), //the start date for a range
-                                "until" => date("Y-m-d", $until) //the end date for a range
+				"lang" => "en" //specify the natural language that is expected
 			)
 		);
 		
