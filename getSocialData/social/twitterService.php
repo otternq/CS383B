@@ -57,14 +57,16 @@ class TwitterService Extends SocialService
      *
      * @return JSONString
      */
-	protected function retrieveMessages( $search ) {
+	protected function retrieveMessages( $search, $since, $until, $limit ) {
         
 		$url =  $this->getSearchUrl(
 			"json", //specify json as the return type
 			array (
 				"q" => $search,
 				"result_type" => "mixed", //this is so that we receive a retweet count
-				"lang" => "en" //specify the natural language that is expected
+				"lang" => "en", //specify the natural language that is expected
+                                "since" => date("Y-m-d", $since), //the start date for a range
+                                "until" => date("Y-m-d", $until) //the end date for a range
 			)
 		);
 		
