@@ -15,7 +15,7 @@ function getStockHistory($date)
 
     /* An array representing the query to run */
     $query = array(
-        "data.date" = > $date
+        "data.date" => $date
     );
 
     /* An array of the fields of information desired */
