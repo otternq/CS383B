@@ -1,4 +1,4 @@
-from pymongo import Connection #Connection makes a connection to a MongoDB instance
+fom pymongo import Connection #Connection makes a connection to a MongoDB instance
 
 class MongoInterface:
 
@@ -17,11 +17,12 @@ class MongoInterface:
         self.db = self.connection[self.DATABASE_NAME] #specify the database to use
         self.db.authenticate(self.DATABASE_USERNAME, self.DATABASE_PASSWORD) #authenticate to the database
 
-    def messageByService(self, serviceName):
+    def messageByService(self, serviceName, time):
     
+
         messagesCollection = self.db.messages #specify the collection to use
         
-        return messagesCollection.find( { "service": serviceName } ) #return the results
+        return messagesCollection.find( { "service": serviceName, "date": { "$lt": time } } ) #return the results
         
     def saveResult(self, date, service, algorithm, result):
     
