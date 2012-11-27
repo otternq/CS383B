@@ -26,7 +26,7 @@ abstract class SocialService implements Service
      *
      * @return mixed
      */
-    protected abstract function retrieveMessages( $search );
+    protected abstract function retrieveMessages( $search, $since, $until, $limit );
     
     /**
      * Parses the data provided by the service so that it can be stored
