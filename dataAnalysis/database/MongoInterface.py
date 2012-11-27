@@ -1,4 +1,4 @@
-fom pymongo import Connection #Connection makes a connection to a MongoDB instance
+from pymongo import Connection #Connection makes a connection to a MongoDB instance
 
 class MongoInterface:
 
