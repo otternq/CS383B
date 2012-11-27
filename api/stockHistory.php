@@ -56,7 +56,6 @@ function getStockHistoryGen($date = null)
     
 
     for ($i = 0; $i < count($data); $i++) {
-        print_r($data[$i]);
 	$total += $data[$i]['data']['close'] - $data[$i]['data']['open'];
     }
 
