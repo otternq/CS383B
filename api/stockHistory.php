@@ -2,21 +2,35 @@
 header('content-type: application/json; charset=utf-8');
 header("access-control-allow-origin: *");
 
-$json = json_encode(getStockHistory("2012-06-15"));
+$date = null;
+
+if(!empty($_GET['date']))
+{
+    $date = $_GET['date'];
+}
+
+$json = json_encode(getStockHistoryGen($date));
 
 //print the output for retrival
 echo isset($_GET['callback'])
     ? "{$_GET['callback']}($json)"
     : $json;
     
-function getStockHistory($date)
+function getStockHistory($date = null)
 {
     $data = array();
+	
+    $query = array();
 
-    /* An array representing the query to run */
-    $query = array(
-        "data.date" => $date
-    );
+    if ($date != null)
+    {
+
+        /* An array representing the query to run */
+        $query = array(
+            "data.date" => $date
+        );
+
+    }
 
     /* An array of the fields of information desired */
     $fields = array(
@@ -32,6 +46,21 @@ function getStockHistory($date)
     }
     
     return $data;
+
+}
+
+function getStockHistoryGen($date = null)
+{
+    $total = 0;
+    $data = getStockHistory($date);
+    
+
+    for ($i = 0; $i < count($data); $i++) {
+        print_r($data[$i]);
+	$total += $data[$i]['data']['close'] - $data[$i]['data']['open'];
+    }
+
+    return $total;
 
 }
 
