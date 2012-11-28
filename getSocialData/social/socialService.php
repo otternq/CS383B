@@ -135,8 +135,12 @@ abstract class SocialService implements Service
      *
      * @return bool Return success or failure
      */
-    public static function save ( $service, $searchString, $data, $sentiment ) 
+    public static function save ( $service, $searchString, $data, $sentiment, $end = null ) 
     {
+        if ($end == null) {
+            $end = mktime();
+        }
+    
         //authenticate to the MongoDB server
     	$m = new Mongo(
             "mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock"
@@ -151,7 +155,7 @@ abstract class SocialService implements Service
         //save the message to the MongoDB server
 		return $collection->insert( 
 			array (
-                "date" => mktime(), //save the current UNIX TIMESTAMP
+                "date" => $end, //save the current UNIX TIMESTAMP
 				"service" => $service,
 				"searchString" => $searchString,
 				"data" => $data,
