@@ -35,9 +35,9 @@ $searches = array(
 $service = "Facebook";
 $now = time();
 $day = 0;
-$maxday = 1;
+$maxday = 30;
 $daysec = 60*60*24;
-$limit = 1;
+$limit = 5;
 
 //search each keyword through each available service
 while ($day < $max) {
