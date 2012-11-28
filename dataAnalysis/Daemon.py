@@ -7,15 +7,18 @@ import time
 db = MongoInterface()
 total = 0
 now = time.time()
-services = ["Twitter", "Google Plus", "Facebook", "Reddit"]
+#services = ["Twitter", "Google Plus", "Facebook", "Reddit"]
+services = [ "Facebook" ]
 
-days = 1
-while ( days < 15):
-    time = 1353980092 - (days * 24 * 60 * 60)
+days = 0
+while ( days < 10):
+    end = now - (days * 24 * 60 * 60)
+    start = now - ((days+1) * 24 * 60 * 60)
+
 
 
     for service in services:
-        messages = db.messageByService(service, time)
+        messages = db.messageByService(service, start, end)
         res = Algorithm1.getResult(messages)
         db.saveResult(now, service, Algorithm1.getAlgorithmNumber(), res)
         total += res
@@ -25,7 +28,7 @@ while ( days < 15):
     total = 0
 
     for service in services:
-        messages = db.messageByService(service, time)
+        messages = db.messageByService(service, start, end)
         res = Algorithm2.getResult(messages)
         db.saveResult(now, service, Algorithm2.getAlgorithmNumber(), res)
         total += res
@@ -35,7 +38,7 @@ while ( days < 15):
     total = 0
 
     for service in services:
-        messages = db.messageByService(service, time)
+        messages = db.messageByService(service, start, end)
         res = Algorithm3.getResult(messages)
         db.saveResult(now, service, Algorithm3.getAlgorithmNumber(), res)
         total += res
