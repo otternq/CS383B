@@ -137,9 +137,6 @@ abstract class SocialService implements Service
      */
     public static function save ( $service, $searchString, $data, $sentiment, $end = null ) 
     {
-        if ($end == null) {
-            $end = mktime();
-        }
     
         //authenticate to the MongoDB server
     	$m = new Mongo(
