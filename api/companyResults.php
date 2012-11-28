@@ -25,13 +25,14 @@
 			/* Average the results for each search */
 			foreach ($searches as $search)
 			{
-				$searchValues[] = $search['totalSent'] / $search['count'];
+				$searchValues[] = $search['sentimentSum'] / $search['count'];
 			}
 			
-			$searchValues[] = StockHelper::getStockHistoryGen($date);
+//			$searchValues[] = StockHelper::getStockHistoryGen($date);
 			
 			/* Combine the strings */
 			$jsData[] = $searchValues;
+			
 			
 			/* Clear the values and release them */
 			unset($string);
