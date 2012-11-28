@@ -141,7 +141,7 @@ abstract class SocialService implements Service
     	$db = $m->selectDB('socialstock');
         
         //select the MongoDB collection to work with
-		$collection = new MongoCollection($db, 'messages');
+	$collection = new MongoCollection($db, 'messages2');
 		
         //save the message to the MongoDB server
 		return $collection->insert( 

@@ -33,29 +33,37 @@ $searches = array(
 );
 
 $service = "Facebook";
-$now = time();
+$now = mktime();
 $day = 0;
 $maxday = 30;
 $daysec = 60*60*24;
 $limit = 5;
 
 //search each keyword through each available service
-while ($day < $max) {
+while ($day < $maxday) {
     
 	//get the next service to be searched
-	$service = SocialService::getObject( $service );
+	$service = SocialService::getObject( "Facebook" );
 	
     //foreach string we want to search
 	foreach ( $searches as $searchString ) {
-        
+
+
+        $start = $now - (($day+1) * $daysec);
+        $end = $now - ($day * $daysec);
+
+        echo "Time Range - Start: ".$start." End ".$end."\n"; 
     	//retrieve a dataset based on a search
-    	$dataSet = $service->getData( $search, $now - (($day+1) * $daysec), $now - ($day * $daysec), $limit );	
-    	//foreach item in the dataset
+    	$dataSet = $service->getData( $searchString, $start, $end, $limit );	
+    	
+        echo "DataSet: ". print_r($dataSet, true) ."\n";
+
+        //foreach item in the dataset
     	foreach ( $dataSet as $data ) {
             
-          /*  try {
+            try {
                 //put through sentiment analysis
-                $sentiment = new StdClass();
+          /*      $sentiment = new StdClass();
                 $sentiment->service = $sentimentObj->getServiceName();
                 $sentiment->response = $sentimentObj->getSentiment(
                     $service->getMessage( $data ) 
