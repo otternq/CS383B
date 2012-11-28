@@ -47,7 +47,7 @@
 				}
 			}
 			
-			$serviceValues[] = StockHelper::getStockHistoryGen($date)
+			$serviceValues[] = StockHelper::getStockHistoryGen($date);
 			
 			/* Combine the strings */
 //			$string .= ', '. implode(",", $servicesValues) .']';

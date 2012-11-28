@@ -39,7 +39,7 @@ static function getStockHistory($date = null)
 static function getStockHistoryGen($date = null)
 {
     $total = 0;
-    $data = getStockHistory($date);
+    $data = self::getStockHistory($date);
     
 
     for ($i = 0; $i < count($data); $i++) {
