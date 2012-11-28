@@ -4,7 +4,7 @@
 	//	print_r(getSentByService());
 	/* Put in the starting data */
 	$table = array();
-	$table[0] = array('Date', 'Algorithm 1', 'Algorithm 2', 'Algorithm 3');
+	$table[0] = array('Date', 'Algorithm 1', 'Algorithm 2', 'Algorithm 3', 'Market');
 //	$table[1] = "['1','1','1','1']";
 	
 	/* Get the data for the table */
@@ -47,7 +47,7 @@
 				}
 			}
 			
-			$serviceValues[] = StockHelper::getStockHistoryGen($date);
+			$servicesValues[] = StockHelper::getStockHistoryGen($date);
 			
 			/* Combine the strings */
 //			$string .= ', '. implode(",", $servicesValues) .']';
