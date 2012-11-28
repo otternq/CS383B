@@ -71,8 +71,13 @@ abstract class SocialService implements Service
      */
      public function getData( $search, $since = null, $until = null, $limit = 10 ) 
      {
-        $since = mktime(0,0,0);
-        $until = mktime(23,59,59);
+        if ($since == null) {
+            $since = mktime(0,0,0);
+        }
+        
+        if ($until == null) {
+            $until = mktime(23,59,59);
+        }
 
         $serviceData = $this->retrieveMessages( $search, $since, $until, $limit );
         return $this->parseData($serviceData);
@@ -130,8 +135,12 @@ abstract class SocialService implements Service
      *
      * @return bool Return success or failure
      */
-    public static function save ( $service, $searchString, $data, $sentiment ) 
+    public static function save ( $service, $searchString, $data, $sentiment, $end = null ) 
     {
+        if ($end == null) {
+            $end = mktime();
+        }
+    
         //authenticate to the MongoDB server
     	$m = new Mongo(
             "mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock"
@@ -141,12 +150,12 @@ abstract class SocialService implements Service
     	$db = $m->selectDB('socialstock');
         
         //select the MongoDB collection to work with
-		$collection = new MongoCollection($db, 'messages');
+	$collection = new MongoCollection($db, 'messages2');
 		
         //save the message to the MongoDB server
 		return $collection->insert( 
 			array (
-                "date" => mktime(), //save the current UNIX TIMESTAMP
+                "date" => $end, //save the current UNIX TIMESTAMP
 				"service" => $service,
 				"searchString" => $searchString,
 				"data" => $data,
