@@ -71,8 +71,13 @@ abstract class SocialService implements Service
      */
      public function getData( $search, $since = null, $until = null, $limit = 10 ) 
      {
-        $since = mktime(0,0,0);
-        $until = mktime(23,59,59);
+        if ($since == null) {
+            $since = mktime(0,0,0);
+        }
+        
+        if ($until == null) {
+            $until = mktime(23,59,59);
+        }
 
         $serviceData = $this->retrieveMessages( $search, $since, $until, $limit );
         return $this->parseData($serviceData);
