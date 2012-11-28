@@ -8,19 +8,19 @@ spl_autoload_register(
         echo $class;
         if ($classes === null) {
             $classes = array(
-                'alchemyservice' => '/sentiment/alchemySentiment.php',
-                'facebookservice' => '/social/facebookService.php',
-                'financialservice' => '/financial/financialService.php',
-                'financialserviceutility' => '/financial/financialServiceUtility.php',
-                'googleplusservice' => '/social/googlePlusService.php',
-                'redditservice' => '/social/redditService.php',
-                'sentimentservice' => '/sentiment/sentiment.php',
-                'service' => '/service/service.php',
-                'socialservice' => '/social/socialService.php',
-                'stockentry' => '/financial/stockEntry.php',
-                'stocklyticsservice' => '/financial/stocklyticsService.php',
-                'twitterservice' => '/social/twitterService.php',
-                'yahooservice' => '/financial/yahooService.php'
+                'AlchemyService' => '/sentiment/alchemySentiment.php',
+                'FacebookService' => '/social/facebookService.php',
+                'FinancialService' => '/financial/financialService.php',
+                'YahooService' => '/financial/yahooService.php',
+                'FinancialServiceUtility' => '/financial/financialServiceUtility.php',
+                'StockEntry' => '/financial/stockEntry.php',
+                'GooglePlusService' => '/social/googlePlusService.php',
+                'RedditService' => '/social/redditService.php',
+                'SentimentService' => '/sentiment/sentiment.php',
+                'Service' => '/service/service.php',
+                'SocialService' => '/social/socialService.php',
+                'StocklyticsService' => '/financial/stocklyticsService.php',
+                'TwitterService' => '/social/twitterService.php'
             );
         }
 
