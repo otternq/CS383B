@@ -1,9 +1,10 @@
 <?php
 	header("access-control-allow-origin: *");
+	require_once "./stockHelper.php";
 	//	print_r(getSentByService());
 	/* Put in the starting data */
 	$table = array();
-	$table[0] = array('Date', 'Algorithm 1', 'Algorithm 2', 'Algorithm 3');
+	$table[0] = array('Date', 'Algorithm 1', 'Algorithm 2', 'Algorithm 3', 'Market');
 //	$table[1] = "['1','1','1','1']";
 	
 	/* Get the data for the table */
@@ -46,6 +47,8 @@
 				}
 			}
 			
+			$servicesValues[] = StockHelper::getStockHistoryGen($date);
+			
 			/* Combine the strings */
 //			$string .= ', '. implode(",", $servicesValues) .']';
 			$jsData[] = $servicesValues;
@@ -73,7 +76,7 @@
 		foreach($collection->find(array()) as $message)
 		{
 			/* Make the indexes variables */
-			$firstIndex = date("F-d-Y", $message['date']);
+			$firstIndex = date("Y-m-d", $message['date']);
 			$secondIndex = $message['algorithm'];
 			
 			/* Find the sum of results and the number of entries */
@@ -89,6 +92,7 @@
 				$resultArray[$firstIndex][$secondIndex]['totalRes'] += $message['result'];
 				$resultArray[$firstIndex][$secondIndex]['count']++;
 			}
+			
 		}
 		
 		/* Alphabetize the entries */

@@ -21,10 +21,26 @@ require_once "/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php";
 
 $sentimentObj = SentimentService::getObject("Alchemy");
 
-$searches = array_merge($stockCodes, $searchTerms);
+
+$searches = array(
+	  "NASDAQ",
+    "AAPL",
+    "GOOG",
+    "AMZN",
+    "FB",
+    "MSFT"
+
+);
+
+$service = "Facebook";
+$now = time();
+$day = 0;
+$maxday = 1;
+$daysec = 60*60*24;
+$limit = 1;
 
 //search each keyword through each available service
-foreach (SocialService::availableServices() as $service) {
+while ($day < $max) {
     
 	//get the next service to be searched
 	$service = SocialService::getObject( $service );
@@ -33,25 +49,24 @@ foreach (SocialService::availableServices() as $service) {
 	foreach ( $searches as $searchString ) {
         
     	//retrieve a dataset based on a search
-    	$dataSet = $service->getData( $searchString );
-    	
+    	$dataSet = $service->getData( $search, $now - (($day+1) * $daysec), $now - ($day * $daysec), $limit );	
     	//foreach item in the dataset
     	foreach ( $dataSet as $data ) {
             
-            try {
+          /*  try {
                 //put through sentiment analysis
-                /*$sentiment = new StdClass();
+                $sentiment = new StdClass();
                 $sentiment->service = $sentimentObj->getServiceName();
                 $sentiment->response = $sentimentObj->getSentiment(
                     $service->getMessage( $data ) 
                 );
-                
+           */    
         		//print the entry to the screen
-        		//print_r($data);
+        		print_r($data);
         		
         		//save the entry
         		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment );
-            */ echo "Worked\n";
+               echo "Worked\n";
             } catch (Exception $e) {
                 echo "START:";
                 echo "\tUnable to parse and save:\n";
@@ -61,9 +76,11 @@ foreach (SocialService::availableServices() as $service) {
             
     	}//END foreach data set
         
-	}//END foreach searches
+  }//END foreach searches
+
+  $day = $day + 1;
     
-}//END foreach social service
+}//END while day
 
 ?>
 

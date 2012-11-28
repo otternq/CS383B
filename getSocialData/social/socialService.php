@@ -23,10 +23,12 @@ abstract class SocialService implements Service
      * Asks the service for messages to be parsed
      *
      * @param string $search The keywords to be searched
-     *
+     * @param int $since The start time of the search (unix timestamp). Default: Start of the day
+     * @param int $until The end time of the search (unix timestamp). Default: End of the day
+     * @param int $limit The max number of results. Default: 10
      * @return mixed
      */
-    protected abstract function retrieveMessages( $search );
+    protected abstract function retrieveMessages( $search, $since, $until, $limit );
     
     /**
      * Parses the data provided by the service so that it can be stored
@@ -54,19 +56,25 @@ abstract class SocialService implements Service
 
         return $result;
         
-	}//END function batchGetData
+    }//END function batchGetData
     
     /**
      * Gets the services data, then parses it into what should be saved
      *
      * @param string $search The string that the service should search for
+     * @param int $since The start time of the search (unix timestamp). Default: Start of the day
+     * @param int $until The end time of the search (unix timestamp). Default: End of the day
+     * @param int $limit The max number of results. Default: 10
+     *
      *
      * @return array [ obj1, obj2]
      */
-	public function getData( $search ) 
-	{
+     public function getData( $search, $since = null, $until = null, $limit = 10 ) 
+     {
+        $since = mktime(0,0,0);
+        $until = mktime(23,59,59);
 
-        $serviceData = $this->retrieveMessages( $search );
+        $serviceData = $this->retrieveMessages( $search, $since, $until, $limit );
         return $this->parseData($serviceData);
 
     }//END function getData

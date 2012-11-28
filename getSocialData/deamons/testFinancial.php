@@ -26,9 +26,20 @@ require_once ("../financial/financialServiceUtility.php");*/
 $m = new Mongo(
     "mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock"
 );
+$adminDB = $m->admin;
 
 //select the MongoDB datbase
 $db = $m->selectDB('socialstock');
+
+//rename to current collection for further deletion
+$backupTime = mktime();
+
+$adminDB->command(
+	array (
+		"renameCollection" => "socialstock.stockHistory",
+		"to" => "socialstock.stockHistory". $backupTime
+	)
+);
 
 //select the MongoDB collection to work with
 $collection = new MongoCollection($db, 'stockHistory');
