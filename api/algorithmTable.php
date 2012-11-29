@@ -67,7 +67,7 @@
 		/* Where to go, which database, and which collection */
 		$m = new Mongo("mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock");
 		$db = $m->selectDB('socialstock');
-		$collection = new MongoCollection($db, 'results');
+		$collection = new MongoCollection($db, 'results2');
 		
 		/* Create an array for the sentiment */
 		$resultArray = array();

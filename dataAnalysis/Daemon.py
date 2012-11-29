@@ -11,16 +11,16 @@ now = time.time()
 services = [ "Facebook" ]
 
 days = 0
-while ( days < 10):
-    end = now - (days * 24 * 60 * 60)
-    start = now - ((days+1) * 24 * 60 * 60)
+while ( days < 9):
+    end = now - ((days+1) * 24 * 60 * 60)
+    start = now - ((days+2) * 24 * 60 * 60)
 
 
 
     for service in services:
         messages = db.messageByService(service, start, end)
         res = Algorithm1.getResult(messages)
-        db.saveResult(now, service, Algorithm1.getAlgorithmNumber(), res)
+        db.saveResult(end, service, Algorithm1.getAlgorithmNumber(), res)
         total += res
 
     print total
@@ -29,8 +29,9 @@ while ( days < 10):
 
     for service in services:
         messages = db.messageByService(service, start, end)
+        print messages
         res = Algorithm2.getResult(messages)
-        db.saveResult(now, service, Algorithm2.getAlgorithmNumber(), res)
+        db.saveResult(end, service, Algorithm2.getAlgorithmNumber(), res)
         total += res
 
     print total
@@ -40,7 +41,7 @@ while ( days < 10):
     for service in services:
         messages = db.messageByService(service, start, end)
         res = Algorithm3.getResult(messages)
-        db.saveResult(now, service, Algorithm3.getAlgorithmNumber(), res)
+        db.saveResult(end, service, Algorithm3.getAlgorithmNumber(), res)
         total += res
 
     print total
