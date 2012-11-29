@@ -20,13 +20,13 @@ class MongoInterface:
     def messageByService(self, serviceName, time):
     
 
-        messagesCollection = self.db.messages #specify the collection to use
+        messagesCollection = self.db.messages2 #specify the collection to use
         
         return messagesCollection.find( { "service": serviceName, "date": { "$lt": time } } ) #return the results
         
     def saveResult(self, date, service, algorithm, result):
     
-        resultsCollection = self.db.results
+        resultsCollection = self.db.results2
         
         result = [
             {

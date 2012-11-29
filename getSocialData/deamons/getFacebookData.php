@@ -35,9 +35,9 @@ $searches = array(
 $service = "Facebook";
 $now = mktime();
 $day = 0;
-$maxday = 30;
+$maxday = 10;
 $daysec = 60*60*24;
-$limit = 5;
+$limit = 10;
 
 //search each keyword through each available service
 while ($day < $maxday) {
@@ -52,35 +52,38 @@ while ($day < $maxday) {
         $start = $now - (($day+1) * $daysec);
         $end = $now - ($day * $daysec);
 
-        echo "Time Range - Start: ".$start." End ".$end."\n"; 
+        //echo "Time Range - Start: ".$start." End ".$end."\n"; 
     	//retrieve a dataset based on a search
     	$dataSet = $service->getData( $searchString, $start, $end, $limit );	
     	
-        echo "DataSet: ". print_r($dataSet, true) ."\n";
+        //echo "DataSet: ". print_r($dataSet, true) ."\n";
 
         //foreach item in the dataset
     	foreach ( $dataSet as $data ) {
             
-            try {
+            try { echo "Start Data";
+		        print_r($data);
                 //put through sentiment analysis
-          /*      $sentiment = new StdClass();
+                $sentiment = new StdClass();
                 $sentiment->service = $sentimentObj->getServiceName();
                 $sentiment->response = $sentimentObj->getSentiment(
                     $service->getMessage( $data ) 
                 );
-           */    
+               
         		//print the entry to the screen
-        		print_r($data);
+        		print_r($sentiment);
         		
         		//save the entry
-        		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment );
+        		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment, $end );
                echo "Worked\n";
+               
             } catch (Exception $e) {
                 echo "START:";
                 echo "\tUnable to parse and save:\n";
                 echo "\t" . print_r($data, true);
                 echo "END;\n\n";
             }
+
             
     	}//END foreach data set
         

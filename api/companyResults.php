@@ -1,5 +1,6 @@
 <?php
-	header("access-control-allow-origin: *");
+header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *");
 	
 //	date & sentiment of search terms
 	
@@ -45,6 +46,13 @@
 	
 	function getSentBySearch()
 	{
+        
+        $query = array();
+        
+        if (!empty($_GET['company'])) {
+            $query = array("searchString" => $_GET['company']);
+        }
+        
 		/* An array of the fields of information desired */
 		$fields = array(
 			"searchString" => 1,
@@ -62,7 +70,7 @@
 		$resultArray = array();
 		
 		/* Process the information into an array */
-		foreach($collection->find(array(), $fields) as $message)
+		foreach($collection->find($query, $fields) as $message)
 		{
 			/* Make the indexes variables */
 			$firstIndex = date("Y-m-d", $message['date']);
