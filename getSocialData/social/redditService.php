@@ -41,7 +41,7 @@ class RedditService extends SocialService
      * 
      * @return JSONString
      */
-    protected function retrieveMessages( $search )
+    protected function retrieveMessages( $search, $since, $until, $limit )
     {
         $url = $this->getSearchUrl( $this->specialStrip($search), "json" );
         

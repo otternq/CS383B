@@ -61,7 +61,7 @@ class GooglePlusService extends SocialService
      *
      * @return JSONString
      */
-    protected function retrieveMessages( $search ) 
+    protected function retrieveMessages( $search, $since, $until, $limit ) 
     {
         return file_get_contents( $this->getSearchUrl( $search ) );
     }//END function retrieveMessages

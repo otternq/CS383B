@@ -11,7 +11,8 @@
 
 // Load the AlchemyAPI module code.
 include "/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php";
-include "/var/script/getSocialData/sentiment/sentiment.php";
+include "../config.php";
+include "../autoload.php";
 
 $sentimentObj = SentimentService::getObject("Alchemy");
 

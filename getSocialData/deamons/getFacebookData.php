@@ -21,49 +21,77 @@ require_once "/opt/AlchemyAPI_PHP5-0.8/module/AlchemyAPI.php";
 
 $sentimentObj = SentimentService::getObject("Alchemy");
 
-$searches = array_merge($stockCodes, $searchTerms);
+
+$searches = array(
+	  "NASDAQ",
+    "AAPL",
+    "GOOG",
+    "AMZN",
+    "FB",
+    "MSFT"
+
+);
+
+$service = "Facebook";
+$now = mktime();
+$day = 0;
+$maxday = 10;
+$daysec = 60*60*24;
+$limit = 10;
 
 //search each keyword through each available service
-foreach (SocialService::availableServices() as $service) {
+while ($day < $maxday) {
     
 	//get the next service to be searched
-	$service = SocialService::getObject( $service );
+	$service = SocialService::getObject( "Facebook" );
 	
     //foreach string we want to search
 	foreach ( $searches as $searchString ) {
-        
+
+
+        $start = $now - (($day+1) * $daysec);
+        $end = $now - ($day * $daysec);
+
+        //echo "Time Range - Start: ".$start." End ".$end."\n"; 
     	//retrieve a dataset based on a search
-    	$dataSet = $service->getData( $searchString );
+    	$dataSet = $service->getData( $searchString, $start, $end, $limit );	
     	
-    	//foreach item in the dataset
+        //echo "DataSet: ". print_r($dataSet, true) ."\n";
+
+        //foreach item in the dataset
     	foreach ( $dataSet as $data ) {
             
-            try {
+            try { echo "Start Data";
+		        print_r($data);
                 //put through sentiment analysis
-                /*$sentiment = new StdClass();
+                $sentiment = new StdClass();
                 $sentiment->service = $sentimentObj->getServiceName();
                 $sentiment->response = $sentimentObj->getSentiment(
                     $service->getMessage( $data ) 
                 );
-                
+               
         		//print the entry to the screen
-        		//print_r($data);
+        		print_r($sentiment);
         		
         		//save the entry
-        		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment );
-            */ echo "Worked\n";
+        		SocialService::save( $service->getServiceName(), $searchString, $data, $sentiment, $end );
+               echo "Worked\n";
+               
             } catch (Exception $e) {
                 echo "START:";
                 echo "\tUnable to parse and save:\n";
                 echo "\t" . print_r($data, true);
                 echo "END;\n\n";
             }
+
             
     	}//END foreach data set
         
-	}//END foreach searches
+  }//END foreach searches
+
+  $day = $day + 1;
     
-}//END foreach social service
+}//END while day
 
 ?>
 

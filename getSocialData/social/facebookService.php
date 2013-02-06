@@ -42,12 +42,15 @@ class FacebookService extends SocialService
      *
      * @return JSONString
      */
-    protected function retrieveMessages( $search ) 
+    protected function retrieveMessages( $search, $since, $until, $limit ) 
     {
-        
-        $url =  "https://graph.facebook.com/search?q=".urlencode($search)."&type=post";
-		
-        return file_get_contents( $url );
+       //echo 'retrieveMessages Start: '. $since .' -  End: '. $until ."\n";  
+       $url =  "https://graph.facebook.com/search?q=".urlencode($search)."&type=post&since=".$since."&until=".$until."&limit=".$limit."&locale=en_US";
+	//echo "\n".$url."\n";
+
+        $file = file_get_contents( $url );
+	//print_r($file);
+        return $file;
         
     }//END function retrieveMessages()
 

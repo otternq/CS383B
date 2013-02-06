@@ -1,13 +1,16 @@
 <?php
+	header("access-control-allow-origin: *");
+	require_once "./stockHelper.php";
+	//	print_r(getSentByService());
 	/* Put in the starting data */
 	$table = array();
-	$table[0] = "['Date', 'Algorithm 1', 'Algorithm 2', 'Algorithm 3']";
+	$table[0] = array('Date', 'Algorithm 1', 'Algorithm 2', 'Algorithm 3', 'Market');
+//	$table[1] = "['1','1','1','1']";
 	
 	/* Get the data for the table */
-	$table = array_merge($table, SentServiceToString());
-	echo "[";
-	echo implode(",\n", $table);
-	echo "]";
+	$table = array_merge($table,SentServiceToString());
+//	$table = implode(",", $table);
+	echo json_encode($table);
 	
 	
 	/* Get the array for the table */
@@ -19,30 +22,36 @@
 		foreach ($sent as $date => $services)
 		{
 			/* Format the time portion */
-			$date = explode("-", $date);
-			$string = "['". $date[0]  .' '. $date[1]  .', '. $date[2] ."'";
+			//$date = explode("-", $date);
+			//$string = "'". $date[0]  .' '. $date[1]  .', '. $date[2] ."'";
 			
 			/* Create and fill the second part of the array */
 			$servicesValues = array();
+			
+			$servicesValues[] = $date;
+			
 			foreach ($services as $service)
 			{
-				if(0 < ($service['totalRes'] / $service['count']))
+				
+				if(0 < ($service['totalRes']))
 				{
-					$servicesValues[] = "'+'";
+					$servicesValues[] = "+";
 				}
-				else if(0 > ($service['totalRes'] / $service['count']))
+				else if(0 > ($service['totalRes']))
 				{
-					$servicesValues[] = "'-'";
+					$servicesValues[] = "-";
 				}
 				else
 				{
-					$servicesValues[] = "'0'";
+					$servicesValues[] = "0";
 				}
 			}
 			
+			$servicesValues[] = StockHelper::getStockHistoryGen($date);
+			
 			/* Combine the strings */
-			$string .= ', '. implode(",", $servicesValues) .']';
-			$jsData[] = $string;
+//			$string .= ', '. implode(",", $servicesValues) .']';
+			$jsData[] = $servicesValues;
 			
 			/* Clear the values and release them */
 			unset($string);
@@ -58,7 +67,7 @@
 		/* Where to go, which database, and which collection */
 		$m = new Mongo("mongodb://otternq:Swimm3r.@ds037407.mongolab.com:37407/socialstock");
 		$db = $m->selectDB('socialstock');
-		$collection = new MongoCollection($db, 'results');
+		$collection = new MongoCollection($db, 'results2');
 		
 		/* Create an array for the sentiment */
 		$resultArray = array();
@@ -67,7 +76,7 @@
 		foreach($collection->find(array()) as $message)
 		{
 			/* Make the indexes variables */
-			$firstIndex = date("F-d-Y", $message['date']);
+			$firstIndex = date("Y-m-d", $message['date']);
 			$secondIndex = $message['algorithm'];
 			
 			/* Find the sum of results and the number of entries */
@@ -83,6 +92,7 @@
 				$resultArray[$firstIndex][$secondIndex]['totalRes'] += $message['result'];
 				$resultArray[$firstIndex][$secondIndex]['count']++;
 			}
+			
 		}
 		
 		/* Alphabetize the entries */
