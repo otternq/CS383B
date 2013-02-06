@@ -1,7 +1,8 @@
 <?php
 require dirname(__DIR__) . '/getSocialData/autoload.php';
 
-function my_autoloader_tester($class) {
+spl_autoload_register(
+   function($class) {
       static $classes = null;
       if ($classes === null) {
          $classes = array(
@@ -13,5 +14,4 @@ function my_autoloader_tester($class) {
          require __DIR__ . $classes[$cn];
       }
    }
-
-spl_autoload_register('my_autoloader_tester');
+);

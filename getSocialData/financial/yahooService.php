@@ -7,7 +7,7 @@ class YahooService {
     }
 
     function getURL($company) {
-        $url = 'http://ichart.finance.yahoo.com/table.csv?s='.$company.'&d=5&e=16&f=2012&g=d&a=3&b=12&c=1996&ignore=.csv';
+        $url = 'http://ichart.finance.yahoo.com/table.csv?s='.$company.'&a=3&b=12&c=1996&ignore=.csv';
 
         return $url;
     }

@@ -17,8 +17,11 @@ define("GOOGLEPLUS_API_KEY", "AIzaSyD4P43J4OUQZHcDwsrGpod7h1ITO9pyk4g");
 
 
 $stockCodes = array(
+    "AAPL",
     "GOOG",
-    "AAPL"
+    "AMZN",
+    "FB",
+    "MSFT"
 );
 
 $searchTerms = array(
